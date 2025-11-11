@@ -9,7 +9,8 @@ entity fetch is
         i_addimm    : in  std_logic_vector(31 downto 0);
 	i_branch : in std_logic;
 	i_zero : in std_logic;
-	o_instruction : out std_logic_vector(31 downto 0)
+	i_rst : in std_logic;
+	o_addr : out std_logic_vector(31 downto 0)
     );
 end fetch;
 
@@ -22,21 +23,6 @@ architecture structure of fetch is
         i_WE         : in std_logic;     -- Write enable input
         i_D   : in std_logic_vector(31 downto 0);  -- n-bit data input
         o_Q   : out std_logic_vector(31 downto 0)  -- n-bit data output
-	);
-    end component;
-
-    component i_mem
-	generic (
-	DATA_WIDTH : natural := 32;
-	ADDR_WIDTH : natural := 10
-	);
-
-	port(
-	clk		: in std_logic;
-	addr	        : in std_logic_vector((ADDR_WIDTH-1) downto 0);
-	data	        : in std_logic_vector((DATA_WIDTH-1) downto 0);
-	we		: in std_logic := '1';
-	q		: out std_logic_vector((DATA_WIDTH -1) downto 0)
 	);
     end component;
 
@@ -94,22 +80,10 @@ begin
     PC: reg
 	port map(
 	i_CLK => i_CLK,
-	i_RST => '0',
+	i_RST => i_rst,
         i_WE => '1',
         i_D => muxtoPC,
         o_Q => PCout
-	);
-
-    i_mem_inst: i_mem
-	generic map(	
-	DATA_WIDTH => 32,
-	ADDR_WIDTH => 10)
-	port map(
-	clk => i_CLK,
-	addr => PCout(9 downto 0),
-	data => x"00000000",
-	we => '0',
-	q => o_instruction
 	);
 
     add4: ripple_adder
@@ -133,5 +107,7 @@ begin
         o_Sum => PCplusimm,
         o_Cout => open
         );
+
+	o_addr <= PCout;
 
 end structure;

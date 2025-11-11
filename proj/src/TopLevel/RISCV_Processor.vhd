@@ -144,8 +144,12 @@ architecture structure of RISCV_Processor is
         i_addimm    : in  std_logic_vector(31 downto 0);
 	i_branch : in std_logic;
 	i_zero : in std_logic;
-	o_instruction : out std_logic_vector(31 downto 0));
+	i_rst : in std_logic;
+	o_addr : out std_logic_vector(31 downto 0)
+    	);
     end component;
+
+	signal s_
 
 
 begin
@@ -180,12 +184,14 @@ begin
   -- TODO: Implement the rest of your processor below this comment! 
 
     fetch_i : fetch
-	port map(
-	i_CLK => i_CLK,
-        i_addimm => s_ext,
-	i_branch => s_Branch,
-	i_zero => s_ALUzero,
-	o_instruction => s_instruction);
+    port map(
+      i_CLK     => i_CLK,
+      i_addimm => s_ext,
+      i_branch => s_Branch,
+      i_zero   => s_ALUzero,
+      i_rst	=> '0',
+      o_addr     => s_NextInstAddr
+    );
 
 
     regfile_i : regfile
@@ -219,8 +225,8 @@ begin
 
     extender_i : extender
 	port map(
-	i_in12 => s_instruction(31 downto 20),--TODO
-	i_unsigned => '1',--TODO
+	i_in12 => s_Inst(31 downto 20),--TODO
+	i_unsigned => '0',--TODO
 	o_out32 => s_ext);	
 
     busmux_i : busmux2to1
@@ -232,7 +238,7 @@ begin
 
     control_i : control
 	port map(
-	i_instruction => s_instruction(6 downto 0),
+	i_instruction => s_Inst(6 downto 0),
 	Branch => s_Branch,
 	MemRead => s_MemRead,
 	MemtoReg => s_MemtoReg,
@@ -240,6 +246,24 @@ begin
 	MemWrite => s_MemWrite,
 	ALUSrc => s_ALUSrc,
 	RegWrite => s_RegWrite); 
+
+     ALU_control
+        port map(
+        ALUOp => s_ALUOp,
+        instruction(3) => s_Inst(30),
+	instruction(2 downto 0) => s_Inst(14 downto 12),
+	
+	o_AltEn => s_AltEn,
+	o_ShiftEn => s_ShiftEn,
+	o_GateEn => s_GateEn,
+	o_BranchSel => s_BranchSel,
+	o_ShiftDir => s_ShiftDir,
+	o_ShiftArith => s_ShiftArith,
+        o_Sub => s_Sub);
+    end component;	
+
+s_DMemAddr <= s_ALUout;
+s_DMemData <= s_regout2;
 
 end structure;
 

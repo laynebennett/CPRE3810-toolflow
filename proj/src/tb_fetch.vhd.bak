@@ -1,0 +1,111 @@
+
+library IEEE;
+use IEEE.std_logic_1164.all;library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tb_fetch is
+  generic(gCLK_HPER   : time := 50 ns);
+end tb_fetch;
+
+architecture behavior of tb_fetch is
+
+  constant cCLK_PER : time := gCLK_HPER * 2;
+
+  component fetch
+	port (
+	i_CLK : in std_logic;
+        i_addimm    : in  std_logic_vector(31 downto 0);
+	i_branch : in std_logic;
+	i_zero : in std_logic;
+	i_rst : in std_logic;
+	o_addr : out std_logic_vector(9 downto 0)
+    	);
+end component;
+
+  -- signals
+  signal s_CLK : std_logic;
+  signal s_addimm : std_logic_vector(31 downto 0);
+  signal s_branch  : std_logic;
+  signal s_zero    : std_logic;
+  signal s_rst	: std_logic;
+  signal s_addr    : std_logic_vector(9 downto 0);
+
+begin
+
+  DUT: fetch
+    port map(
+      i_CLK     => s_CLK,
+      i_addimm => s_addimm,
+      i_branch => s_branch,
+      i_zero   => s_zero,
+      i_rst	=> s_rst,
+      o_addr     => s_addr
+    );
+  -- This process sets the clock value (low for gCLK_HPER, then high
+  -- for gCLK_HPER). Absent a "wait" command, processes restart 
+  -- at the beginning once they have reached the final statement.
+  P_CLK: process
+  begin
+    s_CLK <= '0';
+    wait for gCLK_HPER;
+    s_CLK <= '1';
+    wait for gCLK_HPER;
+  end process;
+  
+ P_TB: process
+  begin
+    ----------------------------------------------------------------
+    -- Test 1: Reset PC
+    ----------------------------------------------------------------
+    
+    s_addimm <= x"00000000";
+    s_branch <= '0';
+    s_zero <= '0'; 
+
+    s_rst <= '1';
+    wait for cCLK_PER;
+    s_rst <= '0';
+--expected: PC=0
+    ----------------------------------------------------------------
+    -- Test 2: Move forward 1 word
+    ----------------------------------------------------------------
+    s_addimm <= x"00000000";
+    s_branch <= '0';
+    s_zero <= '0'; 
+
+    wait for cCLK_PER;
+--expected: PC=4
+    ----------------------------------------------------------------
+    -- Test 3: Move forward another word
+    ----------------------------------------------------------------
+    s_addimm <= x"00000000";
+    s_branch <= '0';
+    s_zero <= '0'; 
+
+    wait for cCLK_PER;
+--expected: PC=8
+    ----------------------------------------------------------------
+    -- Test 4: Jump by 8
+    ----------------------------------------------------------------
+    s_addimm <= x"00000008";
+    s_branch <= '1';
+    s_zero <= '1'; 
+
+    wait for cCLK_PER;   
+--expected: PC=x10 
+    ----------------------------------------------------------------
+    -- Test 5: Jump not taken
+    ----------------------------------------------------------------
+    s_addimm <= x"00000008";
+    s_branch <= '1';
+    s_zero <= '0'; 
+
+    wait for cCLK_PER; 
+--expected: PC=x14
+   
+
+    wait;
+  end process;
+
+end behavior;
