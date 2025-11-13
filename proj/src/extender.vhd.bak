@@ -18,7 +18,7 @@ end extender;
 
 architecture structure of extender is
 
-    signal muxtoadd : std_logic_vector(19 downto 0);
+    signal muxtoadd : std_logic_vector(31 downto 0);
     signal s_sign   : std_logic;
     signal upper    : std_logic_vector(19 downto 0);
 
@@ -39,13 +39,13 @@ begin
     busmux2to1_i : busmux2to1
       port map(
         i_S  => s_sign,
-        i_D0 => x"00000000",
-        i_D1 => x"FFFFFFFF",
-        o_Q(19 downto 0)  => muxtoadd
+        i_D0 => x"00000",
+        i_D1 => x"FFFFF",
+        o_Q  => muxtoadd
       );
 
     -- Choose between signed and unsigned upper bits
-    upper <= (others => '0') when (i_unsigned = '1') else muxtoadd;
+    upper <= (others => '0') when (i_unsigned = '1') else muxtoadd(19 downto 0);
 
     -- Combine high and low halves
     o_out32 <= upper & i_in12;

@@ -11,7 +11,8 @@ entity addsubi is
 	ALUSrc : in  std_logic;
         i_Sub  : in  std_logic; -- 0 = add, 1 = sub
         o_Sum  : out std_logic_vector(N-1 downto 0);
-        o_Cout : out std_logic
+        o_Cout : out std_logic;
+	o_Ovf  : out std_logic
     );
 end addsubi;
 
@@ -33,7 +34,8 @@ architecture structure of addsubi is
             i_B    : in  std_logic_vector(N-1 downto 0);
             i_Cin  : in  std_logic;
             o_Sum  : out std_logic_vector(N-1 downto 0);
-            o_Cout : out std_logic
+            o_Cout : out std_logic;
+	    o_Ovf  : out std_logic
         );
     end component;
 
@@ -74,7 +76,8 @@ begin
             i_B    => b_xor_sub,
             i_Cin  => i_Sub,
             o_Sum  => o_Sum,
-            o_Cout => o_Cout
+            o_Cout => o_Cout,
+	    o_Ovf  => o_Ovf
         );
 
 end structure;

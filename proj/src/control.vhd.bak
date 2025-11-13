@@ -23,7 +23,7 @@ begin
 
 i_control <= i_instruction;
 
-process
+process(i_control)
 begin
 
 --R type
@@ -40,7 +40,7 @@ elsif i_control = "0010011" then
 	Branch <= '0';
 	MemRead <= '0';
 	MemtoReg <= '0';
-	ALUOp <= "10";
+	ALUOp <= "00";
 	Memwrite <= '0';
 	ALUSrc <= '1';
 	Regwrite <= '1';

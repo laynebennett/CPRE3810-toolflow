@@ -8,7 +8,8 @@ entity ripple_adder is
         i_B    : in  std_logic_vector(N-1 downto 0);
         i_Cin  : in  std_logic;
         o_Sum  : out std_logic_vector(N-1 downto 0);
-        o_Cout : out std_logic
+        o_Cout : out std_logic;
+	o_Ovf  : out std_logic
     );
 end ripple_adder;
 
@@ -42,5 +43,6 @@ begin
     end generate;
 
     o_Cout <= c(N);
+    o_Ovf <= c(N) xor c(N-1);
 
 end structure;

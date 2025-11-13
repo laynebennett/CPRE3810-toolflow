@@ -1,7 +1,7 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
-use work.mux_array_package.all;
+use work.RISCV_types.all;
 
 entity regfile is
 

@@ -30,7 +30,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 
 ----------------------------------------R TYPE---ALUOp = 10
 
------------adsub
+-----------addsub
 
 	process (input)
 	begin
@@ -128,7 +128,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftArith <= '1';
 			o_Sub <= '0';
 
-------------------------------B TYPE---ASSUME FUNCT7=0---ALUOp = 01
+------------------------------B TYPE---ASSUME FUNCT7=0---ALUOp = 01 --EDIT SO 01X000
 
 ------------branch
 
@@ -172,6 +172,22 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftArith <= '0';
 			o_Sub <= '1';
 
+------------------------------------ALUOp = 00
+
+------------lw-sw
+
+
+
+
+		elsif ALUOp = "00" then
+			o_AltEn <= '0';
+			o_ShiftEn <= '0';
+			o_GateEn <= "00";
+			o_BranchSel <= "00";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '0';
+
 		else
 			o_AltEn <= '0';
 			o_ShiftEn <= '0';
@@ -180,6 +196,8 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+
+
 		end if;
 
 	end process;

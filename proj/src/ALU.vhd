@@ -18,7 +18,8 @@ entity ALU is
         i_Sub  : in  std_logic; -- 0 = add, 1 = sub
         o_ALU  : out std_logic_vector(N-1 downto 0);
         o_Cout : out std_logic;
-	o_zero : out std_logic
+	o_zero : out std_logic;
+	o_Ovf  : out std_logic
     );
 end ALU;
 
@@ -61,7 +62,8 @@ architecture structure of ALU is
 	ALUSrc : in  std_logic;
         i_Sub  : in  std_logic; -- 0 = add, 1 = sub
         o_Sum  : out std_logic_vector(N-1 downto 0);
-        o_Cout : out std_logic
+        o_Cout : out std_logic;
+	o_Ovf  : out std_logic
     	);
     end component;
 
@@ -166,7 +168,8 @@ begin
 	ALUSrc => ALUSrc,
         i_Sub => i_Sub,
         o_Sum => addsubiout,
-        o_Cout => o_Cout
+        o_Cout => o_Cout,
+	o_Ovf => o_Ovf
 	);
 
     busmux_inst2: busmux2to1

@@ -60,8 +60,14 @@ begin
 	i_EN => i_WE,
 	o_Q => decout);
 
+    z_reg : reg
+	  port map(i_CLK => i_CLK,
+       		   i_WE => '0',       
+		   i_D => x"00000000",           -- Data value input
+		   i_RST => i_RST_ALL,
+       		   o_Q => muxin(0));     -- Data value output    
 
-    g_regs : for i in 0 to N-1 generate
+    g_regs : for i in 1 to N-1 generate
 	i_reg : reg
 	  port map(i_CLK => i_CLK,
        		   i_WE => decout(i),       
