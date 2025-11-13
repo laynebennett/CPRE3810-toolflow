@@ -12,7 +12,9 @@ port(
 	MemWrite : out std_logic;
 	ALUSrc : out std_logic;
 	RegWrite : out std_logic;
-	Halt : out std_logic	
+	Halt : out std_logic;	
+	LUI : out std_logic;
+	PCAdd : out std_logic
 );
 end control;
 
@@ -37,16 +39,20 @@ if i_control = "0110011" then
 	ALUSrc <= '0';
 	Regwrite <= '1';
 	Halt <= '0';
+	LUI <= '0';
+	PCAdd <= '0';
 --I(imm) type
 elsif i_control = "0010011" then
 	Branch <= '0';
 	MemRead <= '0';
 	MemtoReg <= '0';
-	ALUOp <= "00";
+	ALUOp <= "11";
 	Memwrite <= '0';
 	ALUSrc <= '1';
 	Regwrite <= '1';
 	Halt <= '0';
+	LUI <= '0';
+	PCAdd <= '0';
 --I(Load) type
 elsif i_control = "0000011" then
 	Branch <= '0';
@@ -57,6 +63,8 @@ elsif i_control = "0000011" then
 	ALUSrc <= '1';
 	Regwrite <= '1';
 	Halt <= '0';
+	LUI <= '0';
+	PCAdd <= '0';
 --I(Jump) type
 elsif i_control = "1100111" then
 	Branch <= '0';
@@ -67,6 +75,8 @@ elsif i_control = "1100111" then
 	ALUSrc <= '1';
 	Regwrite <= '1';
 	Halt <= '0';
+	LUI <= '0';
+	PCAdd <= '0';
 --S type
 elsif i_control = "0100011" then
 	Branch <= '0';
@@ -77,6 +87,8 @@ elsif i_control = "0100011" then
 	ALUSrc <= '1';
 	Regwrite <= '0';
 	Halt <= '0';
+	LUI <= '0';
+	PCAdd <= '0';
 --B type
 elsif i_control = "1100011" then
 	Branch <= '1';
@@ -84,9 +96,11 @@ elsif i_control = "1100011" then
 	MemtoReg <= '0';
 	ALUOp <= "01";
 	Memwrite <= '0';
-	ALUSrc <= '1';
-	Regwrite <= '1';
+	ALUSrc <= '0';
+	Regwrite <= '0';
 	Halt <= '0';
+	LUI <= '0';
+	PCAdd <= '0';
 --U(AUIPC) type
 elsif i_control = "0010111" then
 	Branch <= '0';
@@ -97,6 +111,8 @@ elsif i_control = "0010111" then
 	ALUSrc <= '1';
 	Regwrite <= '1';
 	Halt <= '0';
+	LUI <= '1';
+	PCAdd <= '1';
 --U(LUI) type
 elsif i_control = "0110111" then
 	Branch <= '0';
@@ -107,6 +123,8 @@ elsif i_control = "0110111" then
 	ALUSrc <= '1';
 	Regwrite <= '1';
 	Halt <= '0';
+	LUI <= '1';
+	PCAdd <= '0';
 --J type
 elsif i_control = "1101111" then
 	Branch <= '0';
@@ -117,6 +135,8 @@ elsif i_control = "1101111" then
 	ALUSrc <= '1';
 	Regwrite <= '1';
 	Halt <= '0';
+	LUI <= '0';
+	PCAdd <= '0';
 --HALT
 elsif i_control = "1110011" then
 	Halt <= '1';

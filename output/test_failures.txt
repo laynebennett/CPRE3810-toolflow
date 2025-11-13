@@ -1,1 +1,1 @@
-proj/riscv/andi3.s
+proj/riscv/beq_1.s

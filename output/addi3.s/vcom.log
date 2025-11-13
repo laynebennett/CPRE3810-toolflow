@@ -1,5 +1,5 @@
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-Start time: 03:40:05 on Nov 13,2025
+Start time: 12:03:24 on Nov 13,2025
 vcom -2008 -work internal/ModelSimContainer/work proj/src/RISCV_types.vhd internal/testpy/tb.vhd proj/src/SECONDRISCVDATA.vhd proj/src/i_mem.vhd proj/src/busandg2.vhd proj/src/fetch.vhd proj/src/ALU.vhd proj/src/andg2.vhd proj/src/halfbusmux2to1.vhd proj/src/tb_bshiftr.vhd proj/src/reg.vhd proj/src/ripple_adder.vhd proj/src/dec5to32.vhd proj/src/control.vhd proj/src/RISCVDATA.vhd proj/src/mem.vhd proj/src/org32.vhd proj/src/mux2to1_array_package.vhd proj/src/andg32.vhd proj/src/RISCV_types.vhd proj/src/regfile.vhd proj/src/mux32to1.vhd proj/src/busmux2to1.vhd proj/src/tb_ALU.vhd proj/src/extender.vhd proj/src/ALU_control.vhd proj/src/org2.vhd proj/src/norg32.vhd proj/src/dffg.vhd proj/src/xorg2.vhd proj/src/mux2to1.vhd proj/src/mux_array_package.vhd proj/src/full_adder.vhd proj/src/tb_fetch.vhd proj/src/addsubi.vhd proj/src/xorg32.vhd proj/src/array_package_0to1.vhd proj/src/bshiftr.vhd proj/src/PART1.vhd proj/src/TopLevel/RISCV_Processor.vhd proj/src/TopLevel/mem.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -97,5 +97,5 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/RISCV_types.vhd intern
 -- Compiling entity mem
 ** Warning: proj/src/TopLevel/mem.vhd(27): (vcom-1615) Existing architecture 'mem(rtl)' at proj/src/mem.vhd(27) will be overwritten.
 -- Compiling architecture rtl of mem
-End time: 03:40:05 on Nov 13,2025, Elapsed time: 0:00:00
+End time: 12:03:24 on Nov 13,2025, Elapsed time: 0:00:00
 Errors: 0, Warnings: 6

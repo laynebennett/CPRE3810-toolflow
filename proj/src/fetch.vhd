@@ -10,7 +10,8 @@ entity fetch is
 	i_branch : in std_logic;
 	i_zero : in std_logic;
 	i_rst : in std_logic;
-	o_addr : out std_logic_vector(31 downto 0)
+	o_addr : out std_logic_vector(31 downto 0);
+	o_nextaddr : out std_logic_vector(31 downto 0)
     );
 end fetch;
 
@@ -109,5 +110,6 @@ begin
         );
 
 	o_addr <= PCout;
+	o_nextaddr <= PCplus4;
 
 end structure;

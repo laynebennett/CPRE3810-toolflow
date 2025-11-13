@@ -83,6 +83,10 @@ signal s_ALUout : std_logic_vector(31 downto 0);
 signal s_ALUzero : std_logic;
 signal s_memout : std_logic_vector(31 downto 0);
 signal s_out : std_logic_vector(31 downto 0);
+signal s_LUI : std_logic;
+signal s_PCAdd : std_logic;
+signal s_ALUA : std_logic_vector(31 downto 0);
+signal s_nextaddr : std_logic_vector(31 downto 0);
 
   component mem is
     generic(ADDR_WIDTH : integer;
@@ -110,7 +114,9 @@ signal s_out : std_logic_vector(31 downto 0);
 	MemWrite : out std_logic;
 	ALUSrc : out std_logic;
 	RegWrite : out std_logic;
-	Halt : out std_logic
+	Halt : out std_logic;
+	LUI : out std_logic;
+	PCAdd : out std_logic
 	);
     end component;
 
@@ -134,8 +140,9 @@ signal s_out : std_logic_vector(31 downto 0);
 
     component extender
 	port (
-	i_in12	        : in std_logic_vector(11 downto 0);
+	i_in32	        : in std_logic_vector(31 downto 0);
 	i_unsigned	: in std_logic; --1 for unsigned
+	i_LUI		: in std_logic;
 	o_out32		: out std_logic_vector((31) downto 0));
     end component;
 
@@ -173,7 +180,8 @@ signal s_out : std_logic_vector(31 downto 0);
 	i_branch : in std_logic;
 	i_zero : in std_logic;
 	i_rst : in std_logic;
-	o_addr : out std_logic_vector(31 downto 0)
+	o_addr : out std_logic_vector(31 downto 0);
+	o_nextaddr : out std_logic_vector(31 downto 0)
     	);
     end component;
 
@@ -243,7 +251,8 @@ begin
       i_branch => s_Branch,
       i_zero   => s_ALUzero,
       i_rst	=> iRST,
-      o_addr     => s_NextInstAddr
+      o_addr     => s_NextInstAddr,
+      o_nextaddr => s_nextaddr
     );
 
 
@@ -261,7 +270,7 @@ begin
 	
     ALU_i : ALU
 	port map(
-	i_A => s_regout1,
+	i_A => s_ALUA,
         i_B => s_regout2,
 	i_imm => s_ext,
 	ALUSrc => s_ALUSrc,
@@ -279,8 +288,9 @@ begin
 
     extender_i : extender
 	port map(
-	i_in12 => s_Inst(31 downto 20),--TODO
+	i_in32 => s_Inst(31 downto 0),--TODO
 	i_unsigned => '0',--TODO
+	i_LUI => s_LUI,
 	o_out32 => s_ext);	
 
     busmux_i : busmux2to1
@@ -300,7 +310,9 @@ begin
 	MemWrite => s_MemWrite,
 	ALUSrc => s_ALUSrc,
 	RegWrite => s_RegWr,
-	Halt => s_Halt); 
+	Halt => s_Halt,
+	LUI => s_LUI,
+	PCAdd => s_PCAdd); 
 
      ALU_control_i : ALU_control
         port map(
@@ -315,6 +327,13 @@ begin
 	o_ShiftDir => s_ShiftDir,
 	o_ShiftArith => s_ShiftArith,
         o_Sub => s_Sub);
+
+     busmux_pcadd : busmux2to1
+	port map(
+	i_S => s_PCAdd,
+	i_D0 => s_regout1,
+	i_D1 => s_NextInstAddr,
+	o_Q => s_ALUA);
 
 s_DMemAddr <= s_ALUout;
 s_DMemData <= s_regout2;
