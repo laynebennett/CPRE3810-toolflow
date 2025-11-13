@@ -57,6 +57,33 @@ architecture structure of RISCV_Processor is
   -- Required overflow signal -- for overflow exception detection
   signal s_Ovfl         : std_logic;  -- TODO: this signal indicates an overflow exception would have been initiated
 
+signal s_Branch :  std_logic;
+signal s_MemRead :  std_logic;
+signal s_MemtoReg :  std_logic;
+signal s_ALUOp :  std_logic_vector(1 downto 0);
+signal s_MemWrite :  std_logic;
+signal s_ALUSrc :  std_logic;
+signal s_RegWrite :  std_logic;	
+signal s_regin : std_logic_vector(31 downto 0);
+signal s_regout1 : std_logic_vector(31 downto 0);
+signal s_regout2 : std_logic_vector(31 downto 0);
+signal s_ext : std_logic_vector(31 downto 0);
+--signal s_ALUOp    :  std_logic_vector(1 downto 0);
+signal s_ALUinstruction    : std_logic_vector(3 downto 0); --instruction[30, 14-12]
+	
+signal s_AltEn  : std_logic; --enables shift and gates
+signal s_ShiftEn: std_logic; --selects between shift (1) or and/xor/or/nor gates (0)
+signal s_GateEn : std_logic_vector(1 downto 0); --00 = and, 01 = xor, 10 = or, 11 = nor
+signal s_BranchSel : std_logic_vector(1 downto 0); --00 = BEQ, 01 = BGE, 10 = BLT, 11 = BNE 
+signal s_ShiftDir : std_logic; --0 = left, 1 = right
+signal s_ShiftArith : std_logic; 
+signal s_Sub  :   std_logic; -- 0 = add, 1 = sub
+
+signal s_ALUout : std_logic_vector(31 downto 0);
+signal s_ALUzero : std_logic;
+signal s_memout : std_logic_vector(31 downto 0);
+signal s_out : std_logic_vector(31 downto 0);
+
   component mem is
     generic(ADDR_WIDTH : integer;
             DATA_WIDTH : integer);
@@ -149,7 +176,31 @@ architecture structure of RISCV_Processor is
     	);
     end component;
 
-	signal s_
+	-----ALU
+
+
+     component ALU
+         generic(N : integer := 32);
+         port (
+         i_A    : in  std_logic_vector(N-1 downto 0);
+         i_B    : in  std_logic_vector(N-1 downto 0);
+	 i_imm  : in  std_logic_vector(N-1 downto 0);
+	 ALUSrc : in  std_logic; --1 = use imm, 0 = use B
+	 AltEn  : in std_logic; --enables shift and gates
+	 ShiftEn: in  std_logic; --selects between shift (1) or and/xor/or/nor gates (0)
+	 GateEn : in  std_logic_vector(1 downto 0); --00 = and, 01 = xor, 10 = or, 11 = nor
+	 BranchSel : in std_logic_vector(1 downto 0); --00 = BEQ, 01 = BGE, 10 = BLT, 11 = BNE 
+	 ShiftDir : in std_logic; --0 = left, 1 = right
+	 ShiftArith : in std_logic; 
+         i_Sub  : in  std_logic; -- 0 = add, 1 = sub
+         o_ALU  : out std_logic_vector(N-1 downto 0);
+         o_Cout : out std_logic;
+	 o_zero : out std_logic
+    	 );
+	 end component;
+
+
+
 
 
 begin
@@ -185,7 +236,7 @@ begin
 
     fetch_i : fetch
     port map(
-      i_CLK     => i_CLK,
+      i_CLK     => iCLK,
       i_addimm => s_ext,
       i_branch => s_Branch,
       i_zero   => s_ALUzero,
@@ -196,13 +247,13 @@ begin
 
     regfile_i : regfile
 	port map(
-	i_CLK => i_CLK,
+	i_CLK => iCLK,
 	i_WA => s_Inst(11 downto 7),
         i_RA1 => s_Inst(19 downto 15),
         i_RA2 => s_Inst(24 downto 20),
         i_WE => s_RegWr,
         i_DATA => s_RegWrData,
-        i_RST_ALL => i_RST_ALL,
+        i_RST_ALL => iRST,
         o_Q1 => s_regout1,
         o_Q2 => s_regout2);
 	
@@ -220,7 +271,7 @@ begin
 	ShiftArith => s_ShiftArith,
         i_Sub  => s_Sub,
         o_ALU  => s_ALUout,
-        o_Cout => open,
+        o_Cout => s_Ovfl,
 	o_zero => s_ALUzero);
 
     extender_i : extender
@@ -247,7 +298,7 @@ begin
 	ALUSrc => s_ALUSrc,
 	RegWrite => s_RegWrite); 
 
-     ALU_control
+     ALU_control_i : ALU_control
         port map(
         ALUOp => s_ALUOp,
         instruction(3) => s_Inst(30),
@@ -260,10 +311,10 @@ begin
 	o_ShiftDir => s_ShiftDir,
 	o_ShiftArith => s_ShiftArith,
         o_Sub => s_Sub);
-    end component;	
 
 s_DMemAddr <= s_ALUout;
 s_DMemData <= s_regout2;
+oALUOut <= s_ALUout;
 
 end structure;
 
