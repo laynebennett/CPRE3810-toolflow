@@ -9,9 +9,8 @@ entity extender is
 
 	port 
 	(
-		i_in32	        : in std_logic_vector(31 downto 0);
+		i_in12	        : in std_logic_vector(11 downto 0);
 		i_unsigned	: in std_logic; --1 for unsigned
-		i_LUI		: in std_logic; --1 for LUI
 		o_out32		: out std_logic_vector(31 downto 0)
 	);
 
@@ -22,9 +21,6 @@ architecture structure of extender is
     signal muxtoadd : std_logic_vector(31 downto 0);
     signal s_sign   : std_logic;
     signal upper    : std_logic_vector(19 downto 0);
-    signal s_in12   : std_logic_vector(11 downto 0);
-    signal s_opcode : std_logic_vector(6 downto 0);
-    signal s_LUI    : std_logic_vector(31 downto 0);
 
     component busmux2to1    
       port(
@@ -37,9 +33,7 @@ architecture structure of extender is
 
 begin
 
-    s_in12 <= i_in32(31 downto 20);
-    s_sign <= s_in12(11);
-    s_opcode <= i_in32(6 downto 0);
+    s_sign <= i_in12(11);
 
     -- Pick sign bits for signed case
     busmux2to1_i : busmux2to1
@@ -53,11 +47,8 @@ begin
     -- Choose between signed and unsigned upper bits
     upper <= (others => '0') when (i_unsigned = '1') else muxtoadd(19 downto 0);
 
-    -- SET LUI 
-    s_LUI <= std_logic_vector(signed(i_in32(31 downto 12) & x"000")); 
-
     -- Combine high and low halves
-    o_out32 <= (upper & s_in12) when (i_LUI = '0') else s_LUI;
+    o_out32 <= upper & i_in12;
 
 end structure;
 
