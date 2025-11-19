@@ -173,10 +173,10 @@ R30
 R23
 R24
 Ealu_control
-Z31 w1763435341
+Z31 w1763586251
 R13
 R14
-!i122 1651
+!i122 1662
 R15
 Z32 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd
 Z33 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd
@@ -186,9 +186,9 @@ Vaa77OAEGng>iXMH=eA>J81
 !s100 JagQ3:j]If9WUPNSH31;A2
 R18
 32
-Z34 !s110 1763499845
+Z34 !s110 1763586257
 !i10b 1
-Z35 !s108 1763499845.000000
+Z35 !s108 1763586257.000000
 Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd|
 Z37 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd|
 !i113 0
@@ -198,11 +198,11 @@ Abehavioral
 R13
 R14
 DEx4 work 11 alu_control 0 22 aa77OAEGng>iXMH=eA>J81
-!i122 1651
+!i122 1662
 l25
-L21 185
-VK`En_HSAdD6_L7B<`LiYE3
-!s100 XJ_[^SNTBXF1:`g_]?_8J2
+L21 283
+VhWd6h>9gJb;VohE6`idKN3
+!s100 EibFd5DLE6@K:c^Xn6fN>3
 R18
 32
 R34
@@ -466,11 +466,11 @@ R70
 R23
 R24
 Econtrol
-Z72 w1763500899
+Z72 w1763586244
 R66
 R13
 R14
-!i122 1656
+!i122 1661
 R15
 Z73 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/control.vhd
 Z74 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/control.vhd
@@ -480,9 +480,9 @@ Vm>?^lZBz0XIe7UUKWD4_?1
 !s100 eI8g3h4I4M;Sz@5Ek39_l0
 R18
 32
-Z75 !s110 1763500910
+Z75 !s110 1763586247
 !i10b 1
-Z76 !s108 1763500910.000000
+Z76 !s108 1763586247.000000
 Z77 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/control.vhd|
 Z78 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/control.vhd|
 !i113 0
@@ -493,11 +493,11 @@ R66
 R13
 R14
 DEx4 work 7 control 0 22 m>?^lZBz0XIe7UUKWD4_?1
-!i122 1656
+!i122 1661
 l23
 L19 111
-VE6mj2e6DBhNF=k:0M2e^`0
-!s100 b_BAE064di<?79We9P8bz1
+V31OmQo1IZ]_d>zTinBo381
+!s100 V6@YdlG5V`jSWORzTX5Ri0
 R18
 32
 R75
@@ -591,25 +591,25 @@ R88
 R23
 R24
 Eextender
-R31
+Z89 w1763435341
 R66
 R13
 R14
 !i122 1653
 R15
-Z89 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/extender.vhd
-Z90 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/extender.vhd
+Z90 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/extender.vhd
+Z91 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/extender.vhd
 l0
 L6 1
 V2E1dMYDG4kU33BTm]<SnR0
 !s100 ?22;0G^ECWdba>R2=XRXQ0
 R18
 32
-Z91 !s110 1763499852
+Z92 !s110 1763499852
 !i10b 1
-Z92 !s108 1763499852.000000
-Z93 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/extender.vhd|
-Z94 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/extender.vhd|
+Z93 !s108 1763499852.000000
+Z94 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/extender.vhd|
+Z95 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/extender.vhd|
 !i113 0
 R23
 R24
@@ -617,7 +617,7 @@ Astructure
 R66
 R13
 R14
-Z95 DEx4 work 8 extender 0 22 2E1dMYDG4kU33BTm]<SnR0
+Z96 DEx4 work 8 extender 0 22 2E1dMYDG4kU33BTm]<SnR0
 !i122 1653
 l34
 L19 35
@@ -625,33 +625,33 @@ V`W>LoJlGPh_Hh^c6dgNK12
 !s100 h]53DNO5YzIiQJLCNBkSm3
 R18
 32
-R91
-!i10b 1
 R92
+!i10b 1
 R93
 R94
+R95
 !i113 0
 R23
 R24
 Efetch
-Z96 w1763502578
+Z97 w1763502578
 R13
 R14
-!i122 1658
+!i122 1660
 R15
-Z97 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/fetch.vhd
-Z98 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/fetch.vhd
+Z98 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/fetch.vhd
+Z99 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/fetch.vhd
 l0
 L6 1
 VmAE_2NZ3NmmcPCV=;BgJ_2
 !s100 oEjhjMbZNi5em:5:`V0>R0
 R18
 32
-Z99 !s110 1763502581
+Z100 !s110 1763584547
 !i10b 1
-Z100 !s108 1763502581.000000
-Z101 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/fetch.vhd|
-Z102 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/fetch.vhd|
+Z101 !s108 1763584547.000000
+Z102 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/fetch.vhd|
+Z103 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/fetch.vhd|
 !i113 0
 R23
 R24
@@ -659,24 +659,24 @@ Astructure
 R13
 R14
 DEx4 work 5 fetch 0 22 mAE_2NZ3NmmcPCV=;BgJ_2
-!i122 1658
+!i122 1660
 l64
 L17 100
 VSNolRAkXlPc^db?_ck;^22
 !s100 `KOO6i^Kz6ZiPI4bZ:W742
 R18
 32
-R99
-!i10b 1
 R100
+!i10b 1
 R101
 R102
+R103
 !i113 0
 R23
 R24
 vfourbitfulladder
 2/home/layneben/Downloads/cpre3810-toolflow/proj/src/fourbitfulladder.v
-Z103 !s110 1762567887
+Z104 !s110 1762567887
 !i10b 1
 !s100 nNCLnGM^=3O9L0X_0<Ykd1
 Im<eNWH=Z]PlzfcA14dOOX3
@@ -691,7 +691,7 @@ R54
 r1
 !s85 0
 31
-Z104 !s108 1762567887.000000
+Z105 !s108 1762567887.000000
 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/fourbitfulladder.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/fourbitfulladder.v|
 !i113 0
@@ -703,8 +703,8 @@ R13
 R14
 !i122 1625
 R15
-Z105 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd
-Z106 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd
+Z106 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd
+Z107 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd
 l0
 L4 1
 VBQJCaRIADh@UZ^?[[N]bO3
@@ -714,8 +714,8 @@ R18
 R85
 !i10b 1
 R86
-Z107 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd|
-Z108 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd|
+Z108 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd|
+Z109 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd|
 !i113 0
 R23
 R24
@@ -733,14 +733,14 @@ R18
 R85
 !i10b 1
 R86
-R107
 R108
+R109
 !i113 0
 R23
 R24
 vfulladder
 2/home/layneben/Downloads/cpre3810-toolflow/proj/src/fulladder.v
-R103
+R104
 !i10b 1
 !s100 L9bBibPPHkQRJR2>AaLnW2
 IebeKoh]2TOcl7=Y:Lg?0V2
@@ -755,7 +755,7 @@ R54
 r1
 !s85 0
 31
-R104
+R105
 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/fulladder.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/fulladder.v|
 !i113 0
@@ -768,8 +768,8 @@ R13
 R14
 !i122 1626
 R15
-Z109 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/halfbusmux2to1.vhd
-Z110 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/halfbusmux2to1.vhd
+Z110 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/halfbusmux2to1.vhd
+Z111 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/halfbusmux2to1.vhd
 l0
 L6 1
 V2<Oi@[0K>jPR`VWL7W5aB2
@@ -779,8 +779,8 @@ R18
 R85
 !i10b 1
 R86
-Z111 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/halfbusmux2to1.vhd|
-Z112 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/halfbusmux2to1.vhd|
+Z112 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/halfbusmux2to1.vhd|
+Z113 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/halfbusmux2to1.vhd|
 !i113 0
 R23
 R24
@@ -799,20 +799,20 @@ R18
 R85
 !i10b 1
 R86
-R111
 R112
+R113
 !i113 0
 R23
 R24
 Ei_mem
-Z113 w1761684817
+Z114 w1761684817
 R66
 R13
 R14
 !i122 1627
 R15
-Z114 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd
-Z115 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd
+Z115 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd
+Z116 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd
 l0
 L9 1
 VA?l[]ZeoQd27:EE;d9S1C2
@@ -822,8 +822,8 @@ R18
 R85
 !i10b 1
 R86
-Z116 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd|
-Z117 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd|
+Z117 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd|
+Z118 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd|
 !i113 0
 R23
 R24
@@ -842,8 +842,8 @@ R18
 R85
 !i10b 1
 R86
-R116
 R117
+R118
 !i113 0
 R23
 R24
@@ -854,8 +854,8 @@ R13
 R14
 !i122 1628
 R15
-Z118 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd
-Z119 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd
+Z119 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd
+Z120 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd
 l0
 L8 1
 VCIA?Dj3Mm_l0m@`CClQMl0
@@ -865,8 +865,8 @@ R18
 R85
 !i10b 1
 R86
-Z120 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd|
-Z121 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd|
+Z121 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd|
+Z122 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd|
 !i113 0
 R23
 R24
@@ -885,20 +885,20 @@ R18
 R85
 !i10b 1
 R86
-R120
 R121
+R122
 !i113 0
 R23
 R24
 Emux2to1
-Z122 w1761637686
+Z123 w1761637686
 R66
 R13
 R14
 !i122 1629
 R15
-Z123 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd
-Z124 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd
+Z124 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd
+Z125 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd
 l0
 L7 1
 VV>cGYA8V?z7^HE^2M0WH?2
@@ -908,8 +908,8 @@ R18
 R85
 !i10b 1
 R86
-Z125 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd|
-Z126 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd|
+Z126 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd|
+Z127 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd|
 !i113 0
 R23
 R24
@@ -928,8 +928,8 @@ R18
 R85
 !i10b 1
 R86
-R125
 R126
+R127
 !i113 0
 R23
 R24
@@ -956,15 +956,15 @@ R86
 R23
 R24
 Emux32to1
-Z127 w1761853906
+Z128 w1761853906
 R66
-Z128 DPx4 work 11 riscv_types 0 22 @=]^DFf3cCVBD9nY>1mg[1
+Z129 DPx4 work 11 riscv_types 0 22 @=]^DFf3cCVBD9nY>1mg[1
 R13
 R14
 !i122 1631
 R15
-Z129 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/mux32to1.vhd
-Z130 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/mux32to1.vhd
+Z130 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/mux32to1.vhd
+Z131 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/mux32to1.vhd
 l0
 L7 1
 VRhSM4;FT1UkOk6jiPn7UY2
@@ -974,14 +974,14 @@ R18
 R85
 !i10b 1
 R86
-Z131 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/mux32to1.vhd|
-Z132 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux32to1.vhd|
+Z132 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/mux32to1.vhd|
+Z133 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux32to1.vhd|
 !i113 0
 R23
 R24
 Adataflow
 R66
-R128
+R129
 R13
 R14
 DEx4 work 8 mux32to1 0 22 RhSM4;FT1UkOk6jiPn7UY2
@@ -995,8 +995,8 @@ R18
 R85
 !i10b 1
 R86
-R131
 R132
+R133
 !i113 0
 R23
 R24
@@ -1023,13 +1023,13 @@ R86
 R23
 R24
 Enorg32
-Z133 w1761604052
+Z134 w1761604052
 R13
 R14
 !i122 1633
 R15
-Z134 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/norg32.vhd
-Z135 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/norg32.vhd
+Z135 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/norg32.vhd
+Z136 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/norg32.vhd
 l0
 L6 1
 VImDaGL0[_gco>K<NIKi`_3
@@ -1039,8 +1039,8 @@ R18
 R85
 !i10b 1
 R86
-Z136 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/norg32.vhd|
-Z137 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/norg32.vhd|
+Z137 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/norg32.vhd|
+Z138 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/norg32.vhd|
 !i113 0
 R23
 R24
@@ -1050,7 +1050,7 @@ R14
 DEx4 work 6 norg32 0 22 ImDaGL0[_gco>K<NIKi`_3
 !i122 1633
 l16
-Z138 L15 6
+Z139 L15 6
 VClff_8iGd>21:h6?I_LK40
 !s100 o41DEZ6>669d7K`i>UM^i0
 R18
@@ -1058,8 +1058,8 @@ R18
 R85
 !i10b 1
 R86
-R136
 R137
+R138
 !i113 0
 R23
 R24
@@ -1069,8 +1069,8 @@ R13
 R14
 !i122 1634
 R15
-Z139 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/org2.vhd
-Z140 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/org2.vhd
+Z140 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/org2.vhd
+Z141 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/org2.vhd
 l0
 R41
 VB2]3[a<V5f9`9eUg6`KhC1
@@ -1080,8 +1080,8 @@ R18
 R85
 !i10b 1
 R86
-Z141 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/org2.vhd|
-Z142 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/org2.vhd|
+Z142 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/org2.vhd|
+Z143 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/org2.vhd|
 !i113 0
 R23
 R24
@@ -1099,19 +1099,19 @@ R18
 R85
 !i10b 1
 R86
-R141
 R142
+R143
 !i113 0
 R23
 R24
 Eorg32
-Z143 w1761603943
+Z144 w1761603943
 R13
 R14
 !i122 1635
 R15
-Z144 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/org32.vhd
-Z145 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/org32.vhd
+Z145 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/org32.vhd
+Z146 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/org32.vhd
 l0
 L5 1
 VCaJUahHmM@?]`ozgEYHF@0
@@ -1121,8 +1121,8 @@ R18
 R85
 !i10b 1
 R86
-Z146 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/org32.vhd|
-Z147 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/org32.vhd|
+Z147 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/org32.vhd|
+Z148 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/org32.vhd|
 !i113 0
 R23
 R24
@@ -1140,20 +1140,20 @@ R18
 R85
 !i10b 1
 R86
-R146
 R147
+R148
 !i113 0
 R23
 R24
 Epart1
-Z148 w1761853989
-R128
+Z149 w1761853989
+R129
 R13
 R14
 !i122 1636
 R15
-Z149 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/PART1.vhd
-Z150 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/PART1.vhd
+Z150 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/PART1.vhd
+Z151 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/PART1.vhd
 l0
 L7 1
 V[O2VjZD_V9PL^B45DJ2[O0
@@ -1163,13 +1163,13 @@ R18
 R85
 !i10b 1
 R86
-Z151 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/PART1.vhd|
-Z152 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/PART1.vhd|
+Z152 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/PART1.vhd|
+Z153 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/PART1.vhd|
 !i113 0
 R23
 R24
 Astructure
-R128
+R129
 R13
 R14
 DEx4 work 5 part1 0 22 [O2VjZD_V9PL^B45DJ2[O0
@@ -1183,8 +1183,8 @@ R18
 R85
 !i10b 1
 R86
-R151
 R152
+R153
 !i113 0
 R23
 R24
@@ -1194,19 +1194,19 @@ R13
 R14
 !i122 1637
 R15
-Z153 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/reg.vhd
-Z154 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/reg.vhd
+Z154 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/reg.vhd
+Z155 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/reg.vhd
 l0
 L5 1
 VTc2^Sl<dL7HNZ6Cg[b1P?1
 !s100 QWT75nLlVNzcz5Uk2lE^n2
 R18
 32
-Z155 !s110 1763026325
+Z156 !s110 1763026325
 !i10b 1
-Z156 !s108 1763026325.000000
-Z157 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/reg.vhd|
-Z158 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/reg.vhd|
+Z157 !s108 1763026325.000000
+Z158 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/reg.vhd|
+Z159 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/reg.vhd|
 !i113 0
 R23
 R24
@@ -1221,39 +1221,39 @@ VV0F3BLNNA1jlYzLaG6>?I2
 !s100 ?k<kmo@7okXgzN`ePnPhg2
 R18
 32
-R155
-!i10b 1
 R156
+!i10b 1
 R157
 R158
+R159
 !i113 0
 R23
 R24
 Eregfile
-Z159 w1763026287
-R128
+Z160 w1763026287
+R129
 R13
 R14
 !i122 1638
 R15
-Z160 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/regfile.vhd
-Z161 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/regfile.vhd
+Z161 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/regfile.vhd
+Z162 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/regfile.vhd
 l0
 L6 1
 VBR^[=eiCzhBJO<73B]O@V1
 !s100 <W3[dfaZBH[Pk]nzICS1C1
 R18
 32
-R155
-!i10b 1
 R156
-Z162 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/regfile.vhd|
-Z163 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/regfile.vhd|
+!i10b 1
+R157
+Z163 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/regfile.vhd|
+Z164 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/regfile.vhd|
 !i113 0
 R23
 R24
 Astructure
-R128
+R129
 R13
 R14
 DEx4 work 7 regfile 0 22 BR^[=eiCzhBJO<73B]O@V1
@@ -1264,33 +1264,33 @@ V^`:97CeEP@ozYz;laS_=C1
 !s100 C86KP6Djna<GbUh`6T@P50
 R18
 32
-R155
-!i10b 1
 R156
-R162
+!i10b 1
+R157
 R163
+R164
 !i113 0
 R23
 R24
 Eripple_adder
-Z164 w1763024951
+Z165 w1763024951
 R13
 R14
 !i122 1639
 R15
-Z165 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/ripple_adder.vhd
-Z166 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/ripple_adder.vhd
+Z166 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/ripple_adder.vhd
+Z167 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/ripple_adder.vhd
 l0
 L4 1
 V47d5]oX4O=Z]J7zh=PIao1
 !s100 e`aEh2P>j93o=c_?PlXTd2
 R18
 32
-R155
-!i10b 1
 R156
-Z167 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/ripple_adder.vhd|
-Z168 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/ripple_adder.vhd|
+!i10b 1
+R157
+Z168 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/ripple_adder.vhd|
+Z169 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/ripple_adder.vhd|
 !i113 0
 R23
 R24
@@ -1305,54 +1305,54 @@ VK4Yhok6NzS0?Z;e3f]N1S3
 !s100 9AmB]bzTIfQ@6X6aXBJK=3
 R18
 32
-R155
-!i10b 1
 R156
-R167
+!i10b 1
+R157
 R168
+R169
 !i113 0
 R23
 R24
 Eriscv_processor
-R31
-R128
+R89
+R129
 R13
 R14
-!i122 1659
+!i122 1663
 R15
-Z169 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd
-Z170 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd
+Z170 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd
+Z171 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd
 l0
 L24 1
 VJXjDN`eJ=9DfJ?VlKXC<Z0
 !s100 2QlZ7gG0Tc=VN8QQV?oB71
 R18
 32
-Z171 !s110 1763502585
+Z172 !s110 1763586263
 !i10b 1
-Z172 !s108 1763502585.000000
-Z173 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd|
-Z174 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd|
+Z173 !s108 1763586263.000000
+Z174 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd|
+Z175 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd|
 !i113 0
 R23
 R24
 Astructure
-R128
+R129
 R13
 R14
-Z175 DEx4 work 15 riscv_processor 0 22 JXjDN`eJ=9DfJ?VlKXC<Z0
-!i122 1659
+Z176 DEx4 work 15 riscv_processor 0 22 JXjDN`eJ=9DfJ?VlKXC<Z0
+!i122 1663
 l208
-Z176 L36 290
-Z177 V1FQIT;CLFV6<b>ojKTf@m0
-Z178 !s100 5g0D0C?kk;zoMPhj@CAD`1
+Z177 L36 290
+Z178 V1FQIT;CLFV6<b>ojKTf@m0
+Z179 !s100 5g0D0C?kk;zoMPhj@CAD`1
 R18
 32
-R171
-!i10b 1
 R172
+!i10b 1
 R173
 R174
+R175
 !i113 0
 R23
 R24
@@ -1360,26 +1360,26 @@ Priscv_types
 R13
 R14
 !i122 1640
-Z179 w1761853840
+Z180 w1761853840
 R15
-Z180 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCV_types.vhd
-Z181 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCV_types.vhd
+Z181 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCV_types.vhd
+Z182 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCV_types.vhd
 l0
 L16 16
 V@=]^DFf3cCVBD9nY>1mg[1
 !s100 nnkb2me;?BHNCOCCJHd2N3
 R18
 32
-R155
-!i10b 1
 R156
-Z182 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCV_types.vhd|
-Z183 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCV_types.vhd|
+!i10b 1
+R157
+Z183 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCV_types.vhd|
+Z184 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCV_types.vhd|
 !i113 0
 R23
 R24
 Bbody
-R128
+R129
 R13
 R14
 !i122 1640
@@ -1389,39 +1389,39 @@ VV:b0d]naVa1z=f?1`P8Ii1
 !s100 0eI5MdORIWdOgXF_M<bDE3
 R18
 32
-R155
-!i10b 1
 R156
-R182
+!i10b 1
+R157
 R183
+R184
 !i113 0
 R23
 R24
 Eriscvdata
-Z184 w1761853946
-R128
+Z185 w1761853946
+R129
 R13
 R14
 !i122 1641
 R15
-Z185 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCVDATA.vhd
-Z186 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCVDATA.vhd
+Z186 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCVDATA.vhd
+Z187 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCVDATA.vhd
 l0
 L6 1
 VSElN1;Ad:78HJiL4?aB><1
 !s100 z<7:_khc2N8TiT1I`CZKR2
 R18
 32
-R155
-!i10b 1
 R156
-Z187 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCVDATA.vhd|
-Z188 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCVDATA.vhd|
+!i10b 1
+R157
+Z188 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCVDATA.vhd|
+Z189 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/RISCVDATA.vhd|
 !i113 0
 R23
 R24
 Astructure
-R128
+R129
 R13
 R14
 DEx4 work 9 riscvdata 0 22 SElN1;Ad:78HJiL4?aB><1
@@ -1432,39 +1432,39 @@ V1Tk1m;bOz4;_8NIiWgVcZ0
 !s100 JL[z`5@OVj_4SNgA?i0mg2
 R18
 32
-R155
-!i10b 1
 R156
-R187
+!i10b 1
+R157
 R188
+R189
 !i113 0
 R23
 R24
 Esecondriscvdata
-Z189 w1761853951
-R128
+Z190 w1761853951
+R129
 R13
 R14
 !i122 1642
 R15
-Z190 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/SECONDRISCVDATA.vhd
-Z191 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/SECONDRISCVDATA.vhd
+Z191 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/SECONDRISCVDATA.vhd
+Z192 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/SECONDRISCVDATA.vhd
 l0
 L7 1
 V7@=mOFbhWIPD;45Q=fVCV3
 !s100 8NSZ]80GaG:iFFD8=5=YH3
 R18
 32
-R155
-!i10b 1
 R156
-Z192 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/SECONDRISCVDATA.vhd|
-Z193 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/SECONDRISCVDATA.vhd|
+!i10b 1
+R157
+Z193 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/SECONDRISCVDATA.vhd|
+Z194 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/SECONDRISCVDATA.vhd|
 !i113 0
 R23
 R24
 Astructure
-R128
+R129
 R13
 R14
 DEx4 work 15 secondriscvdata 0 22 7@=mOFbhWIPD;45Q=fVCV3
@@ -1475,33 +1475,33 @@ V[;6YfRWj<HboJ;2I=M<=V3
 !s100 ER>aDI8<`RfPil41D0m<;0
 R18
 32
-R155
-!i10b 1
 R156
-R192
+!i10b 1
+R157
 R193
+R194
 !i113 0
 R23
 R24
 Etb_addsubi
-Z194 w1761607594
+Z195 w1761607594
 R13
 R14
 !i122 1053
 R52
-Z195 8/home/layneben/CPRE3810-main/test/tb_addsubi.vhd
-Z196 F/home/layneben/CPRE3810-main/test/tb_addsubi.vhd
+Z196 8/home/layneben/CPRE3810-main/test/tb_addsubi.vhd
+Z197 F/home/layneben/CPRE3810-main/test/tb_addsubi.vhd
 l0
 L5 1
 Vz<j@11n6jmGJa>72nXJV=0
 !s100 8P1WYcePjN08OM]@RnPiW3
 R18
 32
-Z197 !s110 1761854183
+Z198 !s110 1761854183
 !i10b 1
-Z198 !s108 1761854183.000000
-Z199 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_addsubi.vhd|
-Z200 !s107 /home/layneben/CPRE3810-main/test/tb_addsubi.vhd|
+Z199 !s108 1761854183.000000
+Z200 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_addsubi.vhd|
+Z201 !s107 /home/layneben/CPRE3810-main/test/tb_addsubi.vhd|
 !i113 0
 R23
 R24
@@ -1516,34 +1516,34 @@ V2dANK2_X13QnamgLLPhCa1
 !s100 TH4b;Zl`J5C7JO_GD[lWQ2
 R18
 32
-R197
-!i10b 1
 R198
+!i10b 1
 R199
 R200
+R201
 !i113 0
 R23
 R24
 Etb_alu
-Z201 w1761638478
+Z202 w1761638478
 R66
 R13
 R14
 !i122 1643
 R15
-Z202 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_ALU.vhd
-Z203 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_ALU.vhd
+Z203 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_ALU.vhd
+Z204 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_ALU.vhd
 l0
 L6 1
 VJJN:egj18;7<BfYz0A@2D3
 !s100 @5f[RNSKkf;2SfelOjXhS2
 R18
 32
-R155
-!i10b 1
 R156
-Z204 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_ALU.vhd|
-Z205 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_ALU.vhd|
+!i10b 1
+R157
+Z205 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_ALU.vhd|
+Z206 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_ALU.vhd|
 !i113 0
 R23
 R24
@@ -1559,11 +1559,11 @@ VfH`Q8zGISPH=4?^?HIk0<1
 !s100 ]WD_>mFU:OI6bl4mlDU=40
 R18
 32
-R155
-!i10b 1
 R156
-R204
+!i10b 1
+R157
 R205
+R206
 !i113 0
 R23
 R24
@@ -1591,25 +1591,25 @@ R55
 R56
 R10
 Etb_bshiftr
-Z206 w1761601022
+Z207 w1761601022
 R66
 R13
 R14
 !i122 1644
 R15
-Z207 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd
-Z208 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd
+Z208 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd
+Z209 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd
 l0
 L7 1
 V7k=Z<?J=Hn;cl;CcE<bUC0
 !s100 1z49;J?PXQh3WA?_^Io4P1
 R18
 32
-R155
-!i10b 1
 R156
-Z209 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd|
-Z210 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd|
+!i10b 1
+R157
+Z210 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd|
+Z211 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd|
 !i113 0
 R23
 R24
@@ -1625,11 +1625,11 @@ VQlbQ33549j7b:>_0bAVk^0
 !s100 ?HE_EbF<k?E0UV;o:59aE1
 R18
 32
-R155
-!i10b 1
 R156
-R209
+!i10b 1
+R157
 R210
+R211
 !i113 0
 R23
 R24
@@ -1639,19 +1639,19 @@ R13
 R14
 !i122 1054
 R52
-Z211 8/home/layneben/CPRE3810-main/test/tb_dec5to32.vhd
-Z212 F/home/layneben/CPRE3810-main/test/tb_dec5to32.vhd
+Z212 8/home/layneben/CPRE3810-main/test/tb_dec5to32.vhd
+Z213 F/home/layneben/CPRE3810-main/test/tb_dec5to32.vhd
 l0
 L5 1
 V_o3@UHl?ol2LPK1j4G=CO0
 !s100 cOi@Hei`POZniGb`Lg5AM1
 R18
 32
-R197
-!i10b 1
 R198
-Z213 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_dec5to32.vhd|
-Z214 !s107 /home/layneben/CPRE3810-main/test/tb_dec5to32.vhd|
+!i10b 1
+R199
+Z214 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_dec5to32.vhd|
+Z215 !s107 /home/layneben/CPRE3810-main/test/tb_dec5to32.vhd|
 !i113 0
 R23
 R24
@@ -1666,11 +1666,11 @@ V4V0C;QoDZ?4o]H>?V1XDW2
 !s100 jb084O<?LOfR_BiQ67oS@0
 R18
 32
-R197
-!i10b 1
 R198
-R213
+!i10b 1
+R199
 R214
+R215
 !i113 0
 R23
 R24
@@ -1680,19 +1680,19 @@ R13
 R14
 !i122 1055
 R52
-Z215 8/home/layneben/CPRE3810-main/test/tb_dffg.vhd
-Z216 F/home/layneben/CPRE3810-main/test/tb_dffg.vhd
+Z216 8/home/layneben/CPRE3810-main/test/tb_dffg.vhd
+Z217 F/home/layneben/CPRE3810-main/test/tb_dffg.vhd
 l0
 R41
 Vi7MNLj5ZK:^Q2o?NA]M4]2
 !s100 _@1Y`b4>C@@3dFKeCkFbz1
 R18
 32
-R197
-!i10b 1
 R198
-Z217 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_dffg.vhd|
-Z218 !s107 /home/layneben/CPRE3810-main/test/tb_dffg.vhd|
+!i10b 1
+R199
+Z218 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_dffg.vhd|
+Z219 !s107 /home/layneben/CPRE3810-main/test/tb_dffg.vhd|
 !i113 0
 R23
 R24
@@ -1707,39 +1707,39 @@ Vn@[=?0R`<abIB7e8G;YNi1
 !s100 McQ;1U@Ti8TCBh>42ldW82
 R18
 32
-R197
-!i10b 1
 R198
-R217
+!i10b 1
+R199
 R218
+R219
 !i113 0
 R23
 R24
 Etb_extender
-Z219 w1761854240
+Z220 w1761854240
 R66
 R13
 R14
 !i122 1077
 R52
-Z220 8/home/layneben/CPRE3810-main/test/tb_extender.vhd
-Z221 F/home/layneben/CPRE3810-main/test/tb_extender.vhd
+Z221 8/home/layneben/CPRE3810-main/test/tb_extender.vhd
+Z222 F/home/layneben/CPRE3810-main/test/tb_extender.vhd
 l0
 L5 1
 VUhMPOfBnG2?=UcLZ=OaGd2
 !s100 mXQz<^<f>EBWm?3cA`nBm3
 R18
 32
-Z222 !s110 1761854242
+Z223 !s110 1761854242
 !i10b 1
-Z223 !s108 1761854242.000000
-Z224 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_extender.vhd|
-Z225 !s107 /home/layneben/CPRE3810-main/test/tb_extender.vhd|
+Z224 !s108 1761854242.000000
+Z225 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_extender.vhd|
+Z226 !s107 /home/layneben/CPRE3810-main/test/tb_extender.vhd|
 !i113 0
 R23
 R24
 Abehavior
-R95
+R96
 R66
 R13
 R14
@@ -1751,34 +1751,34 @@ V^=SZi5Ik:b6[U59;^eS5m3
 !s100 1U^O:SoiIzVBjVghz53]=2
 R18
 32
-R222
-!i10b 1
 R223
+!i10b 1
 R224
 R225
+R226
 !i113 0
 R23
 R24
 Etb_fetch
-Z226 w1762843975
+Z227 w1762843975
 R66
 R13
 R14
 !i122 1648
 R15
-Z227 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fetch.vhd
-Z228 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fetch.vhd
+Z228 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fetch.vhd
+Z229 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fetch.vhd
 l0
 L7 1
 VBgCR0nRezS7718Y_TW_YT0
 !s100 9=@40UmU?4279QdOIERdH3
 R18
 32
-R155
-!i10b 1
 R156
-Z229 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fetch.vhd|
-Z230 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fetch.vhd|
+!i10b 1
+R157
+Z230 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fetch.vhd|
+Z231 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fetch.vhd|
 !i113 0
 R23
 R24
@@ -1794,17 +1794,17 @@ VKeWOB8bBDQmdzl^Xe43HU3
 !s100 gkikARKeI?>MYnTLXb99R0
 R18
 32
-R155
-!i10b 1
 R156
-R229
+!i10b 1
+R157
 R230
+R231
 !i113 0
 R23
 R24
 vtb_fourbitfulladder
 2/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fourbitfulladder.v
-R103
+R104
 !i10b 1
 !s100 a0nb2`T;6TYHTQT]K:ZgB2
 IVHzS:7D6`]jUCIF5IG;]<1
@@ -1819,7 +1819,7 @@ R54
 r1
 !s85 0
 31
-R104
+R105
 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fourbitfulladder.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fourbitfulladder.v|
 !i113 0
@@ -1832,19 +1832,19 @@ R13
 R14
 !i122 1057
 R52
-Z231 8/home/layneben/CPRE3810-main/test/tb_mem.vhd
-Z232 F/home/layneben/CPRE3810-main/test/tb_mem.vhd
+Z232 8/home/layneben/CPRE3810-main/test/tb_mem.vhd
+Z233 F/home/layneben/CPRE3810-main/test/tb_mem.vhd
 l0
 L8 1
 VYjWYC6^<:fZS71ezJ8kj_1
 !s100 Sk7N=UhNPdlR21>IFXZL`0
 R18
 32
-R197
-!i10b 1
 R198
-Z233 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_mem.vhd|
-Z234 !s107 /home/layneben/CPRE3810-main/test/tb_mem.vhd|
+!i10b 1
+R199
+Z234 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_mem.vhd|
+Z235 !s107 /home/layneben/CPRE3810-main/test/tb_mem.vhd|
 !i113 0
 R23
 R24
@@ -1860,39 +1860,39 @@ V_0>4ekm>:FUYJKGJ5:YVB2
 !s100 FfkDZ8zPhN<W@8NeE37l?3
 R18
 32
-R197
-!i10b 1
 R198
-R233
+!i10b 1
+R199
 R234
+R235
 !i113 0
 R23
 R24
 Etb_mux32to1
-Z235 w1761853964
-R128
+Z236 w1761853964
+R129
 R13
 R14
 !i122 1058
 R52
-Z236 8/home/layneben/CPRE3810-main/test/tb_mux32to1.vhd
-Z237 F/home/layneben/CPRE3810-main/test/tb_mux32to1.vhd
+Z237 8/home/layneben/CPRE3810-main/test/tb_mux32to1.vhd
+Z238 F/home/layneben/CPRE3810-main/test/tb_mux32to1.vhd
 l0
 L5 1
 Vco6iHdJS212E3[Y[mVT493
 !s100 PN3ZUmhj`68zKGk0]0IM91
 R18
 32
-R197
-!i10b 1
 R198
-Z238 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_mux32to1.vhd|
-Z239 !s107 /home/layneben/CPRE3810-main/test/tb_mux32to1.vhd|
+!i10b 1
+R199
+Z239 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_mux32to1.vhd|
+Z240 !s107 /home/layneben/CPRE3810-main/test/tb_mux32to1.vhd|
 !i113 0
 R23
 R24
 Abehavior
-R128
+R129
 R13
 R14
 DEx4 work 11 tb_mux32to1 0 22 co6iHdJS212E3[Y[mVT493
@@ -1903,11 +1903,11 @@ VNE0[3nHAC]fOlLl<>@_ZA0
 !s100 :e:kVk<b>e<@iQA]Wd6Zj0
 R18
 32
-R197
-!i10b 1
 R198
-R238
+!i10b 1
+R199
 R239
+R240
 !i113 0
 R23
 R24
@@ -1917,19 +1917,19 @@ R13
 R14
 !i122 1059
 R52
-Z240 8/home/layneben/CPRE3810-main/test/tb_reg.vhd
-Z241 F/home/layneben/CPRE3810-main/test/tb_reg.vhd
+Z241 8/home/layneben/CPRE3810-main/test/tb_reg.vhd
+Z242 F/home/layneben/CPRE3810-main/test/tb_reg.vhd
 l0
 L5 1
 VLX=7YA_Z_j^KE3S]Qa>Mg1
 !s100 jg]Pl^9f>H=c>eAeDe5LV0
 R18
 32
-R197
-!i10b 1
 R198
-Z242 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_reg.vhd|
-Z243 !s107 /home/layneben/CPRE3810-main/test/tb_reg.vhd|
+!i10b 1
+R199
+Z243 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_reg.vhd|
+Z244 !s107 /home/layneben/CPRE3810-main/test/tb_reg.vhd|
 !i113 0
 R23
 R24
@@ -1944,39 +1944,39 @@ VEe2izd_Oh4g]9[MAHB@CS1
 !s100 6lch^G`ZGPeUeHWWPBI;f1
 R18
 32
-R197
-!i10b 1
 R198
-R242
+!i10b 1
+R199
 R243
+R244
 !i113 0
 R23
 R24
 Etb_regfile
-Z244 w1761853971
-R128
+Z245 w1761853971
+R129
 R13
 R14
 !i122 1060
 R52
-Z245 8/home/layneben/CPRE3810-main/test/tb_regfile.vhd
-Z246 F/home/layneben/CPRE3810-main/test/tb_regfile.vhd
+Z246 8/home/layneben/CPRE3810-main/test/tb_regfile.vhd
+Z247 F/home/layneben/CPRE3810-main/test/tb_regfile.vhd
 l0
 L6 1
 V1??T4UURoSQ:<3o`PJ>?42
 !s100 TjaA^IAS]XEJV;_PE1[^m0
 R18
 32
-R197
-!i10b 1
 R198
-Z247 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_regfile.vhd|
-Z248 !s107 /home/layneben/CPRE3810-main/test/tb_regfile.vhd|
+!i10b 1
+R199
+Z248 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_regfile.vhd|
+Z249 !s107 /home/layneben/CPRE3810-main/test/tb_regfile.vhd|
 !i113 0
 R23
 R24
 Abehavior
-R128
+R129
 R13
 R14
 DEx4 work 10 tb_regfile 0 22 1??T4UURoSQ:<3o`PJ>?42
@@ -1987,11 +1987,11 @@ VIo5;]9AJ`RGEhangl;De:3
 !s100 [NZ69B@<3UW1fVoj63en@0
 R18
 32
-R197
-!i10b 1
 R198
-R247
+!i10b 1
+R199
 R248
+R249
 !i113 0
 R23
 R24
@@ -2002,19 +2002,19 @@ R13
 R14
 !i122 1062
 R52
-Z249 8/home/layneben/CPRE3810-main/test/tb_ripple_adder.vhd
-Z250 F/home/layneben/CPRE3810-main/test/tb_ripple_adder.vhd
+Z250 8/home/layneben/CPRE3810-main/test/tb_ripple_adder.vhd
+Z251 F/home/layneben/CPRE3810-main/test/tb_ripple_adder.vhd
 l0
 L6 1
 VPeihhkQMS`BNW3a<1`O`c0
 !s100 Gd]<VanFm^46daWhcZR`W0
 R18
 32
-Z251 !s110 1761854184
+Z252 !s110 1761854184
 !i10b 1
-Z252 !s108 1761854184.000000
-Z253 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_ripple_adder.vhd|
-Z254 !s107 /home/layneben/CPRE3810-main/test/tb_ripple_adder.vhd|
+Z253 !s108 1761854184.000000
+Z254 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_ripple_adder.vhd|
+Z255 !s107 /home/layneben/CPRE3810-main/test/tb_ripple_adder.vhd|
 !i113 0
 R23
 R24
@@ -2030,11 +2030,11 @@ VWcGZ;^mol@;VMJQPfPiEV1
 !s100 SX?BoR2ak?B4CALb?jJMN2
 R18
 32
-R251
-!i10b 1
 R252
+!i10b 1
 R253
 R254
+R255
 !i113 0
 R23
 R24
@@ -2045,19 +2045,19 @@ R13
 R14
 !i122 1061
 R52
-Z255 8/home/layneben/CPRE3810-main/test/tb_RIDCVDATA.vhd
-Z256 F/home/layneben/CPRE3810-main/test/tb_RIDCVDATA.vhd
+Z256 8/home/layneben/CPRE3810-main/test/tb_RIDCVDATA.vhd
+Z257 F/home/layneben/CPRE3810-main/test/tb_RIDCVDATA.vhd
 l0
 L6 1
 VOgUS>cl@^CK2G@hoC;M<Q3
 !s100 ^[3?T2[RMdccjH3TYQ?A[1
 R18
 32
-R251
-!i10b 1
 R252
-Z257 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_RIDCVDATA.vhd|
-Z258 !s107 /home/layneben/CPRE3810-main/test/tb_RIDCVDATA.vhd|
+!i10b 1
+R253
+Z258 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_RIDCVDATA.vhd|
+Z259 !s107 /home/layneben/CPRE3810-main/test/tb_RIDCVDATA.vhd|
 !i113 0
 R23
 R24
@@ -2073,11 +2073,11 @@ Vh5hJknFSnMV>lkJ2E]kAH3
 !s100 fDSCc<jWJKjFCl=iD3Am<0
 R18
 32
-R251
-!i10b 1
 R252
-R257
+!i10b 1
+R253
 R258
+R259
 !i113 0
 R23
 R24
@@ -2088,19 +2088,19 @@ R13
 R14
 !i122 1063
 R52
-Z259 8/home/layneben/CPRE3810-main/test/tb_SECONDRISCVDATA.vhd
-Z260 F/home/layneben/CPRE3810-main/test/tb_SECONDRISCVDATA.vhd
+Z260 8/home/layneben/CPRE3810-main/test/tb_SECONDRISCVDATA.vhd
+Z261 F/home/layneben/CPRE3810-main/test/tb_SECONDRISCVDATA.vhd
 l0
 L5 1
 V5^Y?k1>D9XOCj8o3zX?]g0
 !s100 k7TaFLL`4k>Mnijf92GnL0
 R18
 32
-R251
-!i10b 1
 R252
-Z261 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_SECONDRISCVDATA.vhd|
-Z262 !s107 /home/layneben/CPRE3810-main/test/tb_SECONDRISCVDATA.vhd|
+!i10b 1
+R253
+Z262 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/CPRE3810-main/test/tb_SECONDRISCVDATA.vhd|
+Z263 !s107 /home/layneben/CPRE3810-main/test/tb_SECONDRISCVDATA.vhd|
 !i113 0
 R23
 R24
@@ -2116,11 +2116,11 @@ VGImcg`kI<>D<LPhIaoK601
 !s100 zRANS`PCXDgHZD@5M@OUA0
 R18
 32
-R251
-!i10b 1
 R252
-R261
+!i10b 1
+R253
 R262
+R263
 !i113 0
 R23
 R24
@@ -2130,19 +2130,19 @@ R13
 R14
 !i122 1645
 R15
-Z263 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg2.vhd
-Z264 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg2.vhd
+Z264 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg2.vhd
+Z265 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg2.vhd
 l0
 R41
 V]nRm43OKZ32f958@JoPK80
 !s100 [hI[mXFH4_j16U;>U1Lfn2
 R18
 32
-R155
-!i10b 1
 R156
-Z265 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg2.vhd|
-Z266 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg2.vhd|
+!i10b 1
+R157
+Z266 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg2.vhd|
+Z267 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg2.vhd|
 !i113 0
 R23
 R24
@@ -2157,33 +2157,33 @@ Vgh7bYI5aJE]odJ7>7;=<U3
 !s100 Z6[FAPS4fBLB`F?OO<AY72
 R18
 32
-R155
-!i10b 1
 R156
-R265
+!i10b 1
+R157
 R266
+R267
 !i113 0
 R23
 R24
 Exorg32
-Z267 w1761603908
+Z268 w1761603908
 R13
 R14
 !i122 1646
 R15
-Z268 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd
-Z269 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd
+Z269 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd
+Z270 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd
 l0
 L6 1
 VXfihTi[L3=4LLIJ[HQ4jP2
 !s100 ?<faj_<H56l6d6ag@=HJ[1
 R18
 32
-R155
-!i10b 1
 R156
-Z270 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd|
-Z271 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd|
+!i10b 1
+R157
+Z271 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd|
+Z272 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd|
 !i113 0
 R23
 R24
@@ -2193,16 +2193,16 @@ R14
 DEx4 work 6 xorg32 0 22 XfihTi[L3=4LLIJ[HQ4jP2
 !i122 1646
 l16
-R138
+R139
 Vj[@?MBScOHWDH[K]MMHc<3
 !s100 SVG;<@[H3W`zF;b5Th^Ki3
 R18
 32
-R155
-!i10b 1
 R156
-R270
+!i10b 1
+R157
 R271
+R272
 !i113 0
 R23
 R24

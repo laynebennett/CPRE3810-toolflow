@@ -133,7 +133,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 ------------branch
 
 	--beq
-		elsif input = "010000" then
+		elsif (ALUOp = "01" and instruction(2 downto 0) = "000") then
 			o_AltEn <= '0';
 			o_ShiftEn <= '0';
 			o_GateEn <= "00";
@@ -143,7 +143,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_Sub <= '1';
 
 	--bge
-		elsif input = "010101" then
+		elsif (ALUOp = "01" and instruction(2 downto 0) = "101") then
 			o_AltEn <= '0';
 			o_ShiftEn <= '0';
 			o_GateEn <= "00";
@@ -153,7 +153,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_Sub <= '1';
 
 	--blt
-		elsif input = "010100" then
+		elsif (ALUOp = "01" and instruction(2 downto 0) = "100") then
 			o_AltEn <= '0';
 			o_ShiftEn <= '0';
 			o_GateEn <= "00";
@@ -163,7 +163,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_Sub <= '1';
 
 	--bne
-		elsif input = "010001" then
+		elsif (ALUOp = "01" and instruction(2 downto 0) = "001") then
 			o_AltEn <= '0';
 			o_ShiftEn <= '0';
 			o_GateEn <= "00";
@@ -186,6 +186,104 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_BranchSel <= "00";
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
+			o_Sub <= '0';
+
+----------------------------------------I TYPE---ALUOp = 11
+
+-----------addsub
+
+	--addi
+		elsif input = "110000" then
+			o_AltEn <= '0';
+			o_ShiftEn <= '0';
+			o_GateEn <= "00";
+			o_BranchSel <= "00";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '0';
+			
+	--addi also
+		elsif input = "111000" then
+			o_AltEn <= '0';
+			o_ShiftEn <= '0';
+			o_GateEn <= "00";
+			o_BranchSel <= "00";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '0';
+
+
+-------------------gate
+
+	--and
+		elsif input = "110111" then --
+			o_AltEn <= '1';
+			o_ShiftEn <= '0';
+			o_GateEn <= "00";
+			o_BranchSel <= "00";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '0';
+	--xor
+		elsif input = "110100" then --
+			o_AltEn <= '1';
+			o_ShiftEn <= '0';
+			o_GateEn <= "01";
+			o_BranchSel <= "00";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '0';
+
+	--or
+		elsif input = "110110" then --
+			o_AltEn <= '1';
+			o_ShiftEn <= '0';
+			o_GateEn <= "10";
+			o_BranchSel <= "00";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '0';
+
+	--nor CUSTOM
+		elsif input = "111111" then
+			o_AltEn <= '1';
+			o_ShiftEn <= '0';
+			o_GateEn <= "11";
+			o_BranchSel <= "00";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '0';
+
+----------------shift
+
+	--sll
+		elsif input = "110001" then
+			o_AltEn <= '1';
+			o_ShiftEn <= '1';
+			o_GateEn <= "00";
+			o_BranchSel <= "00";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '0';
+
+	--srl
+		elsif input = "110101" then
+			o_AltEn <= '1';
+			o_ShiftEn <= '1';
+			o_GateEn <= "00";
+			o_BranchSel <= "00";
+			o_ShiftDir <= '1' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '0';
+
+	--sra
+		elsif input = "111101" then
+			o_AltEn <= '1';
+			o_ShiftEn <= '1';
+			o_GateEn <= "00";
+			o_BranchSel <= "00";
+			o_ShiftDir <= '1' ;
+			o_ShiftArith <= '1';
 			o_Sub <= '0';
 
 		else

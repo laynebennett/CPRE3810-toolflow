@@ -84,7 +84,7 @@ elsif i_control = "1100011" then
 	MemtoReg <= '0';
 	ALUOp <= "01";
 	Memwrite <= '0';
-	ALUSrc <= '1';
+	ALUSrc <= '0';
 	Regwrite <= '1';
 	Halt <= '0';
 --U(AUIPC) type
