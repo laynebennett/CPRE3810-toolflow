@@ -39,8 +39,8 @@ begin
     busmux2to1_i : busmux2to1
       port map(
         i_S  => s_sign,
-        i_D0 => x"00000",
-        i_D1 => x"FFFFF",
+        i_D0 => x"00000000",
+        i_D1 => x"FFFFFFFF",
         o_Q  => muxtoadd
       );
 

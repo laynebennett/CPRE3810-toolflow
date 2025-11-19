@@ -1,22 +1,22 @@
 Oh no...
 
-Cycle: 0
-RARS instruction number: 1	Instruction: lui x5,15
-Expected:	Register Write to Reg: 0x05 Val: 0x0000F000
-Got     :	Register Write to Reg: 0x05 Val: 0x00000000
+Cycle: 3
+RARS instruction number: 4	Instruction: auipc x7,64528
+Expected:	Register Write to Reg: 0x07 Val: 0x1001000C
+Got     :	Register Write to Reg: 0x07 Val: 0x000000FC
 Incorrect write
 
-Cycle: 1
-RARS instruction number: 2	Instruction: addi x5,x5,240
-Expected:	Register Write to Reg: 0x05 Val: 0x0000F0F0
-Got     :	Register Write to Reg: 0x05 Val: 0x000000F0
+Cycle: 4
+RARS instruction number: 5	Instruction: addi x7,x7,-12
+Expected:	Register Write to Reg: 0x07 Val: 0x10010000
+Got     :	Register Write to Reg: 0x07 Val: 0x000000F0
 Incorrect write
 
-Cycle: 2
-RARS instruction number: 3	Instruction: andi x6,x5,255
-Expected:	Register Write to Reg: 0x06 Val: 0x000000F0
-Got     :	Register Write to Reg: 0x06 Val: 0x000001EF
-Incorrect write
+Cycle: na
+RARS instruction number: 6	Instruction: sw x6,0(x7)
+Expected:	Memory Write to Addr: 0x10010000 Val: 0x000000F0
+Got     :	Execution stopped
+Student execution ended prematurely
 
 You have reached the maximum mismatches (3)
 

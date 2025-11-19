@@ -12,6 +12,7 @@ port(
 	MemWrite : out std_logic;
 	ALUSrc : out std_logic;
 	RegWrite : out std_logic;
+	LUI : out std_logic;
 	Halt : out std_logic	
 );
 end control;
@@ -36,6 +37,7 @@ if i_control = "0110011" then
 	Memwrite <= '0';
 	ALUSrc <= '0';
 	Regwrite <= '1';
+	LUI <= '0';
 	Halt <= '0';
 --I(imm) type
 elsif i_control = "0010011" then
@@ -46,6 +48,7 @@ elsif i_control = "0010011" then
 	Memwrite <= '0';
 	ALUSrc <= '1';
 	Regwrite <= '1';
+	LUI <= '0';
 	Halt <= '0';
 --I(Load) type
 elsif i_control = "0000011" then
@@ -56,6 +59,7 @@ elsif i_control = "0000011" then
 	Memwrite <= '0';
 	ALUSrc <= '1';
 	Regwrite <= '1';
+	LUI <= '0';
 	Halt <= '0';
 --I(Jump) type
 elsif i_control = "1100111" then
@@ -66,6 +70,7 @@ elsif i_control = "1100111" then
 	Memwrite <= '0';
 	ALUSrc <= '1';
 	Regwrite <= '1';
+	LUI <= '0';
 	Halt <= '0';
 --S type
 elsif i_control = "0100011" then
@@ -76,6 +81,7 @@ elsif i_control = "0100011" then
 	Memwrite <= '1';
 	ALUSrc <= '1';
 	Regwrite <= '0';
+	LUI <= '0';
 	Halt <= '0';
 --B type
 elsif i_control = "1100011" then
@@ -86,6 +92,7 @@ elsif i_control = "1100011" then
 	Memwrite <= '0';
 	ALUSrc <= '0';
 	Regwrite <= '1';
+	LUI <= '0';
 	Halt <= '0';
 --U(AUIPC) type
 elsif i_control = "0010111" then
@@ -96,6 +103,7 @@ elsif i_control = "0010111" then
 	Memwrite <= '0';
 	ALUSrc <= '1';
 	Regwrite <= '1';
+	LUI <= '0';
 	Halt <= '0';
 --U(LUI) type
 elsif i_control = "0110111" then
@@ -106,6 +114,7 @@ elsif i_control = "0110111" then
 	Memwrite <= '0';
 	ALUSrc <= '1';
 	Regwrite <= '1';
+	LUI <= '1';
 	Halt <= '0';
 --J type
 elsif i_control = "1101111" then
@@ -116,6 +125,7 @@ elsif i_control = "1101111" then
 	Memwrite <= '0';
 	ALUSrc <= '1';
 	Regwrite <= '1';
+	LUI <= '0';
 	Halt <= '0';
 --HALT
 elsif i_control = "1110011" then
