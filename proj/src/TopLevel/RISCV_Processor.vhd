@@ -80,6 +80,8 @@ signal s_ShiftArith : std_logic;
 signal s_Sub  :   std_logic; -- 0 = add, 1 = sub
 signal s_LUI : std_logic;
 
+signal s_PCAdd : std_logic;
+signal s_ALUA : std_logic_vector(31 downto 0);
 signal s_ALUout : std_logic_vector(31 downto 0);
 signal s_ALUzero : std_logic;
 signal s_memout : std_logic_vector(31 downto 0);
@@ -112,6 +114,7 @@ signal s_out : std_logic_vector(31 downto 0);
 	ALUSrc : out std_logic;
 	RegWrite : out std_logic;
 	LUI : out std_logic;
+	AUIPC : out std_logic;
 	Halt : out std_logic
 	);
     end component;
@@ -264,7 +267,7 @@ begin
 	
     ALU_i : ALU
 	port map(
-	i_A => s_regout1,
+	i_A => s_ALUA,
         i_B => s_regout2,
 	i_imm => s_ext,
 	ALUSrc => s_ALUSrc,
@@ -305,6 +308,7 @@ begin
 	ALUSrc => s_ALUSrc,
 	RegWrite => s_RegWr,
 	LUI => s_LUI,
+	AUIPC => s_PCAdd,
 	Halt => s_Halt); 
 
      ALU_control_i : ALU_control
@@ -320,6 +324,14 @@ begin
 	o_ShiftDir => s_ShiftDir,
 	o_ShiftArith => s_ShiftArith,
         o_Sub => s_Sub);
+
+     busmux_pcadd : busmux2to1
+	port map(
+	i_S => s_PCAdd,
+	i_D0 => s_regout1,
+	i_D1 => s_NextInstAddr,
+	o_Q => s_ALUA);
+
 
 s_DMemAddr <= s_ALUout;
 s_DMemData <= s_regout2;
