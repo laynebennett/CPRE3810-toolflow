@@ -470,7 +470,7 @@ Z72 w1763590804
 R65
 R13
 R14
-!i122 1724
+!i122 1726
 R15
 Z73 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/control.vhd
 Z74 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/control.vhd
@@ -480,9 +480,9 @@ VzRhNaF5k9E8:2cLBPg;CO0
 !s100 7d<BWFFLeFY@`:`TIFAna3
 R18
 32
-Z75 !s110 1763590808
+Z75 !s110 1763673824
 !i10b 1
-Z76 !s108 1763590808.000000
+Z76 !s108 1763673824.000000
 Z77 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/control.vhd|
 Z78 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/control.vhd|
 !i113 0
@@ -493,7 +493,7 @@ R65
 R13
 R14
 DEx4 work 7 control 0 22 zRhNaF5k9E8:2cLBPg;CO0
-!i122 1724
+!i122 1726
 l25
 L21 129
 V@O`aKbf_OoZkN6U^fWGNU2
@@ -1318,7 +1318,7 @@ Z165 w1763588322
 R124
 R13
 R14
-!i122 1725
+!i122 1727
 R15
 Z166 8/home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd
 Z167 F/home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd
@@ -1328,9 +1328,9 @@ VJXjDN`eJ=9DfJ?VlKXC<Z0
 !s100 2QlZ7gG0Tc=VN8QQV?oB71
 R18
 32
-Z168 !s110 1763590812
+Z168 !s110 1763673829
 !i10b 1
-Z169 !s108 1763590812.000000
+Z169 !s108 1763673828.000000
 Z170 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|/home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd|
 Z171 !s107 /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd|
 !i113 0
@@ -1341,7 +1341,7 @@ R124
 R13
 R14
 Z172 DEx4 work 15 riscv_processor 0 22 JXjDN`eJ=9DfJ?VlKXC<Z0
-!i122 1725
+!i122 1727
 l214
 Z173 L36 307
 Z174 VZLmfSZedQAe`:AnndF[QE3
