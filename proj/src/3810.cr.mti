@@ -81,6 +81,22 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Compiling entity andg2
 -- Compiling architecture dataflow of andg2
 
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/org32.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/org32.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity org32
+-- Compiling architecture dataflow of org32
+
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity xorg32
+-- Compiling architecture dataflow of xorg32
+
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/halfbusmux2to1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/halfbusmux2to1.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package STANDARD
@@ -97,30 +113,6 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package std_logic_1164
 -- Compiling package array_package_0to1
 
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd
-QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity xorg32
--- Compiling architecture dataflow of xorg32
-
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/org32.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/org32.vhd
-QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity org32
--- Compiling architecture dataflow of org32
-
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/reg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/reg.vhd
-QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity reg
--- Compiling architecture structure of reg
-
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/regfile.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/regfile.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package STANDARD
@@ -129,6 +121,14 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package RISCV_types
 -- Compiling entity regfile
 -- Compiling architecture structure of regfile
+
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/reg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/reg.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity reg
+-- Compiling architecture structure of reg
 
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/extender.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/extender.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
@@ -139,31 +139,14 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Compiling entity extender
 -- Compiling architecture structure of extender
 
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/andg32.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/andg32.vhd
-QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity andg32
--- Compiling architecture dataflow of andg32
-
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity i_mem
--- Compiling architecture rtl of i_mem
-
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd
-QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity mem
--- Compiling architecture rtl of mem
+-- Compiling entity tb_bshiftr
+-- Compiling architecture behavior of tb_bshiftr
 
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_ALU.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_ALU.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
@@ -174,14 +157,31 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Compiling entity tb_ALU
 -- Compiling architecture sim of tb_ALU
 
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity tb_bshiftr
--- Compiling architecture behavior of tb_bshiftr
+-- Compiling entity mem
+-- Compiling architecture rtl of mem
+
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity i_mem
+-- Compiling architecture rtl of i_mem
+
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/andg32.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/andg32.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity andg32
+-- Compiling architecture dataflow of andg32
 
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1_array_package.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1_array_package.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
@@ -198,13 +198,13 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Compiling entity fetch
 -- Compiling architecture structure of fetch
 
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity ALU_control
--- Compiling architecture behavioral of ALU_control
+-- Compiling entity full_adder
+-- Compiling architecture structure of full_adder
 
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/busmux2to1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/busmux2to1.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
@@ -215,13 +215,28 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Compiling entity busmux2to1
 -- Compiling architecture dataflow of busmux2to1
 
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity full_adder
--- Compiling architecture structure of full_adder
+-- Compiling entity ALU_control
+-- Compiling architecture behavioral of ALU_control
+
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/norg32.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/norg32.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity norg32
+-- Compiling architecture dataflow of norg32
+
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux_array_package.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux_array_package.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package mux_array_package
 
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux32to1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux32to1.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
@@ -232,21 +247,6 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package NUMERIC_STD
 -- Compiling entity mux32to1
 -- Compiling architecture dataflow of mux32to1
-
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux_array_package.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux_array_package.vhd
-QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling package mux_array_package
-
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/norg32.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/norg32.vhd
-QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity norg32
--- Compiling architecture dataflow of norg32
 
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/SECONDRISCVDATA.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/SECONDRISCVDATA.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
@@ -265,14 +265,6 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Compiling entity busandg2
 -- Compiling architecture dataflow of busandg2
 
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/dffg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/dffg.vhd
-QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity dffg
--- Compiling architecture mixed of dffg
-
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fetch.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fetch.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package STANDARD
@@ -281,6 +273,14 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package NUMERIC_STD
 -- Compiling entity tb_fetch
 -- Compiling architecture behavior of tb_fetch
+
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/dffg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/dffg.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
 
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
@@ -291,15 +291,6 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Compiling entity RISCV_Processor
 -- Compiling architecture structure of RISCV_Processor
 
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd
-QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity mux2to1
--- Compiling architecture dataflow of mux2to1
-
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/PART1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/PART1.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package STANDARD
@@ -308,5 +299,14 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package RISCV_types
 -- Compiling entity PART1
 -- Compiling architecture structure of PART1
+
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mux2to1
+-- Compiling architecture dataflow of mux2to1
 
 } {} {}}

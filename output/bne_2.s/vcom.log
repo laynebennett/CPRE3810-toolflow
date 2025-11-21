@@ -1,0 +1,101 @@
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+Start time: 17:12:31 on Nov 20,2025
+vcom -2008 -work internal/ModelSimContainer/work proj/src/RISCV_types.vhd internal/testpy/tb.vhd proj/src/SECONDRISCVDATA.vhd proj/src/i_mem.vhd proj/src/busandg2.vhd proj/src/fetch.vhd proj/src/ALU.vhd proj/src/andg2.vhd proj/src/halfbusmux2to1.vhd proj/src/tb_bshiftr.vhd proj/src/reg.vhd proj/src/ripple_adder.vhd proj/src/dec5to32.vhd proj/src/control.vhd proj/src/RISCVDATA.vhd proj/src/mem.vhd proj/src/org32.vhd proj/src/mux2to1_array_package.vhd proj/src/andg32.vhd proj/src/RISCV_types.vhd proj/src/regfile.vhd proj/src/mux32to1.vhd proj/src/busmux2to1.vhd proj/src/tb_ALU.vhd proj/src/extender.vhd proj/src/ALU_control.vhd proj/src/org2.vhd proj/src/norg32.vhd proj/src/dffg.vhd proj/src/xorg2.vhd proj/src/mux2to1.vhd proj/src/mux_array_package.vhd proj/src/full_adder.vhd proj/src/tb_fetch.vhd proj/src/addsubi.vhd proj/src/xorg32.vhd proj/src/array_package_0to1.vhd proj/src/bshiftr.vhd proj/src/PART1.vhd proj/src/TopLevel/RISCV_Processor.vhd proj/src/TopLevel/mem.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package RISCV_types
+-- Compiling package body RISCV_types
+-- Loading package RISCV_types
+-- Loading package std_logic_textio
+-- Loading package ENV
+-- Compiling entity tb
+-- Compiling architecture mixed of tb
+-- Loading package RISCV_types
+-- Compiling entity SECONDRISCVDATA
+-- Compiling architecture structure of SECONDRISCVDATA
+-- Loading package NUMERIC_STD
+-- Compiling entity i_mem
+-- Compiling architecture rtl of i_mem
+-- Compiling entity busandg2
+-- Compiling architecture dataflow of busandg2
+-- Compiling entity fetch
+-- Compiling architecture structure of fetch
+-- Compiling entity ALU
+-- Compiling architecture structure of ALU
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+-- Compiling entity halfbusmux2to1
+-- Compiling architecture dataflow of halfbusmux2to1
+-- Compiling entity tb_bshiftr
+-- Compiling architecture behavior of tb_bshiftr
+-- Compiling entity reg
+-- Compiling architecture structure of reg
+-- Compiling entity ripple_adder
+-- Compiling architecture structure of ripple_adder
+-- Compiling entity dec5to32
+-- Compiling architecture dataflow of dec5to32
+-- Compiling entity control
+-- Compiling architecture behavioral of control
+-- Compiling entity RISCVDATA
+-- Compiling architecture structure of RISCVDATA
+** Warning: proj/src/mem.vhd(8): (vcom-1615) Existing entity 'mem' at /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/mem.vhd(8) will be overwritten.
+-- Compiling entity mem
+** Warning: proj/src/mem.vhd(27): (vcom-1615) Existing architecture 'mem(rtl)' at /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/mem.vhd(27) will be overwritten.
+-- Compiling architecture rtl of mem
+-- Compiling entity org32
+-- Compiling architecture dataflow of org32
+-- Compiling package mux2to1_array_package
+-- Compiling entity andg32
+-- Compiling architecture dataflow of andg32
+** Warning: proj/src/RISCV_types.vhd(16): (vcom-1615) Existing package 'RISCV_types' at line 19 will be overwritten.
+-- Compiling package RISCV_types
+** Warning: proj/src/RISCV_types.vhd(34): (vcom-1615) Existing package body 'RISCV_types(body)' at line 34 will be overwritten.
+-- Compiling package body RISCV_types
+-- Loading package RISCV_types
+-- Loading package RISCV_types
+-- Compiling entity regfile
+-- Compiling architecture structure of regfile
+-- Compiling entity mux32to1
+-- Compiling architecture dataflow of mux32to1
+-- Compiling entity busmux2to1
+-- Compiling architecture dataflow of busmux2to1
+-- Compiling entity tb_ALU
+-- Compiling architecture sim of tb_ALU
+-- Compiling entity extender
+-- Compiling architecture structure of extender
+-- Compiling entity ALU_control
+-- Compiling architecture behavioral of ALU_control
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+-- Compiling entity norg32
+-- Compiling architecture dataflow of norg32
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+-- Compiling entity mux2to1
+-- Compiling architecture dataflow of mux2to1
+-- Compiling package mux_array_package
+-- Compiling entity full_adder
+-- Compiling architecture structure of full_adder
+-- Compiling entity tb_fetch
+-- Compiling architecture behavior of tb_fetch
+-- Compiling entity addsubi
+-- Compiling architecture structure of addsubi
+-- Loading entity xorg2
+-- Compiling entity xorg32
+-- Compiling architecture dataflow of xorg32
+-- Compiling package array_package_0to1
+-- Compiling entity bshiftr
+-- Compiling architecture structural of bshiftr
+-- Compiling entity PART1
+-- Compiling architecture structure of PART1
+-- Compiling entity RISCV_Processor
+-- Compiling architecture structure of RISCV_Processor
+** Warning: proj/src/TopLevel/mem.vhd(8): (vcom-1615) Existing entity 'mem' at proj/src/mem.vhd(8) will be overwritten.
+-- Compiling entity mem
+** Warning: proj/src/TopLevel/mem.vhd(27): (vcom-1615) Existing architecture 'mem(rtl)' at proj/src/mem.vhd(27) will be overwritten.
+-- Compiling architecture rtl of mem
+End time: 17:12:31 on Nov 20,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 6

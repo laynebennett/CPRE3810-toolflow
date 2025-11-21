@@ -79,6 +79,7 @@ signal s_ShiftDir : std_logic; --0 = left, 1 = right
 signal s_ShiftArith : std_logic; 
 signal s_Sub  :   std_logic; -- 0 = add, 1 = sub
 signal s_LUI : std_logic;
+signal s_SB : std_logic;
 
 signal s_PCAdd : std_logic;
 signal s_ALUA : std_logic_vector(31 downto 0);
@@ -115,6 +116,7 @@ signal s_out : std_logic_vector(31 downto 0);
 	RegWrite : out std_logic;
 	LUI : out std_logic;
 	AUIPC : out std_logic;
+	SB : out std_logic;
 	Halt : out std_logic
 	);
     end component;
@@ -142,6 +144,7 @@ signal s_out : std_logic_vector(31 downto 0);
 	i_in32	        : in std_logic_vector(31 downto 0);
 	i_unsigned	: in std_logic; --1 for unsigned
 	i_LUI		: in std_logic;
+	i_SB		: in std_logic;
 	o_out32		: out std_logic_vector((31) downto 0));
     end component;
 
@@ -288,6 +291,7 @@ begin
 	i_in32 => s_Inst,--TODO
 	i_unsigned => '0',--TODO
 	i_LUI => s_LUI,
+	i_SB => s_SB,
 	o_out32 => s_ext);	
 
     busmux_i : busmux2to1
@@ -309,6 +313,7 @@ begin
 	RegWrite => s_RegWr,
 	LUI => s_LUI,
 	AUIPC => s_PCAdd,
+	SB => s_SB,
 	Halt => s_Halt); 
 
      ALU_control_i : ALU_control
