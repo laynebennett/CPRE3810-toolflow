@@ -12,6 +12,7 @@ entity extender is
 		i_in32	        : in std_logic_vector(31 downto 0);
 		i_unsigned	: in std_logic; --1 for unsigned
 		i_LUI		: in std_logic; --1 for LUI
+		i_UJ		: in std_logic;
 		i_SB		: in std_logic; --1 for SB
 		o_out32		: out std_logic_vector(31 downto 0)
 	);
@@ -26,6 +27,8 @@ architecture structure of extender is
     signal s_in13   : std_logic_vector(12 downto 0);
     signal s_opcode : std_logic_vector(6 downto 0);
     signal s_LUI    : std_logic_vector(31 downto 0);
+    signal s_UJ	    : std_logic_vector(31 downto 0);
+    signal s_LUIorUJ : std_logic_vector(31 downto 0);
 
     component busmux2to1    
       port(
@@ -61,7 +64,13 @@ begin
     -- SET LUI 
     s_LUI <= std_logic_vector(signed(i_in32(31 downto 12) & x"000")); 
 
+    -- SET UJ
+    s_UJ <= "0000000000" & i_in32(31) & i_in32(21 downto 12) & i_in32(22) & i_in32(30 downto 23) & "00";
+
+    -- SET LUIorUJ
+    s_LUIorUJ <= s_UJ when (i_UJ = '1') else (upper & s_in13);
+
     -- Combine high and low halves
-    o_out32 <= (upper & s_in13) when (i_LUI = '0') else s_LUI;
+    o_out32 <= (s_LUI) when (i_LUI = '1') else  s_LUIorUJ;
 
 end structure;

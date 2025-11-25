@@ -109,8 +109,8 @@ begin
         o_Cout => open
         );
 
-	imm_shifted(31 downto 1) <= i_addimm(30 downto 0);
-	imm_shifted(0) <= '0';
+	imm_shifted(31 downto 0) <= i_addimm(31 downto 0);
+	--imm_shifted(0) <= '0';
 	o_addr <= PCout;
 
 end structure;

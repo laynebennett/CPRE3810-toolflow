@@ -8,6 +8,7 @@ entity fetch is
 	i_CLK : in std_logic;
         i_addimm    : in  std_logic_vector(31 downto 0);
 	i_branch : in std_logic;
+	i_jump : in std_logic;
 	i_zero : in std_logic;
 	i_rst : in std_logic;
 	o_addr : out std_logic_vector(31 downto 0)
@@ -54,7 +55,16 @@ architecture structure of fetch is
 	);
     end component;
 
+    component org2
+	port(
+	i_A          : in std_logic;
+        i_B          : in std_logic;
+        o_F          : out std_logic
+	);
+    end component;
+
     signal branchmux : std_logic;
+    signal andtoor : std_logic;
     signal PCplus4 : std_logic_vector(31 downto 0);
     signal PCplusimm : std_logic_vector(31 downto 0);
     signal muxtoPC : std_logic_vector(31 downto 0);
@@ -67,7 +77,7 @@ begin
 	port map(
 	i_A => i_branch,
 	i_B => i_zero,
-	o_F => branchmux
+	o_F => andtoor
 	);
 
     busmux_inst: busmux2to1
@@ -108,6 +118,13 @@ begin
         o_Sum => PCplusimm,
         o_Cout => open
         );
+
+    org_i: org2
+	port map(
+	i_A => i_jump,
+	i_B => andtoor,
+	o_F => branchmux
+	);
 
 	imm_shifted(31 downto 0) <= i_addimm(31 downto 0);
 	--imm_shifted(0) <= '0';

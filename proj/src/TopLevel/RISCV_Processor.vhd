@@ -79,7 +79,9 @@ signal s_ShiftDir : std_logic; --0 = left, 1 = right
 signal s_ShiftArith : std_logic; 
 signal s_Sub  :   std_logic; -- 0 = add, 1 = sub
 signal s_LUI : std_logic;
+signal s_UJ : std_logic;
 signal s_SB : std_logic;
+signal s_Jump : std_logic;
 
 signal s_PCAdd : std_logic;
 signal s_ALUA : std_logic_vector(31 downto 0);
@@ -115,8 +117,10 @@ signal s_out : std_logic_vector(31 downto 0);
 	ALUSrc : out std_logic;
 	RegWrite : out std_logic;
 	LUI : out std_logic;
+	UJ : out std_logic;
 	AUIPC : out std_logic;
 	SB : out std_logic;
+	Jump : out std_logic;
 	Halt : out std_logic
 	);
     end component;
@@ -144,6 +148,7 @@ signal s_out : std_logic_vector(31 downto 0);
 	i_in32	        : in std_logic_vector(31 downto 0);
 	i_unsigned	: in std_logic; --1 for unsigned
 	i_LUI		: in std_logic;
+	i_UJ		: in std_logic;
 	i_SB		: in std_logic;
 	o_out32		: out std_logic_vector((31) downto 0));
     end component;
@@ -180,6 +185,7 @@ signal s_out : std_logic_vector(31 downto 0);
 	i_CLK : in std_logic;
         i_addimm    : in  std_logic_vector(31 downto 0);
 	i_branch : in std_logic;
+	i_jump : in std_logic;
 	i_zero : in std_logic;
 	i_rst : in std_logic;
 	o_addr : out std_logic_vector(31 downto 0)
@@ -209,7 +215,6 @@ signal s_out : std_logic_vector(31 downto 0);
 	 o_Ovf : out std_logic
     	 );
 	 end component;
-
 
 
 
@@ -250,6 +255,7 @@ begin
       i_CLK     => iCLK,
       i_addimm => s_ext,
       i_branch => s_Branch,
+      i_jump => s_Jump,
       i_zero   => s_ALUzero,
       i_rst	=> iRST,
       o_addr     => s_NextInstAddr
@@ -291,6 +297,7 @@ begin
 	i_in32 => s_Inst,--TODO
 	i_unsigned => '0',--TODO
 	i_LUI => s_LUI,
+	i_UJ => s_UJ,
 	i_SB => s_SB,
 	o_out32 => s_ext);	
 
@@ -312,8 +319,10 @@ begin
 	ALUSrc => s_ALUSrc,
 	RegWrite => s_RegWr,
 	LUI => s_LUI,
+	UJ => s_UJ,
 	AUIPC => s_PCAdd,
 	SB => s_SB,
+	Jump => s_Jump,
 	Halt => s_Halt); 
 
      ALU_control_i : ALU_control
