@@ -11,6 +11,7 @@ entity fetch is
 	i_jump : in std_logic;
 	i_zero : in std_logic;
 	i_rst : in std_logic;
+	o_add4 : out std_logic_vector(31 downto 0);
 	o_addr : out std_logic_vector(31 downto 0)
     );
 end fetch;
@@ -129,5 +130,6 @@ begin
 	imm_shifted(31 downto 0) <= i_addimm(31 downto 0);
 	--imm_shifted(0) <= '0';
 	o_addr <= PCout;
+	o_add4 <= PCplus4;
 
 end structure;

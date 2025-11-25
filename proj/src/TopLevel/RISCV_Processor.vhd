@@ -83,12 +83,14 @@ signal s_UJ : std_logic;
 signal s_SB : std_logic;
 signal s_Jump : std_logic;
 
+signal s_add4 : std_logic_vector(31 downto 0);
 signal s_PCAdd : std_logic;
 signal s_ALUA : std_logic_vector(31 downto 0);
 signal s_ALUout : std_logic_vector(31 downto 0);
 signal s_ALUzero : std_logic;
 signal s_memout : std_logic_vector(31 downto 0);
 signal s_out : std_logic_vector(31 downto 0);
+signal s_ALUorPCplus4 : std_logic_vector(31 downto 0);
 
   component mem is
     generic(ADDR_WIDTH : integer;
@@ -188,6 +190,7 @@ signal s_out : std_logic_vector(31 downto 0);
 	i_jump : in std_logic;
 	i_zero : in std_logic;
 	i_rst : in std_logic;
+	o_add4 : out std_logic_vector(31 downto 0);
 	o_addr : out std_logic_vector(31 downto 0)
     	);
     end component;
@@ -258,6 +261,7 @@ begin
       i_jump => s_Jump,
       i_zero   => s_ALUzero,
       i_rst	=> iRST,
+      o_add4	=> s_add4,
       o_addr     => s_NextInstAddr
     );
 
@@ -289,7 +293,7 @@ begin
         i_Sub  => s_Sub,
         o_ALU  => s_ALUout,
         o_Cout => open,
-	o_Ovf => s_Ovfl,
+	o_Ovf => open,
 	o_zero => s_ALUzero);
 
     extender_i : extender
@@ -304,7 +308,7 @@ begin
     busmux_i : busmux2to1
 	port map(
 	i_S => s_MemtoReg,
-	i_D0 => s_ALUout,
+	i_D0 => s_ALUorPCplus4,
 	i_D1 => s_memout,
 	o_Q => s_out);
 
@@ -346,12 +350,20 @@ begin
 	i_D1 => s_NextInstAddr,
 	o_Q => s_ALUA);
 
+     busmux_regdata : busmux2to1
+	port map(
+	i_S => s_Jump,
+	i_D0 => s_ALUout,
+	i_D1 => s_add4,
+	o_Q => s_ALUorPCplus4);
+
 
 s_DMemAddr <= s_ALUout;
 s_DMemData <= s_regout2;
 oALUOut <= s_ALUout;
 s_RegWrAddr <= s_Inst(11 downto 7);
 s_RegWrData <= s_out;
+s_Ovfl <= '0';
 
 end structure;
 

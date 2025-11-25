@@ -79,9 +79,11 @@ signal s_ShiftDir : std_logic; --0 = left, 1 = right
 signal s_ShiftArith : std_logic; 
 signal s_Sub  :   std_logic; -- 0 = add, 1 = sub
 signal s_LUI : std_logic;
+signal s_UJ : std_logic;
 signal s_SB : std_logic;
 signal s_Jump : std_logic;
 
+signal s_add4 : std_logic_vector(31 downto 0);
 signal s_PCAdd : std_logic;
 signal s_ALUA : std_logic_vector(31 downto 0);
 signal s_ALUout : std_logic_vector(31 downto 0);
@@ -116,6 +118,7 @@ signal s_out : std_logic_vector(31 downto 0);
 	ALUSrc : out std_logic;
 	RegWrite : out std_logic;
 	LUI : out std_logic;
+	UJ : out std_logic;
 	AUIPC : out std_logic;
 	SB : out std_logic;
 	Jump : out std_logic;
@@ -146,6 +149,7 @@ signal s_out : std_logic_vector(31 downto 0);
 	i_in32	        : in std_logic_vector(31 downto 0);
 	i_unsigned	: in std_logic; --1 for unsigned
 	i_LUI		: in std_logic;
+	i_UJ		: in std_logic;
 	i_SB		: in std_logic;
 	o_out32		: out std_logic_vector((31) downto 0));
     end component;
@@ -185,6 +189,7 @@ signal s_out : std_logic_vector(31 downto 0);
 	i_jump : in std_logic;
 	i_zero : in std_logic;
 	i_rst : in std_logic;
+	o_add4 : out std_logic_vector(31 downto 0);
 	o_addr : out std_logic_vector(31 downto 0)
     	);
     end component;
@@ -255,6 +260,7 @@ begin
       i_jump => s_Jump,
       i_zero   => s_ALUzero,
       i_rst	=> iRST,
+      o_add4	=> s_add4,
       o_addr     => s_NextInstAddr
     );
 
@@ -286,7 +292,7 @@ begin
         i_Sub  => s_Sub,
         o_ALU  => s_ALUout,
         o_Cout => open,
-	o_Ovf => s_Ovfl,
+	o_Ovf => open,
 	o_zero => s_ALUzero);
 
     extender_i : extender
@@ -294,6 +300,7 @@ begin
 	i_in32 => s_Inst,--TODO
 	i_unsigned => '0',--TODO
 	i_LUI => s_LUI,
+	i_UJ => s_UJ,
 	i_SB => s_SB,
 	o_out32 => s_ext);	
 
@@ -315,6 +322,7 @@ begin
 	ALUSrc => s_ALUSrc,
 	RegWrite => s_RegWr,
 	LUI => s_LUI,
+	UJ => s_UJ,
 	AUIPC => s_PCAdd,
 	SB => s_SB,
 	Jump => s_Jump,
@@ -347,6 +355,7 @@ s_DMemData <= s_regout2;
 oALUOut <= s_ALUout;
 s_RegWrAddr <= s_Inst(11 downto 7);
 s_RegWrData <= s_out;
+s_Ovfl <= '0';
 
 end structure;
 

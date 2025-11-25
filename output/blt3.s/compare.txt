@@ -15,7 +15,7 @@ Incorrect write
 Cycle: 8
 RARS instruction number: 7	Instruction: sw x5,0(x3)
 Expected:	Memory Write to Addr: 0x10010000 Val: 0x00000000
-Got     :	Register Write to Reg: 0x05 Val: 0x00000001
+Got     :	Register Write to Reg: 0x01 Val: 0x0000000C
 Wrote to incorrect structure
 
 You have reached the maximum mismatches (3)
