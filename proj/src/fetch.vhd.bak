@@ -11,7 +11,7 @@ entity fetch is
 	i_jump : in std_logic;
 	i_zero : in std_logic;
 	i_rst : in std_logic;
-	o_add4 : out std_logic(31 downto 0);
+	o_add4 : out std_logic_vector(31 downto 0);
 	o_addr : out std_logic_vector(31 downto 0)
     );
 end fetch;

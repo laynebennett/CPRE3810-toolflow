@@ -71,6 +71,7 @@ architecture structure of fetch is
     signal muxtoPC : std_logic_vector(31 downto 0);
     signal PCout : std_logic_vector(31 downto 0);
     signal imm_shifted : std_logic_vector(31 downto 0);
+    signal PC_rst_mux : std_logic_vector(31 downto 0);
 
 begin
 
@@ -86,13 +87,21 @@ begin
 	i_S => branchmux,
 	i_D0 => PCplus4,
 	i_D1 => PCplusimm,
+	o_Q => PC_rst_mux
+	);
+
+    busmux_RST: busmux2to1
+	port map(
+	i_S => i_rst,
+	i_D0 => PC_rst_mux,
+	i_D1 => x"00400000",
 	o_Q => muxtoPC
 	);
 
     PC: reg
 	port map(
 	i_CLK => i_CLK,
-	i_RST => i_rst,
+	i_RST => '0',
         i_WE => '1',
         i_D => muxtoPC,
         o_Q => PCout

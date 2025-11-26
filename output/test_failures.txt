@@ -1,1 +1,1 @@
-proj/riscv/jal_2.s
+proj/riscv/blt3.s
