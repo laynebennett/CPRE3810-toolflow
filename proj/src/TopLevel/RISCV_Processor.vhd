@@ -82,6 +82,7 @@ signal s_LUI : std_logic;
 signal s_UJ : std_logic;
 signal s_SB : std_logic;
 signal s_Jump : std_logic;
+signal s_unsign : std_logic;
 
 signal s_add4 : std_logic_vector(31 downto 0);
 signal s_PCAdd : std_logic;
@@ -219,8 +220,15 @@ signal s_ALUorPCplus4 : std_logic_vector(31 downto 0);
     	 );
 	 end component;
 
-
-
+	component sign
+	port (
+	i_instruction : in std_logic_vector(31 downto 0);
+	i_load : in std_logic;
+	i_ALUOp : in std_logic_vector(1 downto 0);
+	i_branch : std_logic;
+	o_unsign : out std_logic
+	);
+	end component;
 
 begin
 
@@ -299,11 +307,19 @@ begin
     extender_i : extender
 	port map(
 	i_in32 => s_Inst,--TODO
-	i_unsigned => '0',--TODO
+	i_unsigned => s_unsign,--TODO
 	i_LUI => s_LUI,
 	i_UJ => s_UJ,
 	i_SB => s_SB,
 	o_out32 => s_ext);	
+
+    sign_i : sign
+	port map(
+	i_instruction => s_Inst,
+	i_load => s_MemRead,
+	i_ALUOp => s_ALUOp,
+	i_branch => s_SB,
+	o_unsign => s_unsign);
 
     busmux_i : busmux2to1
 	port map(

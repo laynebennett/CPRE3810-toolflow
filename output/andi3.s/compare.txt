@@ -1,21 +1,21 @@
 Oh no...
 
-Cycle: 0
-RARS instruction number: 1	Instruction: lui x5,-136484
-Expected:	Register Write to Reg: 0x05 Val: 0xDEADC000
-Got     :	Register Write to Reg: 0x05 Val: 0xFFFFFDEA
+Cycle: 6
+RARS instruction number: 6	Instruction: sw x6,0(x7)
+Expected:	Memory Write to Addr: 0x10010000 Val: 0x00000000
+Got     :	Register Write to Reg: 0x05 Val: 0xCAFEC000
+Wrote to incorrect structure
+
+Cycle: 7
+RARS instruction number: 7	Instruction: lui x5,-217108
+Expected:	Register Write to Reg: 0x05 Val: 0xCAFEC000
+Got     :	Register Write to Reg: 0x05 Val: 0xCAFEBABE
 Incorrect write
 
-Cycle: 1
-RARS instruction number: 2	Instruction: addi x5,x5,-273
-Expected:	Register Write to Reg: 0x05 Val: 0xDEADBEEF
-Got     :	Register Write to Reg: 0x05 Val: 0xFFFFFCD9
-Incorrect write
-
-Cycle: 2
-RARS instruction number: 3	Instruction: andi x6,x5,0
-Expected:	Register Write to Reg: 0x06 Val: 0x00000000
-Got     :	Register Write to Reg: 0x06 Val: 0xFFFFFCD9
+Cycle: 8
+RARS instruction number: 8	Instruction: addi x5,x5,-1346
+Expected:	Register Write to Reg: 0x05 Val: 0xCAFEBABE
+Got     :	Register Write to Reg: 0x06 Val: 0x00000000
 Incorrect write
 
 You have reached the maximum mismatches (3)

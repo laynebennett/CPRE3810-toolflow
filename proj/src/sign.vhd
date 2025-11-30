@@ -1,0 +1,56 @@
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity sign is 
+port(
+	i_instruction : in std_logic_vector(31 downto 0);
+	i_load : in std_logic;
+	i_ALUOp : in std_logic_vector(1 downto 0);
+	i_branch : std_logic;
+	o_unsign : out std_logic
+);
+end sign;
+
+architecture behavioral of sign is 
+
+	signal s_sign : std_logic_vector(31 downto 0);
+	signal s_funct3 : std_logic_vector(2 downto 0);
+    	
+begin
+
+s_sign <= i_instruction;
+
+process(s_sign)
+
+begin
+
+s_funct3 <= s_sign(14 downto 12);
+
+
+--Load
+if (i_load = '1' and s_funct3 = "100") then
+	o_unsign <= '1';
+elsif (i_load = '1' and s_funct3 = "101") then
+	o_unsign <= '1';
+elsif (i_load = '1' and s_funct3 = "110") then
+	o_unsign <= '1';
+--I(imm) type
+elsif (i_ALUOp = "11" and s_funct3 = "011") then
+	o_unsign <= '1';
+--R type
+elsif (i_ALUOp = "10" and s_funct3 = "011") then
+	o_unsign <= '1';
+--B type
+elsif (i_branch = '1' and s_funct3 = "110") then
+	o_unsign <= '1';
+elsif (i_branch = '1' and s_funct3 = "111") then
+	o_unsign <= '1';
+else
+	o_unsign <= '0';
+end if;
+
+end process;
+
+end behavioral; 
