@@ -86,6 +86,11 @@ signal s_Jump : std_logic;
 signal s_unsign : std_logic;
 signal s_Set : std_logic;
 signal s_zero_extended : std_logic_vector(31 downto 0);
+signal s_resizerstore : std_logic_vector(31 downto 0);
+signal s_resizerload : std_logic_vector(31 downto 0);
+signal s_lh : std_logic;
+signal s_lb : std_logic;
+signal s_HaltALMOST : std_logic; --because of ecall
 
 signal s_add4 : std_logic_vector(31 downto 0);
 signal s_PCAdd : std_logic;
@@ -175,8 +180,10 @@ signal s_ALUorSet : std_logic_vector(31 downto 0);
 	o_BranchSel : out std_logic_vector(1 downto 0); --00 = BEQ, 01 = BGE, 10 = BLT, 11 = BNE 
 	o_ShiftDir : out std_logic; --0 = left, 1 = right
 	o_ShiftArith : out std_logic; 
-        o_Sub  : out  std_logic;
-	o_Set : out std_logic); -- 0 = add, 1 = sub
+        o_Sub  : out  std_logic;-- 0 = add, 1 = sub
+	o_Set : out std_logic;
+	o_h	: out std_logic;
+	o_b	: out std_logic); 
     end component;	
 
 	-----busmux2to1
@@ -228,6 +235,8 @@ signal s_ALUorSet : std_logic_vector(31 downto 0);
     	 );
 	 end component;
 
+	----Sign
+
 	component sign
 	port (
 	i_instruction : in std_logic_vector(31 downto 0);
@@ -236,6 +245,20 @@ signal s_ALUorSet : std_logic_vector(31 downto 0);
 	i_branch : std_logic;
 	o_unsign : out std_logic
 	);
+	end component;
+
+	----Resizer
+
+	component resizer
+    	port 
+    	(
+        i_in32    : in std_logic_vector(31 downto 0);
+        i_unsigned : in std_logic; -- 1 for unsigned
+        i_h        : in std_logic; -- 1 for halfword
+	i_b	    : in std_logic;
+        i_en        : in std_logic; -- 0 for default
+        o_out32    : out std_logic_vector(31 downto 0)
+   	);
 	end component;
 
 begin
@@ -326,7 +349,7 @@ begin
     sign_i : sign
 	port map(
 	i_instruction => s_Inst,
-	i_load => s_MemRead,
+	i_load => s_MemtoReg,
 	i_ALUOp => s_ALUOp,
 	i_branch => s_SB,
 	o_unsign => s_unsign);
@@ -336,7 +359,7 @@ begin
 	i_S => s_MemtoReg,
 	i_D0 => s_ALUorPCplus4,
 	i_D1 => s_DMemOut,
-	o_Q => s_out);
+	o_Q => s_resizerload);
 
     control_i : control
 	port map(
@@ -354,7 +377,7 @@ begin
 	SB => s_SB,
 	Store => s_Store,
 	Jump => s_Jump,
-	Halt => s_Halt); 
+	Halt => s_HaltALMOST); 
 
      ALU_control_i : ALU_control
         port map(
@@ -369,14 +392,34 @@ begin
 	o_ShiftDir => s_ShiftDir,
 	o_ShiftArith => s_ShiftArith,
         o_Sub => s_Sub,
-	o_Set => s_Set);
+	o_Set => s_Set,
+	o_h => s_lh,
+	o_b => s_lb);
 
      busmux_pcadd : busmux2to1
 	port map(
 	i_S => s_PCAdd,
 	i_D0 => s_regout1,
 	i_D1 => s_NextInstAddr,
-	o_Q => s_ALUA);
+	o_Q => s_resizerstore);
+
+     storeresizer : resizer
+    	port map(
+        i_in32 => s_resizerstore,
+        i_unsigned => s_unsign,
+        i_h => s_lh,
+	i_b => s_lb,
+        i_en => s_Store,
+        o_out32 => s_ALUA);
+
+     loadresizer : resizer
+    	port map(
+        i_in32 => s_resizerload,
+        i_unsigned => s_unsign,
+        i_h => s_lh,
+	i_b => s_lb,
+        i_en => s_MemtoReg,
+        o_out32 => s_out);
 
      busmux_set : busmux2to1
 	port map(
@@ -400,6 +443,7 @@ s_RegWrAddr <= s_Inst(11 downto 7);
 s_RegWrData <= s_out;
 s_Ovfl <= '0';
 s_zero_extended <= x"0000000" & "000" & s_ALUzero;
+s_Halt <= s_HaltALMOST and s_Inst(20);
 
 end structure;
 

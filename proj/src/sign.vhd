@@ -21,12 +21,13 @@ architecture behavioral of sign is
 begin
 
 s_sign <= i_instruction;
+s_funct3 <= s_sign(14 downto 12);
 
-process(s_sign, i_load, i_ALUOp, i_branch)
+process(s_sign, i_load, i_ALUOp, i_branch, s_funct3)
 
 begin
 
-s_funct3 <= s_sign(14 downto 12);
+--s_funct3 <= s_sign(14 downto 12);
 
 
 --Load

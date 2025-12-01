@@ -22,7 +22,7 @@ begin
 
 s_sign <= i_instruction;
 
-process(s_sign)
+process(s_sign, i_load, i_ALUOp, i_branch)
 
 begin
 

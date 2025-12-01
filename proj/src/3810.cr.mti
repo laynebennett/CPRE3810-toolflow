@@ -208,6 +208,14 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package std_logic_1164
 -- Compiling package mux2to1_array_package
 
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ALU_control
+-- Compiling architecture behavioral of ALU_control
+
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package STANDARD
@@ -258,6 +266,15 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Compiling entity mux32to1
 -- Compiling architecture dataflow of mux32to1
 
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/resizer.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/resizer.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity resizer
+-- Compiling architecture structure of resizer
+
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/SECONDRISCVDATA.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/SECONDRISCVDATA.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package STANDARD
@@ -291,15 +308,6 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package std_logic_1164
 -- Compiling entity dffg
 -- Compiling architecture mixed of dffg
-
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd
-QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package RISCV_types
--- Compiling entity RISCV_Processor
--- Compiling architecture structure of RISCV_Processor
 
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/PART1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/PART1.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
