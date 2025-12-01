@@ -100,6 +100,4 @@ In clock cycle: 49
 Register Write to Reg: 0x1D Val: 0xFFFFF7FE
 In clock cycle: 50
 Register Write to Reg: 0x0A Val: 0xFFFFF7FF
-In clock cycle: 51
-Register Write to Reg: 0x00 Val: 0x80000000
 Execution is stopping! Clock Cycle: 51

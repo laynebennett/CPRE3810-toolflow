@@ -81,8 +81,11 @@ signal s_Sub  :   std_logic; -- 0 = add, 1 = sub
 signal s_LUI : std_logic;
 signal s_UJ : std_logic;
 signal s_SB : std_logic;
+signal s_Store : std_logic;
 signal s_Jump : std_logic;
 signal s_unsign : std_logic;
+signal s_Set : std_logic;
+signal s_zero_extended : std_logic_vector(31 downto 0);
 
 signal s_add4 : std_logic_vector(31 downto 0);
 signal s_PCAdd : std_logic;
@@ -92,6 +95,7 @@ signal s_ALUzero : std_logic;
 signal s_memout : std_logic_vector(31 downto 0);
 signal s_out : std_logic_vector(31 downto 0);
 signal s_ALUorPCplus4 : std_logic_vector(31 downto 0);
+signal s_ALUorSet : std_logic_vector(31 downto 0);
 
   component mem is
     generic(ADDR_WIDTH : integer;
@@ -123,6 +127,7 @@ signal s_ALUorPCplus4 : std_logic_vector(31 downto 0);
 	UJ : out std_logic;
 	AUIPC : out std_logic;
 	SB : out std_logic;
+	Store : out std_logic;
 	Jump : out std_logic;
 	Halt : out std_logic
 	);
@@ -153,6 +158,7 @@ signal s_ALUorPCplus4 : std_logic_vector(31 downto 0);
 	i_LUI		: in std_logic;
 	i_UJ		: in std_logic;
 	i_SB		: in std_logic;
+	i_store		: in std_logic;
 	o_out32		: out std_logic_vector((31) downto 0));
     end component;
 
@@ -169,7 +175,8 @@ signal s_ALUorPCplus4 : std_logic_vector(31 downto 0);
 	o_BranchSel : out std_logic_vector(1 downto 0); --00 = BEQ, 01 = BGE, 10 = BLT, 11 = BNE 
 	o_ShiftDir : out std_logic; --0 = left, 1 = right
 	o_ShiftArith : out std_logic; 
-        o_Sub  : out  std_logic); -- 0 = add, 1 = sub
+        o_Sub  : out  std_logic;
+	o_Set : out std_logic); -- 0 = add, 1 = sub
     end component;	
 
 	-----busmux2to1
@@ -212,6 +219,7 @@ signal s_ALUorPCplus4 : std_logic_vector(31 downto 0);
 	 BranchSel : in std_logic_vector(1 downto 0); --00 = BEQ, 01 = BGE, 10 = BLT, 11 = BNE 
 	 ShiftDir : in std_logic; --0 = left, 1 = right
 	 ShiftArith : in std_logic; 
+	 i_unsigned : in std_logic;
          i_Sub  : in  std_logic; -- 0 = add, 1 = sub
          o_ALU  : out std_logic_vector(N-1 downto 0);
          o_Cout : out std_logic;
@@ -298,6 +306,7 @@ begin
 	BranchSel => s_BranchSel,
 	ShiftDir => s_ShiftDir,
 	ShiftArith => s_ShiftArith,
+	i_unsigned => s_unsign,
         i_Sub  => s_Sub,
         o_ALU  => s_ALUout,
         o_Cout => open,
@@ -311,6 +320,7 @@ begin
 	i_LUI => s_LUI,
 	i_UJ => s_UJ,
 	i_SB => s_SB,
+	i_store => s_Store,
 	o_out32 => s_ext);	
 
     sign_i : sign
@@ -325,7 +335,7 @@ begin
 	port map(
 	i_S => s_MemtoReg,
 	i_D0 => s_ALUorPCplus4,
-	i_D1 => s_memout,
+	i_D1 => s_DMemOut,
 	o_Q => s_out);
 
     control_i : control
@@ -335,13 +345,14 @@ begin
 	MemRead => s_MemRead,
 	MemtoReg => s_MemtoReg,
 	ALUOp => s_ALUOp,
-	MemWrite => s_MemWrite,
+	MemWrite => s_DMemWr,
 	ALUSrc => s_ALUSrc,
 	RegWrite => s_RegWr,
 	LUI => s_LUI,
 	UJ => s_UJ,
 	AUIPC => s_PCAdd,
 	SB => s_SB,
+	Store => s_Store,
 	Jump => s_Jump,
 	Halt => s_Halt); 
 
@@ -357,7 +368,8 @@ begin
 	o_BranchSel => s_BranchSel,
 	o_ShiftDir => s_ShiftDir,
 	o_ShiftArith => s_ShiftArith,
-        o_Sub => s_Sub);
+        o_Sub => s_Sub,
+	o_Set => s_Set);
 
      busmux_pcadd : busmux2to1
 	port map(
@@ -366,10 +378,17 @@ begin
 	i_D1 => s_NextInstAddr,
 	o_Q => s_ALUA);
 
+     busmux_set : busmux2to1
+	port map(
+	i_S => s_Set,
+	i_D0 => s_ALUout,
+	i_D1 => s_zero_extended,
+	o_Q => s_ALUorSet);
+
      busmux_regdata : busmux2to1
 	port map(
 	i_S => s_Jump,
-	i_D0 => s_ALUout,
+	i_D0 => s_ALUorSet,
 	i_D1 => s_add4,
 	o_Q => s_ALUorPCplus4);
 
@@ -380,6 +399,7 @@ oALUOut <= s_ALUout;
 s_RegWrAddr <= s_Inst(11 downto 7);
 s_RegWrData <= s_out;
 s_Ovfl <= '0';
+s_zero_extended <= x"0000000" & "000" & s_ALUzero;
 
 end structure;
 

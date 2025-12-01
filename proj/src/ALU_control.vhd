@@ -14,7 +14,8 @@ entity ALU_control is
 	o_BranchSel : out std_logic_vector(1 downto 0); --00 = BEQ, 01 = BGE, 10 = BLT, 11 = BNE 
 	o_ShiftDir : out std_logic; --0 = left, 1 = right
 	o_ShiftArith : out std_logic; 
-        o_Sub  : out  std_logic -- 0 = add, 1 = sub
+        o_Sub  : out  std_logic; -- 0 = add, 1 = sub
+	o_Set : out std_logic
     );
 end ALU_control;
 
@@ -43,6 +44,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 			
 	--sub
 		elsif input = "101000" then
@@ -53,6 +55,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '1';
+			o_Set <= '0';
 
 
 -------------------gate
@@ -66,6 +69,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 	--xor
 		elsif input = "100100" then --
 			o_AltEn <= '1';
@@ -75,6 +79,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 
 	--or
 		elsif input = "100110" then --
@@ -85,6 +90,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 
 	--nor CUSTOM
 		elsif input = "101111" then
@@ -95,6 +101,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 
 ----------------shift
 
@@ -107,6 +114,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 
 	--srl
 		elsif input = "100101" then
@@ -117,6 +125,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '1' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 
 	--sra
 		elsif input = "101101" then
@@ -127,6 +136,31 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '1' ;
 			o_ShiftArith <= '1';
 			o_Sub <= '0';
+			o_Set <= '0';
+
+------------Set
+
+	--slt
+		elsif (ALUOp = "10" and instruction(2 downto 0) = "010") then
+			o_AltEn <= '0';
+			o_ShiftEn <= '0';
+			o_GateEn <= "00";
+			o_BranchSel <= "10";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '1';
+			o_Set <= '1';
+
+	--sltu
+		elsif (ALUOp = "10" and instruction(2 downto 0) = "011") then
+			o_AltEn <= '0';
+			o_ShiftEn <= '0';
+			o_GateEn <= "01";
+			o_BranchSel <= "10";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '1';
+			o_Set <= '1';
 
 ------------------------------B TYPE---ASSUME FUNCT7=0---ALUOp = 01 --EDIT SO 01X000
 
@@ -141,6 +175,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '1';
+			o_Set <= '0';
 
 	--bge
 		elsif (ALUOp = "01" and instruction(2 downto 0) = "101") then
@@ -151,6 +186,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '1';
+			o_Set <= '0';
 
 	--blt
 		elsif (ALUOp = "01" and instruction(2 downto 0) = "100") then
@@ -161,6 +197,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '1';
+			o_Set <= '0';
 
 	--bne
 		elsif (ALUOp = "01" and instruction(2 downto 0) = "001") then
@@ -171,6 +208,29 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '1';
+			o_Set <= '0';
+
+	--bgeu
+		elsif (ALUOp = "01" and instruction(2 downto 0) = "111") then
+			o_AltEn <= '0';
+			o_ShiftEn <= '0';
+			o_GateEn <= "01";
+			o_BranchSel <= "01";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '1';
+			o_Set <= '0';
+
+	--bltu
+		elsif (ALUOp = "01" and instruction(2 downto 0) = "110") then
+			o_AltEn <= '0';
+			o_ShiftEn <= '0';
+			o_GateEn <= "01";
+			o_BranchSel <= "10";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '1';
+			o_Set <= '0';
 
 ------------------------------------ALUOp = 00
 
@@ -187,6 +247,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 
 ----------------------------------------I TYPE---ALUOp = 11
 
@@ -201,6 +262,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 			
 	--addi also
 		elsif input = "111000" then
@@ -211,6 +273,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 
 
 -------------------gate
@@ -224,6 +287,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 	--xor
 		elsif input = "110100" then --
 			o_AltEn <= '1';
@@ -233,6 +297,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 
 	--or
 		elsif input = "110110" then --
@@ -243,6 +308,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 
 	--nor CUSTOM
 		elsif input = "111111" then
@@ -253,6 +319,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 
 ----------------shift
 
@@ -265,6 +332,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 
 	--srl
 		elsif input = "110101" then
@@ -275,6 +343,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '1' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 
 	--sra
 		elsif input = "111101" then
@@ -285,6 +354,30 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '1' ;
 			o_ShiftArith <= '1';
 			o_Sub <= '0';
+			o_Set <= '0';
+------------Set
+
+	--slti
+		elsif (ALUOp = "11" and instruction(2 downto 0) = "010") then
+			o_AltEn <= '0';
+			o_ShiftEn <= '0';
+			o_GateEn <= "00";
+			o_BranchSel <= "10";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '1';
+			o_Set <= '1';
+
+	--sltiu
+		elsif (ALUOp = "11" and instruction(2 downto 0) = "011") then
+			o_AltEn <= '0';
+			o_ShiftEn <= '0';
+			o_GateEn <= "01";
+			o_BranchSel <= "10";
+			o_ShiftDir <= '0' ;
+			o_ShiftArith <= '0';
+			o_Sub <= '1';
+			o_Set <= '1';
 
 		else
 			o_AltEn <= '0';
@@ -294,6 +387,7 @@ input(3 downto 0) <= instruction(3 downto 0);
 			o_ShiftDir <= '0' ;
 			o_ShiftArith <= '0';
 			o_Sub <= '0';
+			o_Set <= '0';
 
 
 		end if;

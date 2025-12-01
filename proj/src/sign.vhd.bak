@@ -20,13 +20,12 @@ architecture behavioral of sign is
     	
 begin
 
---s_sign <= i_instruction;
+s_sign <= i_instruction;
 
-process(i_instruction)
+process(s_sign)
 
 begin
 
-s_sign <= i_instruction;
 s_funct3 <= s_sign(14 downto 12);
 
 

@@ -3,7 +3,7 @@ Oh no...
 Cycle: 1
 RARS instruction number: 2	Instruction: lb x6,0(x5)
 Expected:	Register Write to Reg: 0x06 Val: 0xFFFFFF80
-Got     :	Register Write to Reg: 0x06 Val: 0xXXXXXXXX
+Got     :	Register Write to Reg: 0x06 Val: 0x00000080
 Incorrect write
 
 Almost! your processor completed the program with  1/3 allowed mismatches

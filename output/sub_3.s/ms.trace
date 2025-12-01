@@ -60,6 +60,4 @@ In clock cycle: 29
 Register Write to Reg: 0x0F Val: 0x00000032
 In clock cycle: 30
 Register Write to Reg: 0x10 Val: 0x00000042
-In clock cycle: 31
-Register Write to Reg: 0x00 Val: 0xFFFFFFF3
 Execution is stopping! Clock Cycle: 31

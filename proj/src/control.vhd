@@ -16,6 +16,7 @@ port(
 	UJ : out std_logic;
 	AUIPC : out std_logic;
 	SB : out std_logic;
+	Store : out std_logic;
 	Jump : out std_logic;
 	Halt : out std_logic	
 );
@@ -45,6 +46,7 @@ if i_control = "0110011" then
 	UJ <= '0';
 	AUIPC <= '0';
 	SB <= '0';
+	Store <= '0';
 	Jump <= '0';
 	Halt <= '0';
 --I(imm) type
@@ -60,6 +62,7 @@ elsif i_control = "0010011" then
 	UJ <= '0';
 	AUIPC <= '0';
 	SB <= '0';
+	Store <= '0';
 	Jump <= '0';
 	Halt <= '0';
 --I(Load) type
@@ -75,6 +78,7 @@ elsif i_control = "0000011" then
 	UJ <= '0';
 	AUIPC <= '0';
 	SB <= '0';
+	Store <= '0';
 	Jump <= '0';
 	Halt <= '0';
 --I(Jump) type
@@ -90,6 +94,7 @@ elsif i_control = "1100111" then
 	UJ <= '0';
 	AUIPC <= '1';
 	SB <= '0';
+	Store <= '0';
 	Jump <= '0';
 	Halt <= '0';
 --S type
@@ -105,6 +110,7 @@ elsif i_control = "0100011" then
 	UJ <= '0';
 	AUIPC <= '0';
 	SB <= '0';
+	Store <= '1';
 	Jump <= '0';
 	Halt <= '0';
 --B type
@@ -120,6 +126,7 @@ elsif i_control = "1100011" then
 	UJ <= '0';
 	AUIPC <= '0';
 	SB <= '1';
+	Store <= '0';
 	Jump <= '0';
 	Halt <= '0';
 --U(AUIPC) type
@@ -135,6 +142,7 @@ elsif i_control = "0010111" then
 	UJ <= '0';
 	AUIPC <= '1';
 	SB <= '0';
+	Store <= '0';
 	Jump <= '0';
 	Halt <= '0';
 --U(LUI) type
@@ -150,6 +158,7 @@ elsif i_control = "0110111" then
 	UJ <= '0';
 	AUIPC <= '0';
 	SB <= '0';
+	Store <= '0';
 	Jump <= '0';
 	Halt <= '0';
 --J type
@@ -165,10 +174,24 @@ elsif i_control = "1101111" then
 	UJ <= '1';
 	AUIPC <= '0';
 	SB <= '0';
+	Store <= '0';
 	Jump <= '1';
 	Halt <= '0';
 --HALT
 elsif i_control = "1110011" then
+	Branch <= '0';
+	MemRead <= '0';
+	MemtoReg <= '0';
+	ALUOp <= "00";
+	Memwrite <= '0';
+	ALUSrc <= '0';
+	Regwrite <= '0';
+	LUI <= '0';
+	UJ <= '0';
+	AUIPC <= '0';
+	SB <= '0';
+	Store <= '0';
+	Jump <= '0';
 	Halt <= '1';
 	
 

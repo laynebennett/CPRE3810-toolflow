@@ -3,14 +3,14 @@ Oh no...
 Cycle: 4
 RARS instruction number: 5	Instruction: lbu x6,0(x5)
 Expected:	Register Write to Reg: 0x06 Val: 0x000000AB
-Got     :	Register Write to Reg: 0x06 Val: 0xXXXXXXXX
+Got     :	Register Write to Reg: 0x06 Val: 0x12EFCDAB
 Incorrect write
 
-Cycle: na
+Cycle: 5
 RARS instruction number: 6	Instruction: sw x6,0(x7)
 Expected:	Memory Write to Addr: 0x10010004 Val: 0x000000AB
-Got     :	Execution stopped
-Student execution ended prematurely
+Got     :	Memory Write to Addr: 0x10010004 Val: 0x12EFCDAB
+Incorrect write
 
 Almost! your processor completed the program with  2/3 allowed mismatches
 

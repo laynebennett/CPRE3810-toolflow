@@ -3,22 +3,10 @@ Oh no...
 Cycle: 1
 RARS instruction number: 2	Instruction: sltiu x2,x1,0
 Expected:	Register Write to Reg: 0x02 Val: 0x00000000
-Got     :	Register Write to Reg: 0x02 Val: 0xFFFFFFFF
+Got     :	Register Write to Reg: 0x02 Val: 0x00000001
 Incorrect write
 
-Cycle: 2
-RARS instruction number: 3	Instruction: sltiu x3,x0,-1
-Expected:	Register Write to Reg: 0x03 Val: 0x00000001
-Got     :	Register Write to Reg: 0x03 Val: 0x00001FFF
-Incorrect write
-
-Cycle: 5
-RARS instruction number: 6	Instruction: sltiu x6,x4,2047
-Expected:	Register Write to Reg: 0x06 Val: 0x00000001
-Got     :	Register Write to Reg: 0x06 Val: 0x00000FFD
-Incorrect write
-
-You have reached the maximum mismatches (3)
+Almost! your processor completed the program with  1/3 allowed mismatches
 
 Helpful resources for Debugging:
 ms.trace : output from the VHDL testbench during program execution on your processor

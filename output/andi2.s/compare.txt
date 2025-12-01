@@ -6,11 +6,11 @@ Expected:	Register Write to Reg: 0x06 Val: 0x12345670
 Got     :	Register Write to Reg: 0x06 Val: 0x00000000
 Incorrect write
 
-Cycle: na
+Cycle: 5
 RARS instruction number: 6	Instruction: sw x6,0(x7)
 Expected:	Memory Write to Addr: 0x10010000 Val: 0x12345670
-Got     :	Execution stopped
-Student execution ended prematurely
+Got     :	Memory Write to Addr: 0x10010000 Val: 0x00000000
+Incorrect write
 
 Almost! your processor completed the program with  2/3 allowed mismatches
 

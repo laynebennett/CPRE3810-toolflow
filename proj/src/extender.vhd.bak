@@ -14,6 +14,7 @@ entity extender is
 		i_LUI		: in std_logic; --1 for LUI
 		i_UJ		: in std_logic;
 		i_SB		: in std_logic; --1 for SB
+		i_store		: in std_logic; --1 for store instructions
 		o_out32		: out std_logic_vector(31 downto 0)
 	);
 
@@ -25,6 +26,7 @@ architecture structure of extender is
     signal s_sign   : std_logic;
     signal upper    : std_logic_vector(18 downto 0);
     signal s_in13   : std_logic_vector(12 downto 0);
+    signal s_in13_1 : std_logic_vector(12 downto 0);
     signal s_opcode : std_logic_vector(6 downto 0);
     signal s_LUI    : std_logic_vector(31 downto 0);
     signal s_UJ	    : std_logic_vector(31 downto 0);
@@ -55,9 +57,11 @@ begin
       );
 
     -- 
-    s_in13 <= (i_in32(31)&i_in32(31 downto 20)) when (i_SB = '0') else (i_in32(31)&i_in32(7)&i_in32(30 downto 25)&i_in32(11 downto 8)&'0');
+    s_in13_1 <= (i_in32(31)&i_in32(31 downto 20)) when (i_SB = '0') else (i_in32(31)&i_in32(7)&i_in32(30 downto 25)&i_in32(11 downto 8)&'0');
     --s_in12 <= (i_in32(31 downto 20)) when (i_SB = '0') else (i_in32(7)&i_in32(30 downto 25)&i_in32(11 downto 8)&'0');
    
+    s_in13 <= s_in13_1 when (i_store = '0') else (i_in32(31 downto 25)&i_in32(11 downto 7));
+
     -- Choose between signed and unsigned upper bits
     upper <= (others => '0') when (i_unsigned = '1') else muxtoadd(18 downto 0);
 
@@ -65,7 +69,7 @@ begin
     s_LUI <= std_logic_vector(signed(i_in32(31 downto 12) & x"000")); 
 
     -- SET UJ
-    s_UJ <= "0000000000" & i_in32(31) & i_in32(21 downto 12) & i_in32(22) & i_in32(30 downto 23) & "00";
+    s_UJ <= "00000000000" & i_in32(31) & i_in32(19 downto 12) & i_in32(20) & i_in32(30 downto 21) & '0';
 
     -- SET LUIorUJ
     s_LUIorUJ <= s_UJ when (i_UJ = '1') else (upper & s_in13);
