@@ -13,3 +13,5 @@ main:
     srl  x9,x8,x2
     sra  x10,x8,x2
     slt  x11,x1,x2
+    
+    wfi

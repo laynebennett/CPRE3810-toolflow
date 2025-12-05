@@ -53,6 +53,7 @@ after_inner:
 main_done:
     li   a7, 10              # syscall 10 = exit
     ecall                    # return 0;
+    wfi
 
 
 

@@ -92,6 +92,7 @@ signal s_resizerload : std_logic_vector(31 downto 0);
 signal s_lh : std_logic;
 signal s_lb : std_logic;
 signal s_HaltALMOST : std_logic; --because of ecall
+signal s_LUImuxsel : std_logic;
 
 signal s_add4 : std_logic_vector(31 downto 0);
 signal s_PCAdd : std_logic;
@@ -274,29 +275,6 @@ begin
       iInstAddr when others;
 
 
-  IMem: mem
-    generic map(ADDR_WIDTH => ADDR_WIDTH,
-                DATA_WIDTH => N)
-    port map(clk  => iCLK,
-             addr => s_IMemAddr(11 downto 2),
-             data => iInstExt,
-             we   => iInstLd,
-             q    => s_Inst);
-  
-  DMem: mem
-    generic map(ADDR_WIDTH => ADDR_WIDTH,
-                DATA_WIDTH => N)
-    port map(clk  => iCLK,
-             addr => s_DMemAddr(11 downto 2),
-             data => s_DMemData,
-             we   => s_DMemWr,
-             q    => s_DMemOut);
-
-  -- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 01 0100)
-  -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
-
-  -- TODO: Implement the rest of your processor below this comment! 
-
     fetch_i : fetch
     port map(
       i_CLK     => iCLK,
@@ -312,61 +290,15 @@ begin
     );
 
 
-    regfile_i : regfile
-	port map(
-	i_CLK => iCLK,
-	i_WA => s_Inst(11 downto 7),
-        i_RA1 => s_Inst(19 downto 15),
-        i_RA2 => s_Inst(24 downto 20),
-        i_WE => s_RegWr,
-        i_DATA => s_RegWrData,
-        i_RST_ALL => iRST,
-        o_Q1 => s_regout1,
-        o_Q2 => s_regout2);
-	
-    ALU_i : ALU
-	port map(
-	i_A => s_ALUA,
-        i_B => s_regout2,
-	i_imm => s_ext,
-	ALUSrc => s_ALUSrc,
-	AltEn => s_AltEn,
-	ShiftEn => s_ShiftEn,
-	GateEn => s_GateEn,
-	BranchSel => s_BranchSel,
-	ShiftDir => s_ShiftDir,
-	ShiftArith => s_ShiftArith,
-	i_unsigned => s_unsign,
-        i_Sub  => s_Sub,
-        o_ALU  => s_ALUout,
-        o_Cout => open,
-	o_Ovf => open,
-	o_zero => s_ALUzero);
+  IMem: mem
+    generic map(ADDR_WIDTH => ADDR_WIDTH,
+                DATA_WIDTH => N)
+    port map(clk  => iCLK,
+             addr => s_IMemAddr(11 downto 2),
+             data => iInstExt,
+             we   => iInstLd,
+             q    => s_Inst);
 
-    extender_i : extender
-	port map(
-	i_in32 => s_Inst,--TODO
-	i_unsigned => s_unsign,--TODO
-	i_LUI => s_LUI,
-	i_UJ => s_UJ,
-	i_SB => s_SB,
-	i_store => s_Store,
-	o_out32 => s_ext);	
-
-    sign_i : sign
-	port map(
-	i_instruction => s_Inst,
-	i_load => s_MemtoReg,
-	i_ALUOp => s_ALUOp,
-	i_branch => s_SB,
-	o_unsign => s_unsign);
-
-    busmux_i : busmux2to1
-	port map(
-	i_S => s_MemtoReg,
-	i_D0 => s_ALUorPCplus4,
-	i_D1 => s_DMemOut,
-	o_Q => s_resizerload);
 
     control_i : control
 	port map(
@@ -387,6 +319,20 @@ begin
 	jalr => s_jalr,
 	Halt => s_HaltALMOST); 
 
+
+    regfile_i : regfile
+	port map(
+	i_CLK => iCLK,
+	i_WA => s_Inst(11 downto 7),
+        i_RA1 => s_Inst(19 downto 15),
+        i_RA2 => s_Inst(24 downto 20),
+        i_WE => s_RegWr,
+        i_DATA => s_RegWrData,
+        i_RST_ALL => iRST,
+        o_Q1 => s_regout1,
+        o_Q2 => s_regout2);
+
+
      ALU_control_i : ALU_control
         port map(
         ALUOp => s_ALUOp,
@@ -404,12 +350,34 @@ begin
 	o_h => s_lh,
 	o_b => s_lb);
 
+
+    extender_i : extender
+	port map(
+	i_in32 => s_Inst,
+	i_unsigned => s_unsign,
+	i_LUI => s_LUI,
+	i_UJ => s_UJ,
+	i_SB => s_SB,
+	i_store => s_Store,
+	o_out32 => s_ext);	
+
+
+    sign_i : sign
+	port map(
+	i_instruction => s_Inst,
+	i_load => s_MemtoReg,
+	i_ALUOp => s_ALUOp,
+	i_branch => s_SB,
+	o_unsign => s_unsign);
+
+
      busmux_pcadd : busmux2to1
 	port map(
 	i_S => s_PCAdd,
 	i_D0 => s_regout1,
 	i_D1 => s_NextInstAddr,
 	o_Q => s_resizerstore);
+
 
      storeresizer : resizer
     	port map(
@@ -420,6 +388,61 @@ begin
         i_en => s_Store,
         o_out32 => s_ALUA);
 
+
+    ALU_i : ALU
+	port map(
+	i_A => s_ALUA,
+        i_B => s_regout2,
+	i_imm => s_ext,
+	ALUSrc => s_ALUSrc,
+	AltEn => s_AltEn,
+	ShiftEn => s_ShiftEn,
+	GateEn => s_GateEn,
+	BranchSel => s_BranchSel,
+	ShiftDir => s_ShiftDir,
+	ShiftArith => s_ShiftArith,
+	i_unsigned => s_unsign,
+        i_Sub  => s_Sub,
+        o_ALU  => s_ALUout,
+        o_Cout => open,
+	o_Ovf => open,
+	o_zero => s_ALUzero);
+
+
+     busmux_set : busmux2to1
+	port map(
+	i_S => s_Set,
+	i_D0 => s_ALUout,
+	i_D1 => s_zero_extended,
+	o_Q => s_ALUorSet);
+
+
+     busmux_regdata : busmux2to1
+	port map(
+	i_S => s_Jump,
+	i_D0 => s_ALUorSet,
+	i_D1 => s_add4,
+	o_Q => s_ALUorPCplus4);
+
+  
+  DMem: mem
+    generic map(ADDR_WIDTH => ADDR_WIDTH,
+                DATA_WIDTH => N)
+    port map(clk  => iCLK,
+             addr => s_DMemAddr(11 downto 2),
+             data => s_DMemData,
+             we   => s_DMemWr,
+             q    => s_DMemOut);
+
+
+    busmux_MemtoReg : busmux2to1
+	port map(
+	i_S => s_MemtoReg,
+	i_D0 => s_ALUorPCplus4,
+	i_D1 => s_DMemOut,
+	o_Q => s_resizerload);
+
+
      loadresizer : resizer
     	port map(
         i_in32 => s_resizerload,
@@ -429,26 +452,16 @@ begin
         i_en => s_MemtoReg,
         o_out32 => s_ALUorLUI);
 
+
      busmux_ALUorLUI : busmux2to1
 	port map(
-	i_S => s_LUI and (not s_PCAdd),
+	i_S => s_LUImuxsel,
 	i_D0 => s_ALUorLUI,
 	i_D1 => s_ext,
 	o_Q => s_out);
 
-     busmux_set : busmux2to1
-	port map(
-	i_S => s_Set,
-	i_D0 => s_ALUout,
-	i_D1 => s_zero_extended,
-	o_Q => s_ALUorSet);
 
-     busmux_regdata : busmux2to1
-	port map(
-	i_S => s_Jump,
-	i_D0 => s_ALUorSet,
-	i_D1 => s_add4,
-	o_Q => s_ALUorPCplus4);
+
 
 
 s_DMemAddr <= s_ALUout;
@@ -459,6 +472,7 @@ s_RegWrData <= s_out;
 s_Ovfl <= '0';
 s_zero_extended <= x"0000000" & "000" & s_ALUzero;
 s_Halt <= s_HaltALMOST and s_Inst(20);
+s_LUImuxsel <= s_LUI and (not s_PCAdd);
 
 end structure;
 

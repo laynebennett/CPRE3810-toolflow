@@ -1,4 +1,4 @@
-    .text
+.text
     .globl main
 
 main:
@@ -8,7 +8,7 @@ main:
     addi x7,x0,0
     jal  x1,test1
 after_main:
-    beq  x0,x0,after_main
+    wfi
 
 test1:
     addi x2,x2,-16
