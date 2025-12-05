@@ -83,6 +83,7 @@ signal s_UJ : std_logic;
 signal s_SB : std_logic;
 signal s_Store : std_logic;
 signal s_Jump : std_logic;
+signal s_jalr : std_logic;
 signal s_unsign : std_logic;
 signal s_Set : std_logic;
 signal s_zero_extended : std_logic_vector(31 downto 0);
@@ -91,6 +92,7 @@ signal s_resizerload : std_logic_vector(31 downto 0);
 signal s_lh : std_logic;
 signal s_lb : std_logic;
 signal s_HaltALMOST : std_logic; --because of ecall
+signal s_LUImuxsel : std_logic;
 
 signal s_add4 : std_logic_vector(31 downto 0);
 signal s_PCAdd : std_logic;
@@ -101,6 +103,7 @@ signal s_memout : std_logic_vector(31 downto 0);
 signal s_out : std_logic_vector(31 downto 0);
 signal s_ALUorPCplus4 : std_logic_vector(31 downto 0);
 signal s_ALUorSet : std_logic_vector(31 downto 0);
+signal s_ALUorLUI : std_logic_vector(31 downto 0);
 
   component mem is
     generic(ADDR_WIDTH : integer;
@@ -134,6 +137,7 @@ signal s_ALUorSet : std_logic_vector(31 downto 0);
 	SB : out std_logic;
 	Store : out std_logic;
 	Jump : out std_logic;
+	jalr : out std_logic;
 	Halt : out std_logic
 	);
     end component;
@@ -201,6 +205,8 @@ signal s_ALUorSet : std_logic_vector(31 downto 0);
 	port (
 	i_CLK : in std_logic;
         i_addimm    : in  std_logic_vector(31 downto 0);
+        i_regData    : in  std_logic_vector(31 downto 0);
+	i_jalr : in std_logic;
 	i_branch : in std_logic;
 	i_jump : in std_logic;
 	i_zero : in std_logic;
@@ -296,6 +302,8 @@ begin
     port map(
       i_CLK     => iCLK,
       i_addimm => s_ext,
+      i_regData => s_regout1,
+      i_jalr => s_jalr,
       i_branch => s_Branch,
       i_jump => s_Jump,
       i_zero   => s_ALUzero,
@@ -377,6 +385,7 @@ begin
 	SB => s_SB,
 	Store => s_Store,
 	Jump => s_Jump,
+	jalr => s_jalr,
 	Halt => s_HaltALMOST); 
 
      ALU_control_i : ALU_control
@@ -419,7 +428,14 @@ begin
         i_h => s_lh,
 	i_b => s_lb,
         i_en => s_MemtoReg,
-        o_out32 => s_out);
+        o_out32 => s_ALUorLUI);
+
+     busmux_ALUorLUI : busmux2to1
+	port map(
+	i_S => s_LUImuxsel,
+	i_D0 => s_ALUorLUI,
+	i_D1 => s_ext,
+	o_Q => s_out);
 
      busmux_set : busmux2to1
 	port map(
@@ -444,6 +460,7 @@ s_RegWrData <= s_out;
 s_Ovfl <= '0';
 s_zero_extended <= x"0000000" & "000" & s_ALUzero;
 s_Halt <= s_HaltALMOST and s_Inst(20);
+s_LUImuxsel <= s_LUI and (not s_PCAdd);
 
 end structure;
 

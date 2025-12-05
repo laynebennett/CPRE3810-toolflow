@@ -7,6 +7,8 @@ entity fetch is
     port (
 	i_CLK : in std_logic;
         i_addimm    : in  std_logic_vector(31 downto 0);
+	i_regData : in std_logic_vector(31 downto 0);
+	i_jalr : in std_logic;
 	i_branch : in std_logic;
 	i_jump : in std_logic;
 	i_zero : in std_logic;
@@ -69,6 +71,7 @@ architecture structure of fetch is
     signal PCplus4 : std_logic_vector(31 downto 0);
     signal PCplusimm : std_logic_vector(31 downto 0);
     signal muxtoPC : std_logic_vector(31 downto 0);
+    signal PCorReg : std_logic_vector(31 downto 0);
     signal PCout : std_logic_vector(31 downto 0);
     signal imm_shifted : std_logic_vector(31 downto 0);
     signal PC_rst_mux : std_logic_vector(31 downto 0);
@@ -98,6 +101,8 @@ begin
 	o_Q => muxtoPC
 	);
 
+    
+
     PC: reg
 	port map(
 	i_CLK => i_CLK,
@@ -106,6 +111,15 @@ begin
         i_D => muxtoPC,
         o_Q => PCout
 	);
+
+    busmux_PCorReg: busmux2to1
+	port map(
+	i_S => i_jalr,
+	i_D0 => PCout,
+	i_D1 => i_regData,
+	o_Q => PCorReg
+	);
+	
 
     add4: ripple_adder
         generic map(
@@ -122,7 +136,7 @@ begin
         generic map(
 	N => 32)
         port map(
-        i_A => PCout,
+        i_A => PCorReg,
         i_B => imm_shifted,
         i_Cin => '0',
         o_Sum => PCplusimm,

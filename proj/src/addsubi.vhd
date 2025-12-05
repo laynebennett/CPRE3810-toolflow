@@ -61,7 +61,7 @@ begin
 	);
 
     gen_xor: for i in 0 to N-1 generate
-        bx: entity work.xorg2(dataflow)
+        bx: xorg2
             port map (
                 i_A => muxtoxor(i),
                 i_B => i_Sub,

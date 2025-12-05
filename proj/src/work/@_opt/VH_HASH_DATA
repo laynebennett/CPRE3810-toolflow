@@ -1,15 +1,35 @@
 [N
-5
-5
-1 N
-3
-8 behavior
-2
-10 tb_bshiftr
+8
 4
-9 gCLK_HPER
+1 N
+7
+8 behavior
 1
-37 /home/layneben/CPRE3810-main/src/work
+56 /home/layneben/Downloads/cpre3810-toolflow/proj/src/work
+3
+9 structure
+5
+7 addsubi
+2
+12 ripple_adder
+6
+10 tb_addsubi
+8
+9 gCLK_HPER
+]
+[G
+1
+5
+3
+1
+4
+1
+0
+32
+0
+0 0
+0
+0
 ]
 [G
 1
@@ -17,6 +37,20 @@
 3
 1
 4
+1
+0
+32
+0
+0 0
+0
+0
+]
+[G
+1
+6
+7
+1
+8
 0
 0
 0
@@ -35,10 +69,10 @@
 ]
 [G
 1
-2
-3
+6
+7
 1
-5
+4
 1
 0
 32

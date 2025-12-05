@@ -263,7 +263,7 @@ begin
     s_blt <= '1' when (addsubiout(31) = '1') else '0';
     s_bne <= '0' when (addsubiout = x"00000000") else '1';
     s_bgeu <= s_Cout;
-    s_bltu <= '0' when (s_Cout = '1') else '0';
+    s_bltu <= not s_Cout;
 
     o_Cout <= s_Cout;
 

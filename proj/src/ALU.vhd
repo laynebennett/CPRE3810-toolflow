@@ -118,6 +118,7 @@ architecture structure of ALU is
     signal s_bgeu : std_logic;
     signal s_bltu : std_logic;
     signal s_Cout : std_logic;
+    signal s_Ovf : std_logic;
 
 begin
 
@@ -175,7 +176,7 @@ begin
         i_Sub => i_Sub,
         o_Sum => addsubiout,
         o_Cout => s_Cout,
-	o_Ovf => o_Ovf
+	o_Ovf => s_Ovf
 	);
 
     busmux_inst2: busmux2to1
@@ -260,11 +261,11 @@ begin
 
     s_beq <= '1' when (addsubiout = x"00000000") else '0';
     s_bge <= '1' when (addsubiout(31) = '0') else '0';
-    s_blt <= '1' when (addsubiout(31) = '1') else '0';
+    s_blt <= addsubiout(31) xor s_Ovf;
     s_bne <= '0' when (addsubiout = x"00000000") else '1';
     s_bgeu <= s_Cout;
     s_bltu <= not s_Cout;
-
+    o_Ovf <= s_Ovf;
     o_Cout <= s_Cout;
 
 

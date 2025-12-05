@@ -69,7 +69,7 @@ begin
     s_LUI <= std_logic_vector(signed(i_in32(31 downto 12) & x"000")); 
 
     -- SET UJ
-    s_UJ <= "00000000000" & i_in32(31) & i_in32(19 downto 12) & i_in32(20) & i_in32(30 downto 21) & '0';
+    s_UJ <= i_in32(31) & i_in32(31) & i_in32(31) & i_in32(31) & i_in32(31) & i_in32(31) & i_in32(31) & i_in32(31) & i_in32(31) & i_in32(31) & i_in32(31) & i_in32(31) & i_in32(19 downto 12) & i_in32(20) & i_in32(30 downto 21) & '0';
 
     -- SET LUIorUJ
     s_LUIorUJ <= s_UJ when (i_UJ = '1') else (upper & s_in13);

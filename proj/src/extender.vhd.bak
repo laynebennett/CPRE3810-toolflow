@@ -60,7 +60,7 @@ begin
     s_in13_1 <= (i_in32(31)&i_in32(31 downto 20)) when (i_SB = '0') else (i_in32(31)&i_in32(7)&i_in32(30 downto 25)&i_in32(11 downto 8)&'0');
     --s_in12 <= (i_in32(31 downto 20)) when (i_SB = '0') else (i_in32(7)&i_in32(30 downto 25)&i_in32(11 downto 8)&'0');
    
-    s_in13 <= s_in13_1 when (i_store = '0') else (i_in32(31 downto 25)&i_in32(11 downto 7));
+    s_in13 <= s_in13_1 when (i_store = '0') else (i_in32(31) & i_in32(31 downto 25)&i_in32(11 downto 7));
 
     -- Choose between signed and unsigned upper bits
     upper <= (others => '0') when (i_unsigned = '1') else muxtoadd(18 downto 0);
