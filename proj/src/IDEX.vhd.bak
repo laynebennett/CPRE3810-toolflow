@@ -4,7 +4,7 @@ use IEEE.std_logic_1164.all;
 
 entity IDEX is
 
-  generic(N : integer := 156);--ADJUST THIS TO BE THE TOTAL SIZE
+  generic(N : integer := 157);--ADJUST THIS TO BE THE TOTAL SIZE
 
   port(i_CLK        : in std_logic;     -- Clock input
        i_RST        : in std_logic;     -- Reset input
@@ -151,7 +151,7 @@ begin
                    o_Q => o_Q(14));   -- Data value output
 
 
-    ALUA_dffgs : for i in 15 to 46 generate
+    ALUA1_dffgs : for i in 15 to 46 generate
 	A_dffg : dffg
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input

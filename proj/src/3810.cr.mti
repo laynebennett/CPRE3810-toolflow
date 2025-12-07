@@ -340,19 +340,7 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Compiling entity tb_fetch
 -- Compiling architecture behavior of tb_fetch
 
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd {0 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd
-QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package RISCV_types
--- Compiling entity RISCV_Processor
--- Compiling architecture structure of RISCV_Processor
-** Error: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd(692): (vcom-1136) Unknown identifier "s_Inst_regout2".
-** Error: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd(692): Type error resolving infix expression "and" as type ieee.std_logic_1164.STD_LOGIC.
-** Note: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd(695): VHDL Compiler exiting
-
-} {9.0 11.0} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package STANDARD
 -- Loading package TEXTIO

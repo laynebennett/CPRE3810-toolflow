@@ -138,11 +138,14 @@ signal s_Set_regout2           : std_logic;
 signal s_lh_regout2            : std_logic;
 signal s_lb_regout2            : std_logic;
 signal s_ALUA_regout2          : std_logic_vector(31 downto 0);
-signal s_regout2_regout2       : std_logic_vector(33 downto 0);
+signal s_regout2_regout2       : std_logic_vector(31 downto 0);
 signal s_ext_regout2           : std_logic_vector(31 downto 0);
 signal s_GateEn_regout2        : std_logic_vector(1 downto 0);
 signal s_BranchSel_regout2     : std_logic_vector(1 downto 0);
 signal s_FetchInstAddr4_regout2 : std_logic_vector(31 downto 0);
+
+signal s_dummyBIG : std_logic_vector(156 downto 0);
+
 signal s_haltbit_regout2 : std_logic;
 
 signal s_Inst_regout4 : std_logic_vector(31 downto 0);
@@ -527,6 +530,7 @@ begin
 	i_CLK => iCLK,
 	i_RST => '0',--RST off for instruction addresses, need to fix lingering i_D = 0 issue in fetch reg PC
 	i_WE => '1',
+	--i_D => (others => '0'),
 	i_D(0) => s_Branch,
 	i_D(1) => s_MemRead,
 	i_D(2) => s_MemtoReg,
@@ -692,7 +696,7 @@ s_RegWrAddr <= s_Inst_regout1(11 downto 7); --IDK...maybe make this from last st
 s_RegWrData <= s_out; --maybe this too from last stage
 s_Ovfl <= '0';
 s_zero_extended <= x"0000000" & "000" & s_ALUzero;
-s_Halt <= s_HaltALMOST_regout2 and s_haltbit_regout2; --MAKE THIS THE HALT FROM THE LAST STAGE
+s_Halt <= s_HaltALMOST and s_Inst(20);--s_haltbit_regout2; --MAKE THIS THE HALT FROM THE LAST STAGE
 s_LUImuxsel <= s_LUI and (not s_PCAdd);
 
 end structure;
