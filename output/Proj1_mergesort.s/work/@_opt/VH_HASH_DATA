@@ -2,21 +2,21 @@
 20
 15
 8 iInstExt
-11
+10
 10 ADDR_WIDTH
 4
 1 N
 18
 5 mixed
-9
+8
 3 rtl
-6
+13
 7 regfile
 3
 9 structure
-12
+5
 7 addsubi
-7
+2
 12 ripple_adder
 1
 74 /home/layneben/Downloads/cpre3810-toolflow/containers/sim_container_0/work
@@ -24,19 +24,19 @@
 12 OUTPUT_TRACE
 17
 2 tb
-2
+11
 8 extender
 14
 15 riscv_processor
-10
+9
 10 DATA_WIDTH
-5
+12
 3 reg
-8
+7
 3 mem
 19
 9 gCLK_HPER
-13
+6
 3 alu
 16
 9 iInstAddr
@@ -66,10 +66,10 @@
 ]
 [G
 1
+7
 8
-9
 1
-11
+10
 1
 0
 10
@@ -80,7 +80,7 @@
 ]
 [G
 1
-6
+13
 3
 1
 4
@@ -130,24 +130,10 @@
 ]
 [G
 1
-12
+5
 3
 1
 4
-1
-0
-32
-0
-0 0
-0
-0
-]
-[G
-1
-8
-9
-1
-10
 1
 0
 32
@@ -159,6 +145,20 @@
 [G
 1
 7
+8
+1
+9
+1
+0
+32
+0
+0 0
+0
+0
+]
+[G
+1
+2
 3
 1
 4
@@ -172,7 +172,7 @@
 ]
 [G
 1
-2
+11
 3
 1
 4
@@ -200,7 +200,7 @@
 ]
 [G
 1
-5
+12
 3
 1
 4
@@ -214,7 +214,7 @@
 ]
 [G
 1
-13
+6
 3
 1
 4
