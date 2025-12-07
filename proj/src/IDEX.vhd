@@ -4,7 +4,7 @@ use IEEE.std_logic_1164.all;
 
 entity IDEX is
 
-  generic(N : integer := 157);--ADJUST THIS TO BE THE TOTAL SIZE
+  generic(N : integer := 188);--ADJUST THIS TO BE THE TOTAL SIZE
 
   port(i_CLK        : in std_logic;     -- Clock input
        i_RST        : in std_logic;     -- Reset input
@@ -293,11 +293,16 @@ begin
                    o_Q => o_Q(i));   -- Data value output
     end generate fetchInstAddr4_dffgs;
 
-	regoutbit: dffg
+
+    Inst_dffgs : for i in 156 to 187 generate
+	inst_dffg : dffg
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(156),     -- Data value input
-                   o_Q => o_Q(156));   -- Data value output
+                   i_D => i_D(i),     -- Data value input
+                   o_Q => o_Q(i));   -- Data value output
+    end generate Inst_dffgs;
+
+
 
 end structure;

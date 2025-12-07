@@ -204,6 +204,22 @@ elsif i_control = "1110011" then
 	Jump <= '0';
 	jalr <= '0';
 	Halt <= '1';
+else
+	Branch <= '0';
+	MemRead <= '0';
+	MemtoReg <= '0';
+	ALUOp <= "00";
+	Memwrite <= '0';
+	ALUSrc <= '0';
+	Regwrite <= '0';
+	LUI <= '0';
+	UJ <= '0';
+	AUIPC <= '0';
+	SB <= '0';
+	Store <= '0';
+	Jump <= '0';
+	jalr <= '0';
+	Halt <= '0';
 	
 
 	end if;

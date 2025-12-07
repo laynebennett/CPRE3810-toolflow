@@ -20,7 +20,7 @@ end fetch;
 
 architecture structure of fetch is
 
-    component reg
+    component PCreg
 	port(
 	i_CLK        : in std_logic;     -- Clock input
         i_RST        : in std_logic;     -- Reset input
@@ -90,23 +90,17 @@ begin
 	i_S => branchmux,
 	i_D0 => PCplus4,
 	i_D1 => PCplusimm,
-	o_Q => PC_rst_mux
-	);
-
-    busmux_RST: busmux2to1
-	port map(
-	i_S => i_rst,
-	i_D0 => PC_rst_mux,
-	i_D1 => x"00400000",
 	o_Q => muxtoPC
 	);
 
+
+
     
 
-    PC: reg
+    PC: PCreg
 	port map(
 	i_CLK => i_CLK,
-	i_RST => '0',
+	i_RST => 'i_rst',
         i_WE => '1',
         i_D => muxtoPC,
         o_Q => PCout
@@ -125,7 +119,7 @@ begin
         generic map(
 	N => 32)
         port map(
-        i_A => PCorReg,
+        i_A => PCout,
         i_B => x"00000004",
         i_Cin => '0',
         o_Sum => PCplus4,
@@ -136,7 +130,7 @@ begin
         generic map(
 	N => 32)
         port map(
-        i_A => PCout,
+        i_A => PCorReg,
         i_B => imm_shifted,
         i_Cin => '0',
         o_Sum => PCplusimm,

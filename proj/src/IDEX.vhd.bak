@@ -151,7 +151,7 @@ begin
                    o_Q => o_Q(14));   -- Data value output
 
 
-    ALUA1_dffgs : for i in 15 to 46 generate
+    ALUA_dffgs : for i in 15 to 46 generate
 	A_dffg : dffg
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
