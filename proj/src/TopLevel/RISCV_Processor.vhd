@@ -147,10 +147,55 @@ signal s_BranchSel_regout2     : std_logic_vector(1 downto 0);
 signal s_FetchInstAddr4_regout2 : std_logic_vector(31 downto 0);
 signal s_Inst_regout2 : std_logic_vector(31 downto 0);
 
-signal s_dummyBIG : std_logic_vector(156 downto 0);
+--EXMEM regouts
+signal s_Branch_regout3        : std_logic;
+signal s_MemRead_regout3       : std_logic;
+signal s_MemtoReg_regout3      : std_logic;
+signal s_dummy2		       : std_logic;
+signal s_DMemWr_regout3        : std_logic;
+signal s_ALUSrc_regout3        : std_logic;
+signal s_RegWr_regout3         : std_logic;
+signal s_LUI_regout3           : std_logic;
+signal s_UJ_regout3            : std_logic;
+signal s_PCAdd_regout3         : std_logic;
+signal s_SB_regout3            : std_logic;
+signal s_Store_regout3         : std_logic;
+signal s_Jump_regout3          : std_logic;
+signal s_jalr_regout3          : std_logic;
+signal s_HaltALMOST_regout3    : std_logic;
+signal s_unsign_regout3        : std_logic;
+signal s_lh_regout3            : std_logic;
+signal s_lb_regout3            : std_logic;
+signal s_ALUA_regout3          : std_logic_vector(31 downto 0);
+signal s_regout2_regout3       : std_logic_vector(31 downto 0);
+signal s_ext_regout3           : std_logic_vector(31 downto 0);
+signal s_ALUorPCplus4_regout3  : std_logic_vector(31 downto 0);
+signal s_ALUorSet_regout3  : std_logic_vector(31 downto 0);
+signal s_Inst_regout3 : std_logic_vector(31 downto 0);
 
+--MEMWB regouts
+signal s_Branch_regout4        : std_logic;
+signal s_MemRead_regout4       : std_logic;
+signal s_MemtoReg_regout4      : std_logic;
+signal s_dummy3		       : std_logic;
+signal s_DMemWr_regout4        : std_logic;
+signal s_ALUSrc_regout4        : std_logic;
+signal s_RegWr_regout4         : std_logic;
+signal s_LUI_regout4           : std_logic;
+signal s_UJ_regout4            : std_logic;
+signal s_PCAdd_regout4         : std_logic;
+signal s_SB_regout4            : std_logic;
+signal s_Store_regout4         : std_logic;
+signal s_Jump_regout4          : std_logic;
+signal s_jalr_regout4          : std_logic;
+signal s_HaltALMOST_regout4    : std_logic;
+signal s_unsign_regout4        : std_logic;
+signal s_lh_regout4            : std_logic;
+signal s_lb_regout4            : std_logic;
+signal s_ext_regout4           : std_logic_vector(31 downto 0);
+signal s_ALUorPCplus4_regout4  : std_logic_vector(31 downto 0);
+signal s_DMemOut_regout4  : std_logic_vector(31 downto 0);
 signal s_Inst_regout4 : std_logic_vector(31 downto 0);
-signal s_temp_regout4 : std_logic_vector(31 downto 0);
 
 signal s_Halt_in : std_logic;
 
@@ -339,7 +384,7 @@ signal s_Halt_in : std_logic;
 	end component;
 
 	component EXMEM
-        generic(N : integer := 144);--ADJUST THIS TO BE THE TOTAL SIZE
+        generic(N : integer := 178);--ADJUST THIS TO BE THE TOTAL SIZE
 	port(
 	i_CLK        : in std_logic;     -- Clock input
         i_RST        : in std_logic;     -- Reset input
@@ -349,7 +394,7 @@ signal s_Halt_in : std_logic;
 	end component;
 
 	component MEMWB
-        generic(N : integer := 112);--ADJUST THIS TO BE THE TOTAL SIZE
+        generic(N : integer := 146);--ADJUST THIS TO BE THE TOTAL SIZE
 	port(
 	i_CLK        : in std_logic;     -- Clock input
         i_RST        : in std_logic;     -- Reset input
@@ -456,15 +501,11 @@ begin
 	i_WA => s_RegWrAddr,
         i_RA1 => s_Inst_regout1(19 downto 15),
         i_RA2 => s_Inst_regout1(24 downto 20),
-        i_WE => s_RegWr_regout2,
+        i_WE => s_RegWr_regout4,
         i_DATA => s_RegWrData,
         i_RST_ALL => iRST,
         o_Q1 => s_regout1,
         o_Q2 => s_regout2);
-
-s_RegWrAddr <= s_Inst_regout2(11 downto 7); --IDK...maybe make this from last stage reg
-s_RegWrData <= s_out; --maybe this too from last stage
-s_RegWr <= s_RegWr_regout2;
 
 
      ALU_control_i : ALU_control
@@ -634,47 +675,147 @@ s_RegWr <= s_RegWr_regout2;
 
 --EX/MEM
 
-  
+   EXMEM_i : EXMEM
+	port map(
+	i_CLK => iCLK,
+	i_RST => iRST,--RST off for instruction addresses, need to fix lingering i_D = 0 issue in fetch reg PC
+	i_WE => '1',
+	--i_D => (others => '0'),
+	i_D(0) => s_Branch_regout2,
+	i_D(1) => s_MemRead_regout2,
+	i_D(2) => s_MemtoReg_regout2,
+	i_D(3) => s_DMemWr_regout2,
+	i_D(4) => s_ALUSrc_regout2,
+	i_D(5) => s_RegWr_regout2,
+	i_D(6) => s_LUI_regout2,
+	i_D(7) => s_UJ_regout2,
+	i_D(8) => s_PCAdd_regout2,
+	i_D(9) => s_SB_regout2,
+	i_D(10) => s_Store_regout2,
+	i_D(11) => s_Jump_regout2,
+	i_D(12) => s_jalr_regout2,
+	i_D(13) => s_HaltALMOST_regout2,
+	i_D(14) => '0',
+	i_D(46 downto 15) => s_ALUorPCplus4,
+	i_D(78 downto 47) => s_ALUorSet,
+	i_D(110 downto 79) => s_regout2_regout2,
+	i_D(142 downto 111) => s_ext_regout2,
+	i_D(143) => s_unsign_regout2,
+	i_D(175 downto 144) => s_Inst_regout2,
+	i_D(176) => s_lh_regout2,
+	i_D(177) => s_lb_regout2,
+	o_Q(0) => s_Branch_regout3,
+	o_Q(1) => s_MemRead_regout3,
+	o_Q(2) => s_MemtoReg_regout3,
+	o_Q(3) => s_DMemWr_regout3,
+	o_Q(4) => s_ALUSrc_regout3,
+	o_Q(5) => s_RegWr_regout3,
+	o_Q(6) => s_LUI_regout3,
+	o_Q(7) => s_UJ_regout3,
+	o_Q(8) => s_PCAdd_regout3,
+	o_Q(9) => s_SB_regout3,
+	o_Q(10) => s_Store_regout3,
+	o_Q(11) => s_Jump_regout3,
+	o_Q(12) => s_jalr_regout3,
+	o_Q(13) => s_HaltALMOST_regout3,
+	o_Q(14) => s_dummy2,
+	o_Q(46 downto 15) => s_ALUorPCplus4_regout3,
+	o_Q(78 downto 47) => s_ALUorSet_regout3,
+	o_Q(110 downto 79) => s_regout2_regout3,
+	o_Q(142 downto 111) => s_ext_regout3,
+	o_Q(143) => s_unsign_regout3,
+	o_Q(175 downto 144) => s_Inst_regout3,
+	o_Q(176) => s_lh_regout3,
+	o_Q(177) => s_lb_regout3
+	);
+
+s_DMemAddr <= s_ALUorSet_regout3;
+s_DMemData <= s_regout2_regout3;  
+
   DMem: mem
     generic map(ADDR_WIDTH => ADDR_WIDTH,
                 DATA_WIDTH => N)
     port map(clk  => iCLK,
              addr => s_DMemAddr(11 downto 2),
              data => s_DMemData,
-             we   => s_DMemWr,
+             we   => s_DMemWr_regout3,
              q    => s_DMemOut);
 
 
 --MEM/WB
 
 
-   --MEMWB_i : MEMWB --TESTING, NEED TO CHANGE LATER
-	--port map(
-	--i_CLK => iCLK,
-	--i_RST => iRST,
-	--i_WE => '1',
-	--i_D(31 downto 0) => open,
-	--i_D(63 downto 32) => open,
-	--o_Q(31 downto 0) => open,
-	--o_Q(63 downto 32) => open
-	--);
+   MEMWB_i : MEMWB 
+	port map(
+	i_CLK => iCLK,
+	i_RST => iRST,
+	i_WE => '1',
+	i_D(0) => s_Branch_regout3,
+	i_D(1) => s_MemRead_regout3,
+	i_D(2) => s_MemtoReg_regout3,
+	i_D(3) => s_DMemWr_regout3,
+	i_D(4) => s_ALUSrc_regout3,
+	i_D(5) => s_RegWr_regout3,
+	i_D(6) => s_LUI_regout3,
+	i_D(7) => s_UJ_regout3,
+	i_D(8) => s_PCAdd_regout3,
+	i_D(9) => s_SB_regout3,
+	i_D(10) => s_Store_regout3,
+	i_D(11) => s_Jump_regout3,
+	i_D(12) => s_jalr_regout3,
+	i_D(13) => s_HaltALMOST_regout3,
+	i_D(14) => '0',
+	i_D(46 downto 15) => s_ALUorPCplus4_regout3,
+	i_D(78 downto 47) => s_DMemOut,
+	i_D(110 downto 79) => s_ext_regout3,
+	i_D(142 downto 111) => s_Inst_regout3,
+	i_D(143) => s_unsign_regout3,
+	i_D(144) => s_lh_regout3,
+	i_D(145) => s_lb_regout3,
+	o_Q(0) => s_Branch_regout4,
+	o_Q(1) => s_MemRead_regout4,
+	o_Q(2) => s_MemtoReg_regout4,
+	o_Q(3) => s_DMemWr_regout4,
+	o_Q(4) => s_ALUSrc_regout4,
+	o_Q(5) => s_RegWr_regout4,
+	o_Q(6) => s_LUI_regout4,
+	o_Q(7) => s_UJ_regout4,
+	o_Q(8) => s_PCAdd_regout4,
+	o_Q(9) => s_SB_regout4,
+	o_Q(10) => s_Store_regout4,
+	o_Q(11) => s_Jump_regout4,
+	o_Q(12) => s_jalr_regout4,
+	o_Q(13) => s_HaltALMOST_regout4,
+	o_Q(14) => s_dummy3,
+	o_Q(46 downto 15) => s_ALUorPCplus4_regout4,
+	o_Q(78 downto 47) => s_DMemOut_regout4,
+	o_Q(110 downto 79) => s_ext_regout4,
+	o_Q(142 downto 111) => s_Inst_regout4,
+	o_Q(143) => s_unsign_regout4,
+	o_Q(144) => s_lh_regout4,
+	o_Q(145) => s_lb_regout4
+	);
+
+s_RegWrAddr <= s_Inst_regout4(11 downto 7); --IDK...maybe make this from last stage reg
+s_RegWrData <= s_out; --maybe this too from last stage
+s_RegWr <= s_RegWr_regout4;
 
 
     busmux_MemtoReg : busmux2to1
 	port map(
-	i_S => s_MemtoReg,
-	i_D0 => s_ALUorPCplus4,
-	i_D1 => s_DMemOut,
+	i_S => s_MemtoReg_regout4,
+	i_D0 => s_ALUorPCplus4_regout4,
+	i_D1 => s_DMemOut_regout4,
 	o_Q => s_resizerload);
 
 
      loadresizer : resizer
     	port map(
         i_in32 => s_resizerload,
-        i_unsigned => s_unsign,
-        i_h => s_lh,
-	i_b => s_lb,
-        i_en => s_MemtoReg,
+        i_unsigned => s_unsign_regout4,
+        i_h => s_lh_regout4,
+	i_b => s_lb_regout4,
+        i_en => s_MemtoReg_regout4,
         o_out32 => s_ALUorLUI);
 
 
@@ -682,20 +823,19 @@ s_RegWr <= s_RegWr_regout2;
 	port map(
 	i_S => s_LUImuxsel,
 	i_D0 => s_ALUorLUI,
-	i_D1 => s_ext,
+	i_D1 => s_ext_regout4,
 	o_Q => s_out);
 
 
 
 
 
-s_DMemAddr <= s_ALUout;
-s_DMemData <= s_regout2;
+
 oALUOut <= s_ALUout;
 
 s_Ovfl <= '0';
 s_zero_extended <= x"0000000" & "000" & s_ALUzero;
-s_Halt_in <= s_HaltALMOST_regout2 and s_Inst_regout2(20); --MAKE THIS THE HALT FROM THE LAST STAGE
+s_Halt_in <= s_HaltALMOST_regout4 and s_Inst_regout4(20); --MAKE THIS THE HALT FROM THE LAST STAGE
 
     halt_dffg: dffg
 	port map(
@@ -705,7 +845,7 @@ s_Halt_in <= s_HaltALMOST_regout2 and s_Inst_regout2(20); --MAKE THIS THE HALT F
         i_D => s_Halt_in,
         o_Q => s_Halt);
 
-s_LUImuxsel <= s_LUI and (not s_PCAdd);
+s_LUImuxsel <= s_LUI_regout4 and (not s_PCAdd_regout4);
 
 end structure;
 

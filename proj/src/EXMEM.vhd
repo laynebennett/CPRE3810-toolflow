@@ -4,7 +4,7 @@ use IEEE.std_logic_1164.all;
 
 entity EXMEM is
 
-  generic(N : integer := 144);--ADJUST THIS TO BE THE TOTAL SIZE
+  generic(N : integer := 178);--ADJUST THIS TO BE THE TOTAL SIZE
 
   port(i_CLK        : in std_logic;     -- Clock input
        i_RST        : in std_logic;     -- Reset input
@@ -143,7 +143,7 @@ begin
                    o_Q => o_Q(13));   -- Data value output
 
 
-	fetchInstAdd_dffg : dffg
+	fetchInstAdd_dffg : dffg --IGNORE
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
@@ -197,5 +197,33 @@ begin
   	           i_WE => i_WE,     -- Write enable input
                    i_D => i_D(143),     -- Data value input
                    o_Q => o_Q(143));   -- Data value output
+
+
+    inst_dffgs : for i in 144 to 175 generate
+	inst_dffg : dffg
+	  port map(i_CLK => i_CLK,     -- Clock input
+     		   i_RST => i_RST,     -- Reset input
+  	           i_WE => i_WE,     -- Write enable input
+                   i_D => i_D(i),     -- Data value input
+                   o_Q => o_Q(i));   -- Data value output
+    end generate inst_dffgs;
+
+
+	lh_dffg : dffg
+	  port map(i_CLK => i_CLK,     -- Clock input
+     		   i_RST => i_RST,     -- Reset input
+  	           i_WE => i_WE,     -- Write enable input
+                   i_D => i_D(176),     -- Data value input
+                   o_Q => o_Q(176));   -- Data value output
+
+
+	lb_dffg : dffg
+	  port map(i_CLK => i_CLK,     -- Clock input
+     		   i_RST => i_RST,     -- Reset input
+  	           i_WE => i_WE,     -- Write enable input
+                   i_D => i_D(177),     -- Data value input
+                   o_Q => o_Q(177));   -- Data value output
+
+
 
 end structure;

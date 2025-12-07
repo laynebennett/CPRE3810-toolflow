@@ -89,6 +89,14 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Compiling package body RISCV_types
 -- Loading package RISCV_types
 
+} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/EXMEM.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/EXMEM.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity EXMEM
+-- Compiling architecture structure of EXMEM
+
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/addsubi.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/addsubi.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package STANDARD
@@ -104,14 +112,6 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package std_logic_1164
 -- Compiling entity andg2
 -- Compiling architecture dataflow of andg2
-
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/EXMEM.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/EXMEM.vhd
-QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity EXMEM
--- Compiling architecture structure of EXMEM
 
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/IFID.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/IFID.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
@@ -230,14 +230,6 @@ QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
 -- Loading package std_logic_1164
 -- Compiling entity special_dffg
 -- Compiling architecture mixed of special_dffg
-
-} {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/MEMWB.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/MEMWB.vhd
-QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity MEMWB
--- Compiling architecture structure of MEMWB
 
 } {} {}} /home/layneben/Downloads/cpre3810-toolflow/proj/src/sign.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/layneben/Downloads/cpre3810-toolflow/proj/src/sign.vhd
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
