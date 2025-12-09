@@ -27,7 +27,7 @@ end HDU;
 architecture structure of HDU is
 
 signal s_rd_nonzero   : std_logic;
-  	signal s_rs1_match    : std_logic;gi
+  	signal s_rs1_match    : std_logic;
   	signal s_rs2_match    : std_logic;
   	signal s_load_use_haz : std_logic;
 
