@@ -4,13 +4,15 @@ use IEEE.std_logic_1164.all;
 
 entity IDEX is
 
-  generic(N : integer := 188);--ADJUST THIS TO BE THE TOTAL SIZE
+  generic(N : integer := 124);--ADJUST THIS TO BE THE TOTAL SIZE
 
   port(i_CLK        : in std_logic;     -- Clock input
        i_RST        : in std_logic;     -- Reset input
+	i_Flush : in std_logic; 
        i_WE         : in std_logic;     -- Write enable input
        i_D   : in std_logic_vector(N-1 downto 0);  -- n-bit data input
        o_Q   : out std_logic_vector(N-1 downto 0));  -- n-bit data output
+       
 
 end IDEX;
 
@@ -25,6 +27,7 @@ architecture structure of IDEX is
     end component;
 
 begin
+        s_D <= (others => '0') when i_Flush = '1' else i_D;
 
 	--MAKE THIS SEGMENTED TO BE THE REQUIRED SIZE FOR THE REGISTER
 	--NEEDS TO BE CHANGED FROM DEFAULT
@@ -143,7 +146,7 @@ begin
                    o_Q => o_Q(13));   -- Data value output
 
 
-	CHANGEDUPLICATEfetchInstAdd_dffg : dffg
+	fetchInstAdd_dffg : dffg
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
@@ -180,6 +183,7 @@ begin
                    o_Q => o_Q(i));   -- Data value output
     end generate ALUimm_dffgs;
 
+
 	sign_dffg : dffg
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
@@ -204,7 +208,7 @@ begin
                    o_Q => o_Q(113));   -- Data value output
 
 
-	GateEn0_dffg : dffg
+	GateEn1_dffg : dffg
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
@@ -212,7 +216,7 @@ begin
                    o_Q => o_Q(114));   -- Data value output
 
 
-	GateEn1_dffg : dffg
+	GateEn0_dffg : dffg
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
@@ -220,7 +224,7 @@ begin
                    o_Q => o_Q(115));   -- Data value output
 
 
-	BranchSel0_dffg : dffg
+	BranchSel1_dffg : dffg
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
@@ -228,7 +232,7 @@ begin
                    o_Q => o_Q(116));   -- Data value output
 
 
-	BranchSel1_dffg : dffg
+	BranchSel0_dffg : dffg
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
@@ -282,27 +286,6 @@ begin
   	           i_WE => i_WE,     -- Write enable input
                    i_D => i_D(123),     -- Data value input
                    o_Q => o_Q(123));   -- Data value output
-
-
-    fetchInstAddr4_dffgs : for i in 124 to 155 generate
-	addr_dffg : dffg
-	  port map(i_CLK => i_CLK,     -- Clock input
-     		   i_RST => i_RST,     -- Reset input
-  	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(i),     -- Data value input
-                   o_Q => o_Q(i));   -- Data value output
-    end generate fetchInstAddr4_dffgs;
-
-
-    Inst_dffgs : for i in 156 to 187 generate
-	inst_dffg : dffg
-	  port map(i_CLK => i_CLK,     -- Clock input
-     		   i_RST => i_RST,     -- Reset input
-  	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(i),     -- Data value input
-                   o_Q => o_Q(i));   -- Data value output
-    end generate Inst_dffgs;
-
 
 
 end structure;
