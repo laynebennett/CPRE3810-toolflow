@@ -13,6 +13,7 @@ entity fetch is
 	i_jump : in std_logic;
 	i_zero : in std_logic;
 	i_rst : in std_logic;
+	i_wen	: in std_logic;
 	o_add4 : out std_logic_vector(31 downto 0);
 	o_addr : out std_logic_vector(31 downto 0)
     );
@@ -101,7 +102,7 @@ begin
 	port map(
 	i_CLK => i_CLK,
 	i_RST => i_rst,
-        i_WE => '1',
+        i_WE => i_wen,
         i_D => muxtoPC,
         o_Q => PCout
 	);

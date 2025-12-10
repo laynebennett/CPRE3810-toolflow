@@ -108,6 +108,20 @@ signal s_RSTInst : std_logic_vector(31 downto 0);
 signal s_RSTDFFG : std_logic;
 
 signal s_Instmux         : std_logic_vector(N-1 downto 0);
+signal s_JumpOrBranchTaken : std_logic;
+signal s_isNOP : std_logic;
+
+--HALT AND FLUSH SIGNALS
+signal s_PC_WEn : std_logic;
+signal s_IFID_WEn : std_logic;
+signal s_IDEX_WEn : std_logic;
+signal s_EXMEM_WEn : std_logic;
+signal s_MEMWB_WEn : std_logic;
+signal s_IFID_Flush : std_logic;
+signal s_IDEX_Flush : std_logic;
+signal s_EXMEM_Flush : std_logic;
+signal s_MEMWB_Flush : std_logic;
+
 
 --IFID regouts
 signal s_Inst_regout1 : std_logic_vector(31 downto 0);
@@ -305,6 +319,7 @@ signal s_Halt_in : std_logic;
 	i_jump : in std_logic;
 	i_zero : in std_logic;
 	i_rst : in std_logic;
+	i_wen : in std_logic;
 	o_add4 : out std_logic_vector(31 downto 0);
 	o_addr : out std_logic_vector(31 downto 0)
     	);
@@ -368,16 +383,18 @@ signal s_Halt_in : std_logic;
 	port(
 	i_CLK        : in std_logic;     -- Clock input
         i_RST        : in std_logic;     -- Reset input
+	i_Flush : in std_logic;
         i_WE         : in std_logic;     -- Write enable input
         i_D   : in std_logic_vector(N-1 downto 0);  -- n-bit data input
         o_Q   : out std_logic_vector(N-1 downto 0));  -- n-bit data output
 	end component;
 
 	component IDEX
-        generic(N : integer := 188);--ADJUST THIS TO BE THE TOTAL SIZE
+        generic(N : integer := 189);--ADJUST THIS TO BE THE TOTAL SIZE
 	port(
 	i_CLK        : in std_logic;     -- Clock input
         i_RST        : in std_logic;     -- Reset input
+	i_Flush : in std_logic;
         i_WE         : in std_logic;     -- Write enable input
         i_D   : in std_logic_vector(N-1 downto 0);  -- n-bit data input
         o_Q   : out std_logic_vector(N-1 downto 0));  -- n-bit data output
@@ -388,6 +405,7 @@ signal s_Halt_in : std_logic;
 	port(
 	i_CLK        : in std_logic;     -- Clock input
         i_RST        : in std_logic;     -- Reset input
+	--i_Flush : in std_logic;
         i_WE         : in std_logic;     -- Write enable input
         i_D   : in std_logic_vector(N-1 downto 0);  -- n-bit data input
         o_Q   : out std_logic_vector(N-1 downto 0));  -- n-bit data output
@@ -410,6 +428,32 @@ signal s_Halt_in : std_logic;
         i_D          : in std_logic;     -- Data value input
         o_Q          : out std_logic);   -- Data value output
 	end component;
+
+	----HDU
+
+	component HDU
+	port(
+	i_IFID_RS1 : in std_logic_vector(4 downto 0);
+	i_IFID_RS2 : in std_logic_vector(4 downto 0);
+	i_IDEX_RD  : in std_logic_vector(4 downto 0);
+	i_EXMEM_RD  : in std_logic_vector(4 downto 0);
+	i_IDEX_MemRead : in std_logic;
+	i_EX_BranchTaken : in std_logic;
+	i_isNOP : in std_logic;
+
+	 -- PC write enable: 1 = normal update, 0 = stall PC
+	o_PC_WEn : out std_logic;
+
+	 -- IF/ID write enable: 1 = update IF/ID, 0 = stall ID
+	o_IFID_WEn : out std_logic;
+
+	 -- IF/ID flush: 1 = squash instruction in IF/ID = NOP
+	o_IFID_Flush : out std_logic;
+
+	 -- ID/EX flush: 1 = squash instruction in ID/EX = bubble
+	o_IDEX_Flush : out std_logic
+	);
+	end component;
 	
 
 begin
@@ -430,6 +474,7 @@ begin
       i_jump => s_Jump_regout2,
       i_zero   => s_ALUzero,
       i_rst	=> iRST,
+      i_wen	=> s_PC_WEn,
       o_add4	=> s_add4,
       o_addr     => s_NextInstAddr
     );
@@ -458,14 +503,13 @@ begin
 
 --IF/ID
 
-   
-
 
    IFID_i : IFID
 	port map(
 	i_CLK => iCLK,
 	i_RST => iRST,--RST off for instruction addresses, need to fix lingering i_D = 0 issue in fetch reg PC
-	i_WE => '1',
+	i_Flush => s_IFID_Flush,
+	i_WE => s_IFID_WEn,
 	i_D(31 downto 0) => s_Inst,
 	i_D(63 downto 32) => s_add4,
 	i_D(95 downto 64) => s_NextInstAddr,
@@ -473,6 +517,23 @@ begin
 	o_Q(63 downto 32) => s_FetchInstAddr4_regout1,
 	o_Q(95 downto 64) => s_FetchInstAddr_regout1
 	);
+
+    HDU_i : HDU
+	port map(
+	i_IFID_RS1 => s_Inst_regout1(19 downto 15),
+	i_IFID_RS2 => s_Inst_regout1(24 downto 20),
+	i_IDEX_RD => s_Inst_regout2(11 downto 7),
+	i_EXMEM_RD => s_Inst_regout3(11 downto 7),
+	i_IDEX_MemRead => s_MemtoReg,
+	i_EX_BranchTaken => s_JumpOrBranchTaken,
+	i_isNOP => s_isNOP,
+	o_PC_WEn => s_PC_WEn,
+	o_IFID_WEn => s_IFID_WEn,
+	o_IFID_Flush => s_IFID_Flush,
+	o_IDEX_Flush => s_IDEX_Flush
+	);
+
+s_JumpOrBranchTaken <= ((s_ALUZero and s_Branch_regout2) or s_Jump_regout2);
 
 
     control_i : control
@@ -570,6 +631,7 @@ begin
 	port map(
 	i_CLK => iCLK,
 	i_RST => iRST,--RST off for instruction addresses, need to fix lingering i_D = 0 issue in fetch reg PC
+	i_Flush => s_IDEX_Flush,
 	i_WE => '1',
 	--i_D => (others => '0'),
 	i_D(0) => s_Branch,
@@ -603,6 +665,7 @@ begin
 	i_D(123) => s_lb,
 	i_D(155 downto 124) => s_FetchInstAddr4_regout1,
 	i_D(187 downto 156) => s_Inst_regout1,
+	i_D(188) => s_IDEX_Flush,
 	o_Q(0) => s_Branch_regout2,
 	o_Q(1) => s_MemRead_regout2,
 	o_Q(2) => s_MemtoReg_regout2,
@@ -633,7 +696,8 @@ begin
 	o_Q(122) => s_lh_regout2,
 	o_Q(123) => s_lb_regout2,
 	o_Q(155 downto 124) => s_FetchInstAddr4_regout2,
-	o_Q(187 downto 156) => s_Inst_regout2
+	o_Q(187 downto 156) => s_Inst_regout2,
+	o_Q(188) => s_isNOP
 	);
 
 

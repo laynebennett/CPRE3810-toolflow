@@ -4,7 +4,7 @@ use IEEE.std_logic_1164.all;
 
 entity IDEX is
 
-  generic(N : integer := 124);--ADJUST THIS TO BE THE TOTAL SIZE
+  generic(N : integer := 189);--ADJUST THIS TO BE THE TOTAL SIZE
 
   port(i_CLK        : in std_logic;     -- Clock input
        i_RST        : in std_logic;     -- Reset input
@@ -26,9 +26,11 @@ architecture structure of IDEX is
        o_Q          : out std_logic);   -- Data value output
     end component;
 
+	signal s_D : std_logic_vector(N-1 downto 0);
+
 begin
         s_D <= (others => '0') when i_Flush = '1' else i_D;
-
+	s_D(187 downto 181) <= "0010011" when i_Flush = '1'; --sets opcode to addi to complete NOP instruction
 	--MAKE THIS SEGMENTED TO BE THE REQUIRED SIZE FOR THE REGISTER
 	--NEEDS TO BE CHANGED FROM DEFAULT
 
@@ -37,7 +39,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(0),     -- Data value input
+                   i_D => s_D(0),     -- Data value input
                    o_Q => o_Q(0));   -- Data value output
 
 
@@ -45,7 +47,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(1),     -- Data value input
+                   i_D => s_D(1),     -- Data value input
                    o_Q => o_Q(1));   -- Data value output
 
 
@@ -53,7 +55,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(2),     -- Data value input
+                   i_D => s_D(2),     -- Data value input
                    o_Q => o_Q(2));   -- Data value output
 
 	--No ALUOp necessary
@@ -62,7 +64,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(3),     -- Data value input
+                   i_D => s_D(3),     -- Data value input
                    o_Q => o_Q(3));   -- Data value output
 
 
@@ -70,7 +72,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(4),     -- Data value input
+                   i_D => s_D(4),     -- Data value input
                    o_Q => o_Q(4));   -- Data value output
 
 
@@ -78,7 +80,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(5),     -- Data value input
+                   i_D => s_D(5),     -- Data value input
                    o_Q => o_Q(5));   -- Data value output
 
 
@@ -86,7 +88,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(6),     -- Data value input
+                   i_D => s_D(6),     -- Data value input
                    o_Q => o_Q(6));   -- Data value output
 
 
@@ -94,7 +96,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(7),     -- Data value input
+                   i_D => s_D(7),     -- Data value input
                    o_Q => o_Q(7));   -- Data value output
 
 
@@ -102,7 +104,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(8),     -- Data value input
+                   i_D => s_D(8),     -- Data value input
                    o_Q => o_Q(8));   -- Data value output
 
 
@@ -110,7 +112,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(9),     -- Data value input
+                   i_D => s_D(9),     -- Data value input
                    o_Q => o_Q(9));   -- Data value output
 
 
@@ -118,7 +120,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(10),     -- Data value input
+                   i_D => s_D(10),     -- Data value input
                    o_Q => o_Q(10));   -- Data value output
 
 
@@ -126,7 +128,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(11),     -- Data value input
+                   i_D => s_D(11),     -- Data value input
                    o_Q => o_Q(11));   -- Data value output
 
 
@@ -134,7 +136,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(12),     -- Data value input
+                   i_D => s_D(12),     -- Data value input
                    o_Q => o_Q(12));   -- Data value output
 
 
@@ -142,7 +144,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(13),     -- Data value input
+                   i_D => s_D(13),     -- Data value input
                    o_Q => o_Q(13));   -- Data value output
 
 
@@ -150,7 +152,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(14),     -- Data value input
+                   i_D => s_D(14),     -- Data value input
                    o_Q => o_Q(14));   -- Data value output
 
 
@@ -159,7 +161,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(i),     -- Data value input
+                   i_D => s_D(i),     -- Data value input
                    o_Q => o_Q(i));   -- Data value output
     end generate ALUA_dffgs;
 
@@ -169,7 +171,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(i),     -- Data value input
+                   i_D => s_D(i),     -- Data value input
                    o_Q => o_Q(i));   -- Data value output
     end generate ALUB_dffgs;
 
@@ -179,7 +181,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(i),     -- Data value input
+                   i_D => s_D(i),     -- Data value input
                    o_Q => o_Q(i));   -- Data value output
     end generate ALUimm_dffgs;
 
@@ -188,7 +190,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(111),     -- Data value input
+                   i_D => s_D(111),     -- Data value input
                    o_Q => o_Q(111));   -- Data value output
 
 
@@ -196,7 +198,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(112),     -- Data value input
+                   i_D => s_D(112),     -- Data value input
                    o_Q => o_Q(112));   -- Data value output
 
 
@@ -204,39 +206,39 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(113),     -- Data value input
+                   i_D => s_D(113),     -- Data value input
                    o_Q => o_Q(113));   -- Data value output
-
-
-	GateEn1_dffg : dffg
-	  port map(i_CLK => i_CLK,     -- Clock input
-     		   i_RST => i_RST,     -- Reset input
-  	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(114),     -- Data value input
-                   o_Q => o_Q(114));   -- Data value output
 
 
 	GateEn0_dffg : dffg
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(115),     -- Data value input
-                   o_Q => o_Q(115));   -- Data value output
+                   i_D => s_D(114),     -- Data value input
+                   o_Q => o_Q(114));   -- Data value output
 
 
-	BranchSel1_dffg : dffg
+	GateEn1_dffg : dffg
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(116),     -- Data value input
-                   o_Q => o_Q(116));   -- Data value output
+                   i_D => s_D(115),     -- Data value input
+                   o_Q => o_Q(115));   -- Data value output
 
 
 	BranchSel0_dffg : dffg
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(117),     -- Data value input
+                   i_D => s_D(116),     -- Data value input
+                   o_Q => o_Q(116));   -- Data value output
+
+
+	BranchSel1_dffg : dffg
+	  port map(i_CLK => i_CLK,     -- Clock input
+     		   i_RST => i_RST,     -- Reset input
+  	           i_WE => i_WE,     -- Write enable input
+                   i_D => s_D(117),     -- Data value input
                    o_Q => o_Q(117));   -- Data value output
 
 
@@ -244,7 +246,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(118),     -- Data value input
+                   i_D => s_D(118),     -- Data value input
                    o_Q => o_Q(118));   -- Data value output
 
 
@@ -252,7 +254,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(119),     -- Data value input
+                   i_D => s_D(119),     -- Data value input
                    o_Q => o_Q(119));   -- Data value output
 
 
@@ -260,7 +262,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(120),     -- Data value input
+                   i_D => s_D(120),     -- Data value input
                    o_Q => o_Q(120));   -- Data value output
 
 
@@ -268,7 +270,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(121),     -- Data value input
+                   i_D => s_D(121),     -- Data value input
                    o_Q => o_Q(121));   -- Data value output
 
 
@@ -276,7 +278,7 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(122),     -- Data value input
+                   i_D => s_D(122),     -- Data value input
                    o_Q => o_Q(122));   -- Data value output
 
 
@@ -284,8 +286,37 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(123),     -- Data value input
+                   i_D => s_D(123),     -- Data value input
                    o_Q => o_Q(123));   -- Data value output
+
+	fetchInstAddPlus4_dffgs : for i in 124 to 155 generate
+	i_dffg : dffg
+	  port map(i_CLK => i_CLK,     -- Clock input
+     		   i_RST => i_RST,     -- Reset input
+  	           i_WE => i_WE,     -- Write enable input
+                   i_D => i_D(i),     -- Data value input
+                   o_Q => o_Q(i));   -- Data value output
+	end generate fetchInstAddPlus4_dffgs;
+
+
+	fetchInstAdd_dffgs : for i in 156 to 187 generate
+	i_dffg : dffg
+	  port map(i_CLK => i_CLK,     -- Clock input
+     		   i_RST => i_RST,     -- Reset input
+  	           i_WE => i_WE,     -- Write enable input
+                   i_D => i_D(i),     -- Data value input
+                   o_Q => o_Q(i));   -- Data value output
+	end generate fetchInstAdd_dffgs;
+
+
+
+	isNOP : dffg
+	  port map(i_CLK => i_CLK,     -- Clock input
+     		   i_RST => i_RST,     -- Reset input
+  	           i_WE => i_WE,     -- Write enable input
+                   i_D => i_D(188),     -- Data value input
+                   o_Q => o_Q(188));   -- Data value output
+
 
 
 end structure;

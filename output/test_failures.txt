@@ -1,1 +1,1 @@
-proj/riscv/add_1.s
+proj/riscv/addi1.s

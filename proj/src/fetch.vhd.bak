@@ -100,7 +100,7 @@ begin
     PC: PCreg
 	port map(
 	i_CLK => i_CLK,
-	i_RST => 'i_rst',
+	i_RST => i_rst,
         i_WE => '1',
         i_D => muxtoPC,
         o_Q => PCout
