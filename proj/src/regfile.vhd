@@ -24,6 +24,7 @@ architecture structure of regfile is
 
 	signal decout : std_logic_vector(N-1 downto 0); --decoder out, register in vector
 	signal muxin : vector_array;
+	signal not_CLK : std_logic;
 
 	-----REGISTER
 
@@ -53,6 +54,7 @@ architecture structure of regfile is
 
 
 begin
+	not_CLK <= not i_CLK;
 
     decoder : dec5to32
 	port map(
@@ -61,7 +63,7 @@ begin
 	o_Q => decout);
 
     z_reg : reg
-	  port map(i_CLK => i_CLK,
+	  port map(i_CLK => not_CLK,
        		   i_WE => '0',       
 		   i_D => x"00000000",           -- Data value input
 		   i_RST => i_RST_ALL,
@@ -69,7 +71,7 @@ begin
 
     g_regs : for i in 1 to N-1 generate
 	i_reg : reg
-	  port map(i_CLK => i_CLK,
+	  port map(i_CLK => not_CLK,
        		   i_WE => decout(i),       
 		   i_D => i_DATA,           -- Data value input
 		   i_RST => i_RST_ALL,

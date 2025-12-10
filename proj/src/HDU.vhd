@@ -10,8 +10,8 @@ i_IDEX_RD  : in std_logic_vector(4 downto 0);
 i_EXMEM_RD : in std_logic_vector(4 downto 0);
 i_IDEX_MemRead : in std_logic;
 i_EX_BranchTaken : in std_logic;
-i_isNOP : in std_logic; --for IDEX
-i_isNOP2 : in std_logic; --for EXMEM
+--i_isNOP : in std_logic; --for IDEX
+--i_isNOP2 : in std_logic; --for EXMEM
 
  -- PC write enable: 1 = normal update, 0 = stall PC
 o_PC_WEn : out std_logic;
@@ -30,16 +30,23 @@ end HDU;
 architecture structure of HDU is
 
 signal s_rd_nonzero   : std_logic;
+signal s_rd_nonzero2   : std_logic;
   	signal s_rs1_match    : std_logic;
   	signal s_rs2_match    : std_logic;
+  	signal s_rs1_match2    : std_logic;
+  	signal s_rs2_match2    : std_logic;
   	signal s_load_use_haz : std_logic;
+	signal s_reg_use_haz : std_logic;
+signal s_haz : std_logic;
 
 begin
 	s_rd_nonzero <= '1' when (i_IDEX_RD /= "00000")  else '0'; --may cause issues ngl
 	s_rd_nonzero2 <= '1' when (i_EXMEM_RD /= "00000") else '0'; --may cause issues ngl
 	--Checks for read after write
-	s_rs1_match  <= '1' when ((i_IDEX_RD = i_IFID_RS1) or (i_EXMEM_RD = i_IFID_RS1)) else '0';
-	s_rs2_match  <= '1' when ((i_IDEX_RD = i_IFID_RS2) or (i_EXMEM_RD = i_IFID_RS2)) else '0';
+	s_rs1_match  <= '1' when (i_IDEX_RD = i_IFID_RS1) else '0';
+	s_rs2_match  <= '1' when (i_IDEX_RD = i_IFID_RS2) else '0';
+	s_rs1_match2  <= '1' when (i_EXMEM_RD = i_IFID_RS1) else '0';
+	s_rs2_match2  <= '1' when (i_EXMEM_RD = i_IFID_RS2) else '0';
 
  	--s_load_use_haz <= '1' when 
 	--(i_IDEX_MemRead = '1' and
@@ -47,19 +54,26 @@ begin
          --(s_rs1_match = '1' or s_rs2_match = '1'))
         --else '0';
 
- 	s_load_use_haz <= '1' when 
+ 	s_reg_use_haz <= '1' when 
 	(s_rd_nonzero = '1' and
          (s_rs1_match = '1' or s_rs2_match = '1'))
         else '0';
 
+ 	s_load_use_haz <= '1' when 
+	(s_rd_nonzero2 = '1' and
+         (s_rs1_match2 = '1' or s_rs2_match2 = '1'))
+        else '0';
+
+	s_haz <= s_reg_use_haz or s_load_use_haz;
+
 --PC write enables stall on hazard
-o_PC_WEn <= '0' when s_load_use_haz = '1' else '1';
+o_PC_WEn <= '0' when s_haz = '1' else '1';
 
 --IF/ID wrte enable stall on hazard	
-o_IFID_WEn <= '0' when s_load_use_haz = '1' else '1';
+o_IFID_WEn <= '0' when s_haz = '1' else '1';
 
 --Bubble on hazard
-o_IDEX_Flush <= '1' when s_load_use_haz = '1' else '0';
+o_IDEX_Flush <= '1' when s_haz = '1' else '0';
 
 --Flush when Branch or jump is taken
 o_IFID_Flush <= '1' when i_EX_BranchTaken = '1' else '0';

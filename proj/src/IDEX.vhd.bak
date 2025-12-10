@@ -310,12 +310,12 @@ begin
 
 
 
-	isNOP : dffg
-	  port map(i_CLK => i_CLK,     -- Clock input
-     		   i_RST => i_RST,     -- Reset input
-  	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(i),     -- Data value input
-                   o_Q => o_Q(188));   -- Data value output
+--	isNOP : dffg
+--	  port map(i_CLK => i_CLK,     -- Clock input
+--     		   i_RST => i_RST,     -- Reset input
+--  	           i_WE => i_WE,     -- Write enable input
+--                   i_D => i_D(188),     -- Data value input
+--                   o_Q => o_Q(188));   -- Data value output
 
 
 
