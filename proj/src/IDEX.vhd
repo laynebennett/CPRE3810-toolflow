@@ -27,12 +27,15 @@ architecture structure of IDEX is
     end component;
 
 	signal s_D : std_logic_vector(N-1 downto 0);
+	signal s_OPCODE : std_logic_vector(6 downto 0);
 
 begin
         s_D <= (others => '0') when i_Flush = '1' else i_D;
 	s_D(187 downto 181) <= "0010011" when i_Flush = '1'; --sets opcode to addi to complete NOP instruction
 	--MAKE THIS SEGMENTED TO BE THE REQUIRED SIZE FOR THE REGISTER
 	--NEEDS TO BE CHANGED FROM DEFAULT
+
+	
 
 
 	Branch_dffg : dffg
@@ -304,9 +307,11 @@ begin
 	  port map(i_CLK => i_CLK,     -- Clock input
      		   i_RST => i_RST,     -- Reset input
   	           i_WE => i_WE,     -- Write enable input
-                   i_D => i_D(i),     -- Data value input
+                   i_D => s_D(i),     -- Data value input
                    o_Q => o_Q(i));   -- Data value output
 	end generate fetchInstAdd_dffgs;
+
+	s_OPCODE <= s_D(187 downto 181); 
 
 
 

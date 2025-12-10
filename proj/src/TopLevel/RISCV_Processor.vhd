@@ -611,7 +611,7 @@ s_JumpOrBranchTaken <= ((s_ALUZero and s_Branch_regout2) or s_Jump_regout2);
 	port map(
 	i_S => s_PCAdd,
 	i_D0 => s_regout1,
-	i_D1 => s_FetchInstAddr4_regout1,
+	i_D1 => s_FetchInstAddr_regout1,
 	o_Q => s_resizerstore);
 
 

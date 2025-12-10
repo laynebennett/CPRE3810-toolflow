@@ -37,6 +37,7 @@ signal s_rd_nonzero2   : std_logic;
   	signal s_rs2_match2    : std_logic;
   	signal s_load_use_haz : std_logic;
 	signal s_reg_use_haz : std_logic;
+signal s_haz : std_logic;
 
 begin
 	s_rd_nonzero <= '1' when (i_IDEX_RD /= "00000")  else '0'; --may cause issues ngl

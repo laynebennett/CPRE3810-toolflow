@@ -4,7 +4,7 @@ use IEEE.std_logic_1164.all;
 
 entity IDEX is
 
-  generic(N : integer := 189);--ADJUST THIS TO BE THE TOTAL SIZE
+  generic(N : integer := 188);--ADJUST THIS TO BE THE TOTAL SIZE
 
   port(i_CLK        : in std_logic;     -- Clock input
        i_RST        : in std_logic;     -- Reset input

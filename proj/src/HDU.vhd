@@ -73,10 +73,10 @@ o_PC_WEn <= '0' when s_haz = '1' else '1';
 o_IFID_WEn <= '0' when s_haz = '1' else '1';
 
 --Bubble on hazard
-o_IDEX_Flush <= '1' when s_haz = '1' else '0';
+o_IDEX_Flush <= '1' when (s_haz = '1') or (i_EX_BranchTaken = '1') else '0';
 
 --Flush when Branch or jump is taken
-o_IFID_Flush <= '1' when i_EX_BranchTaken = '1' else '0';
+o_IFID_Flush <= '1' when (i_EX_BranchTaken = '1') else '0';
 
 end structure;
 

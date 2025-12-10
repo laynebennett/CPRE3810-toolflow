@@ -696,7 +696,7 @@ s_JumpOrBranchTaken <= ((s_ALUZero and s_Branch_regout2) or s_Jump_regout2);
 	o_Q(122) => s_lh_regout2,
 	o_Q(123) => s_lb_regout2,
 	o_Q(155 downto 124) => s_FetchInstAddr4_regout2,
-	o_Q(187 downto 156) => s_Inst_regout2,
+	o_Q(187 downto 156) => s_Inst_regout2
 	--o_Q(188) => s_isNOP
 	);
 
