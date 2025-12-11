@@ -74,7 +74,7 @@ main:
         beq  x17, x18, beq_ok
         addi x21, x0, 999
 beq_ok:
-        addi x21, x17, 1
+        addi x21, x0, 1
 
         bne  x17, x19, bne_ok
         addi x22, x0, 999

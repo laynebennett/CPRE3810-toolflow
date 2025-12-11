@@ -52,9 +52,11 @@ after_inner:
 
 main_done:
     li   a7, 10              # syscall 10 = exit
+    
     ecall                    # return 0;
     wfi
 
+    addi x0, x0, 0
 
 
 # merge(int *A, int *T, int left, int mid, int right)

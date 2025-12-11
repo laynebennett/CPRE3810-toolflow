@@ -13,6 +13,8 @@ main:
 main_done:
     addi  a7, x0, 10
     ecall
+    wfi
+    addi x0, x0, 0
 
 
 test1:

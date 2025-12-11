@@ -453,6 +453,8 @@ signal s_Halt_in : std_logic;
 	i_Store_EXMEM : in std_logic;
 	i_SB_IDEX : in std_logic;
 	i_SB_EXMEM : in std_logic;
+	i_UJ_IFID : in std_logic;
+	i_LUI_IFID : in std_logic;
 	o_PC_WEn : out std_logic;
 	o_IFID_WEn : out std_logic;
 	o_IFID_Flush : out std_logic;
@@ -540,6 +542,8 @@ s_rs2 <= s_Inst(24 downto 20);
 	i_Store_EXMEM => s_Store_regout3,
 	i_SB_IDEX => s_SB_regout2,
 	i_SB_EXMEM => s_SB_regout3,
+	i_UJ_IFID => s_UJ,
+	i_LUI_IFID => s_LUI,
 	o_PC_WEn => s_PC_WEn,
 	o_IFID_WEn => s_IFID_WEn,
 	o_IFID_Flush => s_IFID_Flush,

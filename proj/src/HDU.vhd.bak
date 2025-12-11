@@ -16,6 +16,8 @@ i_Store_IDEX : in std_logic;
 i_Store_EXMEM : in std_logic;
 i_SB_IDEX : in std_logic;
 i_SB_EXMEM : in std_logic;
+i_UJ_IFID : in std_logic;
+i_LUI_IFID : in std_logic;
 
 --i_isNOP : in std_logic; --for IDEX
 --i_isNOP2 : in std_logic; --for EXMEM
@@ -31,7 +33,7 @@ o_IFID_Flush : out std_logic;
 
  -- ID/EX flush: 1 = squash instruction in ID/EX = bubble
 o_IDEX_Flush : out std_logic
-);
+); 
 end HDU;
 
 architecture structure of HDU is
@@ -82,13 +84,13 @@ begin
          (s_rs1_match2 = '1' or s_rs2_match2NOTIMM = '1'))
         else '0';
 
-	s_haz <= ((s_reg_use_haz or s_load_use_haz));-- and (not i_Store));
+	s_haz <= ((s_reg_use_haz or s_load_use_haz) and (not(i_LUI_IFID or i_UJ_IFID)));-- and (not i_Store));
 
 --PC write enables stall on hazard
-o_PC_WEn <= '0' when s_haz = '1' else '1';
+o_PC_WEn <= '0' when ((s_haz = '1') and (i_EX_BranchTaken = '0')) and  else '1';
 
 --IF/ID wrte enable stall on hazard	
-o_IFID_WEn <= '0' when s_haz = '1' else '1';
+o_IFID_WEn <= '0' when ((s_haz = '1') and (i_EX_BranchTaken = '0')) else '1';
 
 --Bubble on hazard
 o_IDEX_Flush <= '1' when (s_haz = '1') or (i_EX_BranchTaken = '1') else '0';
