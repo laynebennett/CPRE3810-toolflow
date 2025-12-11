@@ -63,8 +63,8 @@ main:
         lhu  x15, 8(x20)
         add  x16, x15, x0
 
-        sb   x1, 12(x20)
-        sh   x2, 14(x20)
+        #sb   x1, 12(x20)
+        #sh   x2, 14(x20)
 
 # Branches
         addi x17, x0, 5
@@ -74,7 +74,7 @@ main:
         beq  x17, x18, beq_ok
         addi x21, x0, 999
 beq_ok:
-        addi x21, x0, 1
+        addi x21, x17, 1
 
         bne  x17, x19, bne_ok
         addi x22, x0, 999

@@ -57,6 +57,11 @@ architecture structure of RISCV_Processor is
   -- Required overflow signal -- for overflow exception detection
   signal s_Ovfl         : std_logic;  -- TODO: this signal indicates an overflow exception would have been initiated
 
+signal s_imm_i_type : std_logic_vector(11 downto 0);
+signal s_rd : std_logic_vector(4 downto 0);
+signal s_rs1 : std_logic_vector(4 downto 0);
+signal s_rs2 : std_logic_vector(4 downto 0);
+
 signal s_Branch :  std_logic;
 signal s_MemRead :  std_logic;
 signal s_MemtoReg :  std_logic;
@@ -109,6 +114,7 @@ signal s_RSTDFFG : std_logic;
 
 signal s_Instmux         : std_logic_vector(N-1 downto 0);
 signal s_JumpOrBranchTaken : std_logic;
+signal s_DMemWr_OG : std_logic;
 --signal s_isNOP : std_logic;
 
 --HALT AND FLUSH SIGNALS
@@ -160,6 +166,7 @@ signal s_GateEn_regout2        : std_logic_vector(1 downto 0);
 signal s_BranchSel_regout2     : std_logic_vector(1 downto 0);
 signal s_FetchInstAddr4_regout2 : std_logic_vector(31 downto 0);
 signal s_Inst_regout2 : std_logic_vector(31 downto 0);
+signal s_FetchInstAddr_regout2 : std_logic_vector(31 downto 0);
 
 --EXMEM regouts
 signal s_Branch_regout3        : std_logic;
@@ -320,6 +327,7 @@ signal s_Halt_in : std_logic;
 	i_zero : in std_logic;
 	i_rst : in std_logic;
 	i_wen : in std_logic;
+	PCAddrBranch : in std_logic_vector(31 downto 0);
 	o_add4 : out std_logic_vector(31 downto 0);
 	o_addr : out std_logic_vector(31 downto 0)
     	);
@@ -390,7 +398,7 @@ signal s_Halt_in : std_logic;
 	end component;
 
 	component IDEX
-        generic(N : integer := 188);--ADJUST THIS TO BE THE TOTAL SIZE
+        generic(N : integer := 220);--ADJUST THIS TO BE THE TOTAL SIZE
 	port(
 	i_CLK        : in std_logic;     -- Clock input
         i_RST        : in std_logic;     -- Reset input
@@ -439,18 +447,15 @@ signal s_Halt_in : std_logic;
 	i_EXMEM_RD  : in std_logic_vector(4 downto 0);
 	i_IDEX_MemRead : in std_logic;
 	i_EX_BranchTaken : in std_logic;
-	--i_isNOP : in std_logic;
-
-	 -- PC write enable: 1 = normal update, 0 = stall PC
+	i_HasImm : in std_logic;
+	i_Store_IFID : in std_logic;
+	i_Store_IDEX : in std_logic;
+	i_Store_EXMEM : in std_logic;
+	i_SB_IDEX : in std_logic;
+	i_SB_EXMEM : in std_logic;
 	o_PC_WEn : out std_logic;
-
-	 -- IF/ID write enable: 1 = update IF/ID, 0 = stall ID
 	o_IFID_WEn : out std_logic;
-
-	 -- IF/ID flush: 1 = squash instruction in IF/ID = NOP
 	o_IFID_Flush : out std_logic;
-
-	 -- ID/EX flush: 1 = squash instruction in ID/EX = bubble
 	o_IDEX_Flush : out std_logic
 	);
 	end component;
@@ -475,6 +480,7 @@ begin
       i_zero   => s_ALUzero,
       i_rst	=> iRST,
       i_wen	=> s_PC_WEn,
+      PCAddrBranch => s_FetchInstAddr_regout2,
       o_add4	=> s_add4,
       o_addr     => s_NextInstAddr
     );
@@ -497,8 +503,10 @@ begin
 	i_D1 => x"00000000",
 	o_Q => s_Inst);
 
-
-  
+s_imm_i_type <= s_Inst(31 downto 20);
+s_rd <= s_Inst(11 downto 7);
+s_rs1 <= s_Inst(19 downto 15);
+s_rs2 <= s_Inst(24 downto 20);  
 
 
 --IF/ID
@@ -526,14 +534,19 @@ begin
 	i_EXMEM_RD => s_Inst_regout3(11 downto 7),
 	i_IDEX_MemRead => s_MemtoReg,
 	i_EX_BranchTaken => s_JumpOrBranchTaken,
-	--i_isNOP => s_isNOP,
+	i_HasImm => s_ALUSrc,
+	i_Store_IFID => s_Store,
+	i_Store_IDEX => s_Store_regout2,
+	i_Store_EXMEM => s_Store_regout3,
+	i_SB_IDEX => s_SB_regout2,
+	i_SB_EXMEM => s_SB_regout3,
 	o_PC_WEn => s_PC_WEn,
 	o_IFID_WEn => s_IFID_WEn,
 	o_IFID_Flush => s_IFID_Flush,
 	o_IDEX_Flush => s_IDEX_Flush
 	);
 
-s_JumpOrBranchTaken <= ((s_ALUZero and s_Branch_regout2) or s_Jump_regout2);
+	s_JumpOrBranchTaken <= ((s_ALUZero and s_Branch_regout2) or s_Jump_regout2);
 
 
     control_i : control
@@ -543,7 +556,7 @@ s_JumpOrBranchTaken <= ((s_ALUZero and s_Branch_regout2) or s_Jump_regout2);
 	MemRead => s_MemRead,
 	MemtoReg => s_MemtoReg,
 	ALUOp => s_ALUOp,
-	MemWrite => s_DMemWr,
+	MemWrite => s_DMemWr_OG,
 	ALUSrc => s_ALUSrc,
 	RegWrite => s_RegWrite,
 	LUI => s_LUI,
@@ -637,7 +650,7 @@ s_JumpOrBranchTaken <= ((s_ALUZero and s_Branch_regout2) or s_Jump_regout2);
 	i_D(0) => s_Branch,
 	i_D(1) => s_MemRead,
 	i_D(2) => s_MemtoReg,
-	i_D(3) => s_DMemWr,
+	i_D(3) => s_DMemWr_OG,
 	i_D(4) => s_ALUSrc,
 	i_D(5) => s_RegWrite,
 	i_D(6) => s_LUI,
@@ -665,7 +678,7 @@ s_JumpOrBranchTaken <= ((s_ALUZero and s_Branch_regout2) or s_Jump_regout2);
 	i_D(123) => s_lb,
 	i_D(155 downto 124) => s_FetchInstAddr4_regout1,
 	i_D(187 downto 156) => s_Inst_regout1,
-	--i_D(188) => s_IDEX_Flush,
+	i_D(219 downto 188) => s_FetchInstAddr_regout1,
 	o_Q(0) => s_Branch_regout2,
 	o_Q(1) => s_MemRead_regout2,
 	o_Q(2) => s_MemtoReg_regout2,
@@ -696,8 +709,8 @@ s_JumpOrBranchTaken <= ((s_ALUZero and s_Branch_regout2) or s_Jump_regout2);
 	o_Q(122) => s_lh_regout2,
 	o_Q(123) => s_lb_regout2,
 	o_Q(155 downto 124) => s_FetchInstAddr4_regout2,
-	o_Q(187 downto 156) => s_Inst_regout2
-	--o_Q(188) => s_isNOP
+	o_Q(187 downto 156) => s_Inst_regout2,
+	o_Q(219 downto 188) => s_FetchInstAddr_regout2
 	);
 
 
@@ -793,6 +806,7 @@ s_JumpOrBranchTaken <= ((s_ALUZero and s_Branch_regout2) or s_Jump_regout2);
 	o_Q(177) => s_lb_regout3
 	);
 
+s_DMemWr <= s_DMemWr_regout3;
 s_DMemAddr <= s_ALUorSet_regout3;
 s_DMemData <= s_regout2_regout3;  
 
@@ -802,7 +816,7 @@ s_DMemData <= s_regout2_regout3;
     port map(clk  => iCLK,
              addr => s_DMemAddr(11 downto 2),
              data => s_DMemData,
-             we   => s_DMemWr_regout3,
+             we   => s_DMemWr,
              q    => s_DMemOut);
 
 
@@ -817,7 +831,7 @@ s_DMemData <= s_regout2_regout3;
 	i_D(0) => s_Branch_regout3,
 	i_D(1) => s_MemRead_regout3,
 	i_D(2) => s_MemtoReg_regout3,
-	i_D(3) => s_DMemWr_regout3,
+	i_D(3) => s_DMemWr,
 	i_D(4) => s_ALUSrc_regout3,
 	i_D(5) => s_RegWr_regout3,
 	i_D(6) => s_LUI_regout3,

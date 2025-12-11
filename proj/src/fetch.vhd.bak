@@ -13,6 +13,8 @@ entity fetch is
 	i_jump : in std_logic;
 	i_zero : in std_logic;
 	i_rst : in std_logic;
+	i_wen	: in std_logic;
+	PCAddrBranch : in std_logic(31 downto 0);
 	o_add4 : out std_logic_vector(31 downto 0);
 	o_addr : out std_logic_vector(31 downto 0)
     );
@@ -22,7 +24,7 @@ architecture structure of fetch is
 
     component PCreg
 	port(
-	i_CLK        : in std_logic;     -- Clock input
+	i_CLK        : in std_logic;     -- Clock input 
         i_RST        : in std_logic;     -- Reset input
         i_WE         : in std_logic;     -- Write enable input
         i_D   : in std_logic_vector(31 downto 0);  -- n-bit data input
@@ -34,7 +36,7 @@ architecture structure of fetch is
 	port(
 	i_S : in std_logic;
 	i_D0 : in std_logic_vector(31 downto 0);
-	i_D1 : in std_logic_vector(31 downto 0);
+	i_D1 : in std_logic_vector(31 downto 0); 
 	o_Q : out std_logic_vector(31 downto 0)
 	);
     end component;
@@ -101,7 +103,7 @@ begin
 	port map(
 	i_CLK => i_CLK,
 	i_RST => i_rst,
-        i_WE => '1',
+        i_WE => i_wen,
         i_D => muxtoPC,
         o_Q => PCout
 	);
@@ -109,10 +111,18 @@ begin
     busmux_PCorReg: busmux2to1
 	port map(
 	i_S => i_jalr,
-	i_D0 => PCout,
+	i_D0 => PCAddrBranch,
 	i_D1 => i_regData,
 	o_Q => PCorReg
 	);
+
+--    busmux_PCorReg: busmux2to1 --OLD Version
+--	port map(
+--	i_S => i_jalr,
+--	i_D0 => PCout,
+--	i_D1 => i_regData,
+--	o_Q => PCorReg
+--	);
 	
 
     add4: ripple_adder

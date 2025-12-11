@@ -28,7 +28,9 @@ architecture structure of IFID is
 
 begin
      -- If flushing, drive zeros into the register (NOP); else pass through i_D
-     s_D <= (others => '0') when i_Flush = '1' else i_D;
+     s_D(95 downto 7) <= (others => '0') when i_Flush = '1' else i_D(95 downto 7);
+     --s_D <= (others => '0') when i_Flush = '1' else i_D;
+     s_D(6 downto 0) <= "0010011" when i_Flush = '1' else i_D(6 downto 0);
 
 	--MAKE THIS SEGMENTED TO BE THE REQUIRED SIZE FOR THE REGISTER
     instruction_dffgs : for i in 0 to 31 generate
