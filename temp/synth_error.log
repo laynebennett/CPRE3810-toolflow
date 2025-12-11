@@ -15,7 +15,7 @@ Info: Running Quartus Prime Analysis & Synthesis
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Thu Dec 11 05:53:42 2025
+    Info: Processing started: Thu Dec 11 10:26:24 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off toolflow -c toolflow
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -102,12 +102,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file /home/l
 Info (12021): Found 2 design units, including 1 entities, in source file /home/layneben/Downloads/cpre3810-toolflow/proj/src/halfbusmux2to1.vhd
     Info (12022): Found design unit 1: halfbusmux2to1-dataflow File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/halfbusmux2to1.vhd Line: 15
     Info (12023): Found entity 1: halfbusmux2to1 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/halfbusmux2to1.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd
-    Info (12022): Found design unit 1: i_mem-rtl File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd Line: 28
-    Info (12023): Found entity 1: i_mem File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/i_mem.vhd Line: 9
-Error (10430): VHDL Primary Unit Declaration error at mem.vhd(8): primary unit "mem" already exists in library "work". Compile the two primary units into different libraries or assign them unique names. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd Line: 8
-Error (10784): HDL error at mem.vhd(8): see declaration for object "mem" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/mem.vhd Line: 8
-Info (12021): Found 0 design units, including 0 entities, in source file /home/layneben/Downloads/cpre3810-toolflow/proj/src/mem.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd
     Info (12022): Found design unit 1: mux2to1-dataflow File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd Line: 16
     Info (12023): Found entity 1: mux2to1 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/mux2to1.vhd Line: 7
@@ -145,23 +139,325 @@ Info (12021): Found 2 design units, including 1 entities, in source file /home/l
 Info (12021): Found 2 design units, including 1 entities, in source file /home/layneben/Downloads/cpre3810-toolflow/proj/src/special_dffg.vhd
     Info (12022): Found design unit 1: special_dffg-mixed File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/special_dffg.vhd Line: 34
     Info (12023): Found entity 1: special_dffg File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/special_dffg.vhd Line: 24
-Info (12021): Found 2 design units, including 1 entities, in source file /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_ALU.vhd
-    Info (12022): Found design unit 1: tb_ALU-sim File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_ALU.vhd Line: 9
-    Info (12023): Found entity 1: tb_ALU File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_ALU.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd
-    Info (12022): Found design unit 1: tb_bshiftr-behavior File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd Line: 14
-    Info (12023): Found entity 1: tb_bshiftr File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_bshiftr.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fetch.vhd
-    Info (12022): Found design unit 1: tb_fetch-behavior File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fetch.vhd Line: 11
-    Info (12023): Found entity 1: tb_fetch File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/tb_fetch.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg2.vhd
     Info (12022): Found design unit 1: xorg2-dataflow File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg2.vhd Line: 31
     Info (12023): Found entity 1: xorg2 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg2.vhd Line: 23
 Info (12021): Found 2 design units, including 1 entities, in source file /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd
     Info (12022): Found design unit 1: xorg32-dataflow File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd Line: 15
     Info (12023): Found entity 1: xorg32 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/xorg32.vhd Line: 6
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 1 warning
-    Error: Peak virtual memory: 629 megabytes
-    Error: Processing ended: Thu Dec 11 05:53:50 2025
-    Error: Elapsed time: 00:00:08
-    Error: Total CPU time (on all processors): 00:00:13
+Info (12127): Elaborating entity "RISCV_Processor" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(45): object "s_RegWr" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 45
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(55): object "s_Halt" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 55
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(58): object "s_Ovfl" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 58
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(60): object "s_imm_i_type" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 60
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(61): object "s_rd" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 61
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(62): object "s_rs1" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 62
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(63): object "s_rs2" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 63
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(141): object "s_dummy" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 141
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(175): object "s_dummy2" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 175
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(198): object "s_Branch_regout4" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 198
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(199): object "s_MemRead_regout4" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 199
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(201): object "s_dummy3" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 201
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(202): object "s_DMemWr_regout4" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 202
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(203): object "s_ALUSrc_regout4" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 203
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(206): object "s_UJ_regout4" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 206
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(208): object "s_SB_regout4" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 208
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(209): object "s_Store_regout4" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 209
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(210): object "s_Jump_regout4" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 210
+Warning (10036): Verilog HDL or VHDL warning at RISCV_Processor.vhd(211): object "s_jalr_regout4" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 211
+Info (12128): Elaborating entity "fetch" for hierarchy "fetch:fetch_i" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 474
+Info (12128): Elaborating entity "andg2" for hierarchy "fetch:fetch_i|andg2:and_inst" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/fetch.vhd Line: 83
+Info (12128): Elaborating entity "busmux2to1" for hierarchy "fetch:fetch_i|busmux2to1:busmux_inst" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/fetch.vhd Line: 90
+Info (12128): Elaborating entity "PCreg" for hierarchy "fetch:fetch_i|PCreg:PC" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/fetch.vhd Line: 102
+Info (12128): Elaborating entity "dffg" for hierarchy "fetch:fetch_i|PCreg:PC|dffg:\g_dffgs:0:i_dffg" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/PCreg.vhd Line: 39
+Info (12128): Elaborating entity "special_dffg" for hierarchy "fetch:fetch_i|PCreg:PC|special_dffg:special_dffg_i" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/PCreg.vhd Line: 47
+Info (12128): Elaborating entity "ripple_adder" for hierarchy "fetch:fetch_i|ripple_adder:add4" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/fetch.vhd Line: 128
+Info (12128): Elaborating entity "full_adder" for hierarchy "fetch:fetch_i|ripple_adder:add4|full_adder:\adder_chain:0:FA" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ripple_adder.vhd Line: 35
+Info (12128): Elaborating entity "xorg2" for hierarchy "fetch:fetch_i|ripple_adder:add4|full_adder:\adder_chain:0:FA|xorg2:part1" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd Line: 47
+Info (12128): Elaborating entity "org2" for hierarchy "fetch:fetch_i|ripple_adder:add4|full_adder:\adder_chain:0:FA|org2:part5" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/full_adder.vhd Line: 53
+Info (12128): Elaborating entity "mem" for hierarchy "mem:IMem" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 491
+Info (12128): Elaborating entity "IFID" for hierarchy "IFID:IFID_i" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 517
+Info (12128): Elaborating entity "control" for hierarchy "control:control_i" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 558
+Info (12128): Elaborating entity "regfile" for hierarchy "regfile:regfile_i" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 578
+Info (12128): Elaborating entity "dec5to32" for hierarchy "regfile:regfile_i|dec5to32:decoder" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/regfile.vhd Line: 59
+Info (12128): Elaborating entity "reg" for hierarchy "regfile:regfile_i|reg:z_reg" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/regfile.vhd Line: 65
+Info (12128): Elaborating entity "mux32to1" for hierarchy "regfile:regfile_i|mux32to1:busmux1" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/regfile.vhd Line: 81
+Info (12128): Elaborating entity "ALU_control" for hierarchy "ALU_control:ALU_control_i" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 591
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(164): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 164
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(164): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 164
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(177): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 177
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(177): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 177
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(194): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 194
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(194): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 194
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(207): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 207
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(207): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 207
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(220): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 220
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(220): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 220
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(233): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 233
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(233): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 233
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(246): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 246
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(246): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 246
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(259): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 259
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(259): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 259
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(278): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 278
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(278): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 278
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(290): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 290
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(290): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 290
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(302): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 302
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(302): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 302
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(319): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 319
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(319): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 319
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(335): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 335
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(335): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 335
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(347): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 347
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(347): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 347
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(360): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 360
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(360): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 360
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(373): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 373
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(373): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 373
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(428): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 428
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(428): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 428
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(441): signal "ALUOp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 441
+Warning (10492): VHDL Process Statement warning at ALU_control.vhd(441): signal "instruction" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU_control.vhd Line: 441
+Info (12128): Elaborating entity "extender" for hierarchy "extender:extender_i" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 609
+Warning (10036): Verilog HDL or VHDL warning at extender.vhd(30): object "s_opcode" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/extender.vhd Line: 30
+Info (12128): Elaborating entity "sign" for hierarchy "sign:sign_i" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 620
+Info (12128): Elaborating entity "resizer" for hierarchy "resizer:storeresizer" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 637
+Info (12128): Elaborating entity "IDEX" for hierarchy "IDEX:IDEX_i" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 649
+Warning (10036): Verilog HDL or VHDL warning at IDEX.vhd(30): object "s_OPCODE" assigned a value but never read File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/IDEX.vhd Line: 30
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_i" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 723
+Info (12128): Elaborating entity "bshiftr" for hierarchy "ALU:ALU_i|bshiftr:bshiftr_inst" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU.vhd Line: 133
+Info (12128): Elaborating entity "andg32" for hierarchy "ALU:ALU_i|andg32:andg32_inst" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU.vhd Line: 142
+Info (12128): Elaborating entity "xorg32" for hierarchy "ALU:ALU_i|xorg32:xorg32_inst" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU.vhd Line: 149
+Info (12128): Elaborating entity "org32" for hierarchy "ALU:ALU_i|org32:org32_inst" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU.vhd Line: 156
+Info (12128): Elaborating entity "norg32" for hierarchy "ALU:ALU_i|norg32:norg32_inst" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU.vhd Line: 163
+Info (12128): Elaborating entity "addsubi" for hierarchy "ALU:ALU_i|addsubi:addsubi_inst" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU.vhd Line: 170
+Info (12128): Elaborating entity "mux2to1" for hierarchy "ALU:ALU_i|mux2to1:mux_inst7" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/ALU.vhd Line: 222
+Info (12128): Elaborating entity "EXMEM" for hierarchy "EXMEM:EXMEM_i" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 761
+Info (12128): Elaborating entity "MEMWB" for hierarchy "MEMWB:MEMWB_i" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 832
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "mem:IMem|ram" is uninferred due to asynchronous read logic File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/mem.vhd Line: 35
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "mem:DMem|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 10
+        Info (286033): Parameter NUMWORDS_A set to 1024
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_PORT_A set to OLD_DATA
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+    Info (276034): Inferred altshift_taps megafunction from the following design logic: "IDEX:IDEX_i|dffg:MemtoReg_dffg|s_Q_rtl_0"
+        Info (286033): Parameter NUMBER_OF_TAPS set to 1
+        Info (286033): Parameter TAP_DISTANCE set to 3
+        Info (286033): Parameter WIDTH set to 11
+Info (12130): Elaborated megafunction instantiation "mem:DMem|altsyncram:ram_rtl_0"
+Info (12133): Instantiated megafunction "mem:DMem|altsyncram:ram_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "SINGLE_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "10"
+    Info (12134): Parameter "NUMWORDS_A" = "1024"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_PORT_A" = "OLD_DATA"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_eg81.tdf
+    Info (12023): Found entity 1: altsyncram_eg81 File: /home/layneben/Downloads/cpre3810-toolflow/internal/QuartusWork/db/altsyncram_eg81.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "IDEX:IDEX_i|dffg:MemtoReg_dffg|altshift_taps:s_Q_rtl_0"
+Info (12133): Instantiated megafunction "IDEX:IDEX_i|dffg:MemtoReg_dffg|altshift_taps:s_Q_rtl_0" with the following parameter:
+    Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
+    Info (12134): Parameter "TAP_DISTANCE" = "3"
+    Info (12134): Parameter "WIDTH" = "11"
+Info (12021): Found 1 design units, including 1 entities, in source file db/shift_taps_9km.tdf
+    Info (12023): Found entity 1: shift_taps_9km File: /home/layneben/Downloads/cpre3810-toolflow/internal/QuartusWork/db/shift_taps_9km.tdf Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_n861.tdf
+    Info (12023): Found entity 1: altsyncram_n861 File: /home/layneben/Downloads/cpre3810-toolflow/internal/QuartusWork/db/altsyncram_n861.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_24e.tdf
+    Info (12023): Found entity 1: add_sub_24e File: /home/layneben/Downloads/cpre3810-toolflow/internal/QuartusWork/db/add_sub_24e.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_6pf.tdf
+    Info (12023): Found entity 1: cntr_6pf File: /home/layneben/Downloads/cpre3810-toolflow/internal/QuartusWork/db/cntr_6pf.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_ogc.tdf
+    Info (12023): Found entity 1: cmpr_ogc File: /home/layneben/Downloads/cpre3810-toolflow/internal/QuartusWork/db/cmpr_ogc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_p8h.tdf
+    Info (12023): Found entity 1: cntr_p8h File: /home/layneben/Downloads/cpre3810-toolflow/internal/QuartusWork/db/cntr_p8h.tdf Line: 26
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13000): Registers with preset signals will power-up high File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/special_dffg.vhd Line: 54
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 22 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "iInstAddr[0]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[1]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[12]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[13]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[14]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[15]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[16]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[17]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[18]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[19]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[20]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[21]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[22]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[23]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[24]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[25]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[26]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[27]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[28]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[29]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[30]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+    Warning (15610): No output dependent on input pin "iInstAddr[31]" File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 29
+Info (21057): Implemented 59464 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 67 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 59322 logic cells
+    Info (21064): Implemented 43 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 82 warnings
+    Info: Peak virtual memory: 968 megabytes
+    Info: Processing ended: Thu Dec 11 10:27:26 2025
+    Info: Elapsed time: 00:01:02
+    Info: Total CPU time (on all processors): 00:01:06
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
+    Info: Copyright (C) 2020  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details, at
+    Info: https://fpgasoftware.intel.com/eula.
+    Info: Processing started: Thu Dec 11 10:27:26 2025
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off toolflow -c toolflow
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = toolflow
+Info: Revision = toolflow
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (119006): Selected device EP4CE115F29C7 for design "toolflow"
+Info (21076): High junction temperature operating condition is not set. Assuming a default value of '85'.
+Info (21076): Low junction temperature operating condition is not set. Assuming a default value of '0'.
+Info (171003): Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
+Info (176444): Device migration not selected. If you intend to use device migration later, you may need to change the pin assignments as they may be incompatible with other devices
+    Info (176445): Device EP4CE40F29C7 is compatible
+    Info (176445): Device EP4CE40F29I7 is compatible
+    Info (176445): Device EP4CE30F29C7 is compatible
+    Info (176445): Device EP4CE30F29I7 is compatible
+    Info (176445): Device EP4CE55F29C7 is compatible
+    Info (176445): Device EP4CE55F29I7 is compatible
+    Info (176445): Device EP4CE75F29C7 is compatible
+    Info (176445): Device EP4CE75F29I7 is compatible
+    Info (176445): Device EP4CE115F29I7 is compatible
+Info (169124): Fitter converted 5 user pins into dedicated programming pins
+    Info (169125): Pin ~ALTERA_ASDO_DATA1~ is reserved at location F4
+    Info (169125): Pin ~ALTERA_FLASH_nCE_nCSO~ is reserved at location E2
+    Info (169125): Pin ~ALTERA_DCLK~ is reserved at location P3
+    Info (169125): Pin ~ALTERA_DATA0~ is reserved at location N7
+    Info (169125): Pin ~ALTERA_nCEO~ is reserved at location P28
+Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
+Info (176045): Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
+Critical Warning (169085): No exact pin location assignment(s) for 99 pins of 99 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report.
+Info (332104): Reading SDC File: 'toolflow.sdc'
+Info (332129): Detected timing requirements -- optimizing circuit to achieve only the specified requirements
+Info (332111): Found 1 clocks
+    Info (332111):   Period   Clock Name
+    Info (332111): ======== ============
+    Info (332111):   20.000         iCLK
+Info (176353): Automatically promoted node iCLK~input (placed in PIN J1 (CLK1, DIFFCLK_0n)) File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 26
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G2
+Info (176353): Automatically promoted node iRST~input (placed in PIN Y2 (CLK2, DIFFCLK_1p)) File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/TopLevel/RISCV_Processor.vhd Line: 27
+    Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G4
+    Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
+        Info (176357): Destination node IFID:IFID_i|s_D[5]~0 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/IFID.vhd Line: 27
+        Info (176357): Destination node IFID:IFID_i|s_D[3]~3 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/IFID.vhd Line: 27
+        Info (176357): Destination node IFID:IFID_i|s_D[2]~4 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/IFID.vhd Line: 27
+        Info (176357): Destination node IFID:IFID_i|s_D[6]~6 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/IFID.vhd Line: 27
+        Info (176357): Destination node IFID:IFID_i|s_D[22]~7 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/IFID.vhd Line: 27
+        Info (176357): Destination node IFID:IFID_i|s_D[21]~8 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/IFID.vhd Line: 27
+        Info (176357): Destination node IFID:IFID_i|s_D[24]~9 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/IFID.vhd Line: 27
+        Info (176357): Destination node IFID:IFID_i|s_D[23]~10 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/IFID.vhd Line: 27
+        Info (176357): Destination node IFID:IFID_i|s_D[20]~11 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/IFID.vhd Line: 27
+        Info (176357): Destination node IFID:IFID_i|s_D[7]~12 File: /home/layneben/Downloads/cpre3810-toolflow/proj/src/IFID.vhd Line: 27
+        Info (176358): Non-global destination nodes limited to 10 nodes
+Info (176233): Starting register packing
+Info (176235): Finished register packing
+    Extra Info (176219): No registers were packed into other blocks
+Info (176214): Statistics of I/O pins that need to be placed that use the same VCCIO and VREF, before I/O pin placement
+    Info (176211): Number of I/O pins in group: 97 (unused VREF, 2.5V VCCIO, 65 input, 32 output, 0 bidirectional)
+        Info (176212): I/O standards used: 2.5 V.
+Info (176215): I/O bank details before I/O pin placement
+    Info (176214): Statistics of I/O banks
+        Info (176213): I/O bank number 1 does not use VREF pins and has undetermined VCCIO pins. 5 total pin(s) used --  51 pins available
+        Info (176213): I/O bank number 2 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  62 pins available
+        Info (176213): I/O bank number 3 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  73 pins available
+        Info (176213): I/O bank number 4 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  71 pins available
+        Info (176213): I/O bank number 5 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  65 pins available
+        Info (176213): I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  57 pins available
+        Info (176213): I/O bank number 7 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  72 pins available
+        Info (176213): I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  71 pins available
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:30
+Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
+Info (170189): Fitter placement preparation operations beginning
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:05
+Info (170191): Fitter placement operations beginning
+Info (170137): Fitter placement was successful
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:54
+Info (170193): Fitter routing operations beginning
+Info (170195): Router estimated average interconnect usage is 15% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 34% of the available device resources in the region that extends from location X58_Y24 to location X68_Y36
+Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
+    Info (170201): Optimizations that may affect the design's routability were skipped
+    Info (170200): Optimizations that may affect the design's timing were skipped
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:58
+Info (11888): Total time spent on timing analysis during the Fitter is 19.99 seconds.
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:10
+Info (144001): Generated suppressed messages file /home/layneben/Downloads/cpre3810-toolflow/internal/QuartusWork/output_files/toolflow.fit.smsg
+Info: Quartus Prime Fitter was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 2565 megabytes
+    Info: Processing ended: Thu Dec 11 10:30:27 2025
+    Info: Elapsed time: 00:03:01
+    Info: Total CPU time (on all processors): 00:07:13
+Info: *******************************************************************
+Info: Running Quartus Prime Assembler
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
+    Info: Copyright (C) 2020  Intel Corporation. All rights reserved.
+    Info: Your use of Intel Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Intel Program License 
+    Info: Subscription Agreement, the Intel Quartus Prime License Agreement,
+    Info: the Intel FPGA IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Intel and sold by Intel or its authorized distributors.  Please
+    Info: refer to the applicable agreement for further details, at
+    Info: https://fpgasoftware.intel.com/eula.
+    Info: Processing started: Thu Dec 11 10:30:28 2025
+Info: Command: quartus_asm --read_settings_files=on --write_settings_files=off toolflow -c toolflow
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (115031): Writing out detailed assembly data for power analysis
+Info (115030): Assembler is generating device programming files
+Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 701 megabytes
+    Info: Processing ended: Thu Dec 11 10:30:32 2025
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03

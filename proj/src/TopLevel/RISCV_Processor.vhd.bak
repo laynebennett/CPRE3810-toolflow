@@ -439,28 +439,28 @@ signal s_Halt_in : std_logic;
 
 	----HDU
 
-	component HDU
-	port(
-	i_IFID_RS1 : in std_logic_vector(4 downto 0);
-	i_IFID_RS2 : in std_logic_vector(4 downto 0);
-	i_IDEX_RD  : in std_logic_vector(4 downto 0);
-	i_EXMEM_RD  : in std_logic_vector(4 downto 0);
-	i_IDEX_MemRead : in std_logic;
-	i_EX_BranchTaken : in std_logic;
-	i_HasImm : in std_logic;
-	i_Store_IFID : in std_logic;
-	i_Store_IDEX : in std_logic;
-	i_Store_EXMEM : in std_logic;
-	i_SB_IDEX : in std_logic;
-	i_SB_EXMEM : in std_logic;
-	i_UJ_IFID : in std_logic;
-	i_LUI_IFID : in std_logic;
-	o_PC_WEn : out std_logic;
-	o_IFID_WEn : out std_logic;
-	o_IFID_Flush : out std_logic;
-	o_IDEX_Flush : out std_logic
-	);
-	end component;
+--	component HDU
+--	port(
+--	i_IFID_RS1 : in std_logic_vector(4 downto 0);
+--	i_IFID_RS2 : in std_logic_vector(4 downto 0);
+--	i_IDEX_RD  : in std_logic_vector(4 downto 0);
+--	i_EXMEM_RD  : in std_logic_vector(4 downto 0);
+--	i_IDEX_MemRead : in std_logic;
+--	i_EX_BranchTaken : in std_logic;
+--	i_HasImm : in std_logic;
+--	i_Store_IFID : in std_logic;
+--	i_Store_IDEX : in std_logic;
+--	i_Store_EXMEM : in std_logic;
+--	i_SB_IDEX : in std_logic;
+--	i_SB_EXMEM : in std_logic;
+--	i_UJ_IFID : in std_logic;
+--	i_LUI_IFID : in std_logic;
+--	o_PC_WEn : out std_logic;
+--	o_IFID_WEn : out std_logic;
+--	o_IFID_Flush : out std_logic;
+--	o_IDEX_Flush : out std_logic
+--	);
+--	end component;
 	
 
 begin
@@ -481,7 +481,7 @@ begin
       i_jump => s_Jump_regout2,
       i_zero   => s_ALUzero,
       i_rst	=> iRST,
-      i_wen	=> s_PC_WEn,
+      i_wen	=> '1',
       PCAddrBranch => s_FetchInstAddr_regout2,
       o_add4	=> s_add4,
       o_addr     => s_NextInstAddr
@@ -519,7 +519,7 @@ s_rs2 <= s_Inst(24 downto 20);
 	i_CLK => iCLK,
 	i_RST => iRST,--RST off for instruction addresses, need to fix lingering i_D = 0 issue in fetch reg PC
 	i_Flush => s_IFID_Flush,
-	i_WE => s_IFID_WEn,
+	i_WE => '1',
 	i_D(31 downto 0) => s_Inst,
 	i_D(63 downto 32) => s_add4,
 	i_D(95 downto 64) => s_NextInstAddr,
@@ -528,30 +528,32 @@ s_rs2 <= s_Inst(24 downto 20);
 	o_Q(95 downto 64) => s_FetchInstAddr_regout1
 	);
 
-    HDU_i : HDU
-	port map(
-	i_IFID_RS1 => s_Inst_regout1(19 downto 15),
-	i_IFID_RS2 => s_Inst_regout1(24 downto 20),
-	i_IDEX_RD => s_Inst_regout2(11 downto 7),
-	i_EXMEM_RD => s_Inst_regout3(11 downto 7),
-	i_IDEX_MemRead => s_MemtoReg,
-	i_EX_BranchTaken => s_JumpOrBranchTaken,
-	i_HasImm => s_ALUSrc,
-	i_Store_IFID => s_Store,
-	i_Store_IDEX => s_Store_regout2,
-	i_Store_EXMEM => s_Store_regout3,
-	i_SB_IDEX => s_SB_regout2,
-	i_SB_EXMEM => s_SB_regout3,
-	i_UJ_IFID => s_UJ,
-	i_KUI_IFID => s_LUI,
-	o_PC_WEn => s_PC_WEn,
-	o_IFID_WEn => s_IFID_WEn,
-	o_IFID_Flush => s_IFID_Flush,
-	o_IDEX_Flush => s_IDEX_Flush
-	);
+--    HDU_i : HDU
+--	port map(
+--	i_IFID_RS1 => s_Inst_regout1(19 downto 15),
+--	i_IFID_RS2 => s_Inst_regout1(24 downto 20),
+--	i_IDEX_RD => s_Inst_regout2(11 downto 7),
+--	i_EXMEM_RD => s_Inst_regout3(11 downto 7),
+--	i_IDEX_MemRead => s_MemtoReg,
+--	i_EX_BranchTaken => s_JumpOrBranchTaken,
+--	i_HasImm => s_ALUSrc,
+--	i_Store_IFID => s_Store,
+--	i_Store_IDEX => s_Store_regout2,
+--	i_Store_EXMEM => s_Store_regout3,
+--	i_SB_IDEX => s_SB_regout2,
+--	i_SB_EXMEM => s_SB_regout3,
+--	i_UJ_IFID => s_UJ,
+--	i_LUI_IFID => s_LUI,
+--	o_PC_WEn => s_PC_WEn,
+--	o_IFID_WEn => s_IFID_WEn,
+--	o_IFID_Flush => s_IFID_Flush,
+--	o_IDEX_Flush => s_IDEX_Flush
+--	);
 
 	s_JumpOrBranchTaken <= ((s_ALUZero and s_Branch_regout2) or s_Jump_regout2);
-
+	
+	s_IDEX_Flush <= s_JumpOrBranchTaken;
+	s_IFID_Flush <= s_JumpOrBranchTaken;
 
     control_i : control
 	port map(

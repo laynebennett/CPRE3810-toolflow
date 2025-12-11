@@ -4,11 +4,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity bshiftr is
     Port (
-        i_d     : in  std_logic_vector(31 downto 0);  -- input data
-        i_shift : in  std_logic_vector(4 downto 0);   -- shift amount (uses lower 5 bits)
-        i_arith : in  std_logic;                      -- ShiftArith, 0 = logical, 1 = arithmetic
-	i_dir	: in  std_logic;		      -- ShiftDir, 0 = left, 1 = right
-        o_d     : out std_logic_vector(31 downto 0)   -- shifted output
+        i_d     : in  std_logic_vector(31 downto 0);  --input data
+        i_shift : in  std_logic_vector(4 downto 0);   --shift amount (uses lower 5 bits)
+        i_arith : in  std_logic;                      --shiftArith, 0 = logical, 1 = arithmetic
+	i_dir	: in  std_logic;		      --shiftDir, 0 = left, 1 = right
+        o_d     : out std_logic_vector(31 downto 0)   --shifted output
     );
 end bshiftr;
 
@@ -28,7 +28,7 @@ begin
     end generate;
 
     
-    s_d <= i_d when (i_dir = '0') else i_d_rev;
+    s_d <= i_d when (i_dir = '1') else i_d_rev;
 
 
 
@@ -64,11 +64,11 @@ begin
 
      sd <= s4;
 
-    reverse_loop: for i in 0 to 31 generate
+    reverse_loop: for i in 0 to 31 generate --for right shifts
 	sr(i) <= sd(31-i);
     end generate;
 
 
-    o_d <= sd when (i_dir = '0') else sr;
+    o_d <= sd when (i_dir = '1') else sr; --select between left and right shift
 
 end structural;

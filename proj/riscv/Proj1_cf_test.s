@@ -3,6 +3,8 @@
 
 main:
     lui   sp, 0x10010
+    nop
+    nop
     addi  sp, sp, 0
 
     addi  t0, x0, 1
@@ -14,11 +16,13 @@ main_done:
     addi  a7, x0, 10
     ecall
     wfi
-    addi x0, x0, 0
+    nop
 
 
 test1:
     addi  sp, sp, -4
+    nop
+    nop
     sw    ra, 0(sp)        # save RA from main (points to main_done)
 
     jal   ra, test2        # call test2
@@ -26,6 +30,8 @@ test1:
 
 test2:
     addi  sp, sp, -4
+    nop
+    nop
     sw    ra, 0(sp)
 
     jal   ra, test3
@@ -33,6 +39,8 @@ test2:
 
 test3:
     addi  sp, sp, -4
+    nop
+    nop
     sw    ra, 0(sp)
 
     jal   ra, test4
@@ -40,6 +48,8 @@ test3:
 
 test4:
     addi  sp, sp, -4
+    nop
+    nop
     sw    ra, 0(sp)
     beq   t0, t0, L_beq
     
@@ -51,4 +61,6 @@ L_blt:
     bge   t1, t0, L_bge
 L_bge:
     lw    t3, 12(sp)       # RA from main
+    nop
+    nop
     jalr  x0, 0(t3)        # single, non-nested jalr to main_done
